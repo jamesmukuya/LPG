@@ -1,0 +1,152 @@
+<!-- Filter form action="" -->
+<form id = "parameterForm" method="POST">
+	{{form.hidden_tag()}}
+	<!-- Parameter Sidebar -->
+		<div class="param-side-bar flex-wrap bg-gray-400 mt-12 px-2 sm:w-48 non-printable">
+			<div class="border-b border-black text-xl mb-2">Parameter setting</div>
+			<!-- From date selector -->
+			<div class="flex flex-col border-b border-black">
+				<label class="block text-gray-700 text-sm font-bold mb-2 mx-1 my-2" for="date_from">
+					Date From:
+				</label>
+				<input type="date" id="date_from" class="shadow border border-gray-800 rounded w-36 mb-2 mr-1 h-8 py-2 px-1 
+				font-semibold text-gray-700 leading-tight" name="Date_from" value="{{min_date}}" 
+				min="{{min_date}}" max="{{max_date}}">
+			</div>
+			<!-- To date selector -->
+			<div class="flex flex-col border-b border-black">
+				<label class="block text-gray-700 text-sm font-bold mb-2 mx-1 my-2" for="date_to">
+					Date To:
+				</label>
+				<input type="date" id="date_to" class="shadow border border-gray-800 rounded w-36 mb-2 mr-1 h-8 py-2 px-1 
+				font-semibold text-gray-700 leading-tight" name="Date_to" value="{{max_date}}" 
+				min="{{min_date}}" max="{{max_date}}">	
+			</div>
+			<!-- Flight origin selector -->
+			<div id = "flightOriginDiv" class="flex flex-col border-b border-black">
+				<label class="block text-gray-700 text-sm font-bold mb-2 mx-1 my-2" for="origin">
+					Flight origin 
+				</label>
+				<div class="flex justify-between">
+					<div class="px-1 mx-2">
+						<button id="allDepStn" name="all_origin_checkbox" class="all_dep_check pre-filter-btn"> All</button>
+					</div>
+					<div class="px-1 mx-2">
+						<button id = "clearDepStn" name="clear_origin_checkbox" class="clear_dep_check pre-filter-btn"> Clear </button>
+					</div>
+				</div>
+				<div class="flex flex-wrap overflow-y-scroll bg-gray-200 h-40">
+					{% for dep in origin_airport %}
+					<div class="px-2 mx-1 my-2 h-8">
+						<input id="{{dep}}" type="checkbox" name="dep_checkbox" 
+						value="{{dep}}" class="dep-check" checked> {{dep}}
+					</div>
+					{% endfor %}		
+				</div>
+				<!-- Submit selection -->
+				<button id="filterOrigin" type="submit" name="flt_sched_origin" 
+				class="bg-green-500 hover:bg-blue-700 text-white font-bold py-1 px-2 my-1 rounded focus:outline-none focus:shadow-outline">
+				Filter by Origin
+				</button>
+			</div>
+			<!-- Flight destination selector -->
+			<div id = "flightDestDiv" class="flex flex-col border-b border-black">
+				<label class="block text-gray-700 text-sm font-bold mb-2 mx-1 my-2" for="origin">
+					Flight Destination 
+				</label>
+				<div class="flex justify-between">
+					<div class="flex px-1 mx-2">
+						<button id="allDestStn" name="all_dest_checkbox" class="all_dest_check pre-filter-btn">
+						All
+						</button>
+					</div>
+					<div class="flex px-1 mx-2">
+						<button id = "clearDestStn" name="clear_dest_checkbox" class="clear_dest_check pre-filter-btn">
+						Clear
+						</button>
+					</div>
+				</div>
+				<div class="flex flex-wrap overflow-y-scroll bg-gray-200 h-40">
+					{% for dest in dest_airport %}
+					<div class="px-2 mx-1 my-2 h-8">
+						<input type="checkbox" name="dest_checkbox" value="{{dest}}" class="dest-check" checked> {{dest}}
+					</div>
+					{% endfor %}	
+				</div>
+				<!-- Submit selection -->
+				<button id="filterDest" type="submit" name="flt_sched_dest" 
+				class="bg-green-500 hover:bg-blue-700 text-white font-bold py-1 px-2 my-1 rounded focus:outline-none focus:shadow-outline">
+				Filter by Destination
+				</button>
+			</div>
+			<!-- City pair filter -->
+			<div id = "flightPairDiv" class="flex flex-col border-b border-black">
+				<label class="block text-gray-700 text-sm font-bold mb-2 mx-1 my-2" for="origin">
+					City Pair Filter 
+				</label>
+				<!-- Submit selection -->
+				<button id="filterOriginDest" type="submit" name="flt_sched_origin_dest" 
+				class="bg-green-500 hover:bg-blue-700 text-white font-bold py-1 px-2 my-1 rounded focus:outline-none focus:shadow-outline">
+				Filter by City Pair
+				</button>
+			</div>
+			<!-- Fleet selector -->
+			<div id = "fleetDiv" class="flex flex-col border-b border-black">
+				<label class="block text-gray-700 text-sm font-bold mb-2 mx-1 my-2" for="origin">
+					Fleet
+				</label>
+				<div class="flex justify-between">
+					<div class="flex px-1 mx-2">
+						<button id="allFleet" name="all_fleet_checkbox" class="all_fleet_check pre-filter-btn"> All</button>
+					</div>
+					<div class="flex px-1 mx-2">
+						<button id="clearFleet" name="clear_fleet_checkbox" class="clear_fleet_check pre-filter-btn" > Clear</button>
+					</div>
+				</div>
+				<div class="flex flex-wrap overflow-y-scroll bg-gray-200 h-40">
+					{% for f in fleet %}
+					<div class="px-2 mx-1 my-2 h-8">
+						<input type="checkbox" name="fleet_checkbox" value="{{f}}" class="fleet-check" checked> {{f}}
+					</div>
+					{% endfor %}	
+				</div>
+				<button id="filterFleet" type="submit" name="aircraft_type" 
+				class="bg-green-500 hover:bg-blue-700 text-white font-bold py-1 px-2 my-1 rounded focus:outline-none focus:shadow-outline">
+				Filter by Fleet
+				</button>
+			</div>
+			<!-- Tail selector -->
+			<div id = "tailDiv" class="flex flex-col border-b border-black">
+				<label class="block text-gray-700 text-sm font-bold mb-2 mx-1 my-2" for="origin">
+					Tail
+				</label>
+				<div class="flex justify-between">
+					<div class="flex px-1 mx-2">
+						<button id="allTail" name="all_tail_checkbox" class="pre-filter-btn"> All</button>
+					</div>
+					<div class="flex px-1 mx-2">
+						<button id="clearTail" name="clear_tail_checkbox" class="pre-filter-btn"> Clear</button>
+					</div>
+				</div>
+				<div class="flex flex-wrap overflow-y-scroll bg-gray-200 h-40">
+					{% for tail in regs %}
+					<div class="px-2 mx-1 my-2 h-8">
+						<input type="checkbox" class="tail-check" name="tail_checkbox" value="{{tail}}" checked> {{tail}}
+					</div>
+					{% endfor %}	
+				</div>
+				<button id="filterTail" type="submit" name="aircraft_reg" 
+				class="bg-green-500 hover:bg-blue-700 text-white font-bold py-1 px-2 my-1 rounded focus:outline-none focus:shadow-outline">
+				Filter by Tail
+				</button>
+			</div>
+		</div>
+</form>
+{% block scripts %}
+<script src="{{ url_for('static',filename='js/custom/checkBox.js') }}"
+      type="text/javascript"></script>
+<script src="{{ url_for('static',filename='js/custom/dateSelect.js') }}"
+	  type="text/javascript"></script>
+	  <script src="{{ url_for('static',filename='js/custom/dep_destPairCheckBox.js') }}"
+	  type="text/javascript"></script>
+{% endblock scripts %}
