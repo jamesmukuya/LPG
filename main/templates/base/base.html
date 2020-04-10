@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Tensor | {% block title %}{% endblock title %}</title>
+    <title>Living Peak | {% block title %}{% endblock title %}</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -21,24 +21,9 @@
       href="{{ url_for('static', filename='css/custom/custom.css') }}"/>
     <link rel="stylesheet" type="text/css"
       href="{{ url_for('static', filename='css/custom/navbar.css') }}"/>
-    <link rel="stylesheet" type="text/css"
-      href="{{ url_for('static', filename='css/custom/responsive-table.css') }}"/>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"/>
-    <!-- <link href="http://cdn.bokeh.org/bokeh/release/bokeh-1.4.0.min.css" rel="stylesheet" type="text/css">
-	<link href="http://cdn.bokeh.org/bokeh/release/bokeh-widgets-1.4.0.min.css" rel="stylesheet" type="text/css"> -->
-    <script
-      src="{{ url_for('static',filename='js/bokeh1.4/bokeh-1.4.0.min.js') }}"
-      type="text/javascript"
-    ></script>
-    <script
-      src="{{ url_for('static',filename='js/bokeh1.4/bokeh-widgets-1.4.0.min.js') }}"
-      type="text/javascript"
-    ></script>
-    <!-- <script src="http://cdn.bokeh.org/bokeh/release/bokeh-1.4.0.min.js"></script> -->
-    {% block bokeh_scripts %}{% endblock bokeh_scripts %} 
-    {% block stylesheets %}{% endblock stylesheets %}
   </head>
 
   <body>
@@ -51,28 +36,21 @@
     <!-- NAV BAR -->
     <nav class="nav-bar">
       <div class="logo">
-        <h4>Tensor</h4>
+        <h4>Living Peak</h4>
       </div>
       <div id="btnDiv" class="nav-links">
-        <button class="btn active"><a href="{{url_for('pre_flight.pre_flight_analysis')}}">Pre-Flight Analysis</a></li>
-        <button class="btn"><a href="{{url_for('post_flight.post_flight_analysis')}}">Post-Flight Analysis</a></li>
-        <button class="btn"><a href="{{url_for('flightOps.ops_procedure')}}">Flight Operations</a></li>
-        <button class="btn"><a href="{{url_for('cEmission.carbon_emission')}}">Carbon Emission</a></li>
-        <button class="btn"><a href="{{url_for('route_opt.route_analysis')}}">Route Optimization</a></li>
+        <button class="btn active"><a href="#">Pre-Flight Analysis</a>
+        <button class="btn"><a href="#">Post-Flight Analysis</a>
+        <button class="btn"><a href="#">Flight Operations</a>
+        <button class="btn"><a href="#">Carbon Emission</a>
+          {#
+        <button class="btn"><a href="{{url_for('route_opt.route_analysis')}}">Route Optimization</a>
+          #}
       </div>
       <div id="navBurger" class="burger">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="line3"></div>
-      </div>
-      <div>
-        <iframe
-          id="timeIframe"
-          src="https://freesecure.timeanddate.com/clock/i725xo81/n170/fn13/fs16/fc9ff/tc215769/pc222/ftb/pa0/tt0/tw1/tm1/th1/ta1/tb4"
-          frameborder="0"
-          width="140"
-          height="37"
-        ></iframe>
       </div>
     </nav>
 
@@ -106,27 +84,15 @@
       
       {% block content %}{%endblock content %}
       <p class="footer text-center text-gray-700 text-xs non-printable">
-        &copy;2020 Techpoint Systems. All rights reserved.
+        &copy;2020 Living Peak. All rights reserved.
       </p>
     </div>
-    <!-- CUSTOM SCRIPT -->
-    <script
-      src="{{ url_for('static',filename='js/custom/customScript.js') }}"
-      type="text/javascript"
-    ></script>
-    <!-- NAVBAR SCRIPT -->
-    <script src="{{ url_for('static',filename='js/custom/navbar.js') }}"
-    type="text/javascript">
-    </script>
-    <!-- EXPORT JS-->
-    <script src="{{ url_for('static',filename='js/custom/export.js') }}"
-    type="text/javascript">
-    </script>
     {#
-    <script
-      src="{{ url_for('static',filename='js/jquery/jquery.min.js') }}"
-      type="text/javascript"
-    ></script>
+      <!-- CUSTOM SCRIPT -->
+      <script src="{{ url_for('static',filename='js/custom/customScript.js') }}" type="text/javascript"></script>
+      <!-- NAVBAR SCRIPT -->
+      <script src="{{ url_for('static',filename='js/custom/navbar.js') }}" type="text/javascript">
+      </script>
     #}
     {% block scripts %}{% endblock scripts %}
   </body>
