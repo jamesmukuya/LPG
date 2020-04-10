@@ -1,8 +1,25 @@
 {% extends "base/base.html" %}
 {% block title %} {{title}} {% endblock title %}
-{% block content %}
 
-<div class="flex bg-gray-200 sm:w-auto">
-	<h4>add content here</h4>
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" 
+href="{{ url_for('static', filename='css/custom/body.css') }}" />
+{% endblock stylesheets %}
+
+{% block content %}
+<!-- profile name banner -->
+<div class="profile-name text-center text-xl">SUSAN</div>
+
+<!-- intro-pic wrapper-->
+<div class="intro-pic-wrapper">
+	<div class="attr flex-col flex-grow">
+		<div class="attr-div">ATTR111111111111</div>
+		<div class="attr-div">ATTR2</div>
+		<div class="attr-div">ATTR33333333333</div>
+	</div>
+	<div class="profile-image w-2/3">
+		<img src="{{ url_for('static', filename='images/susan_pics/DSC_1009-1.jpg') }}" alt="susan profile pic">
+	</div>
 </div>
+
 {% endblock content %}

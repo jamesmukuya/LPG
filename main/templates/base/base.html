@@ -17,13 +17,16 @@
       rel="stylesheet"/>
     <link rel="stylesheet" type="text/css"
       href="{{ url_for('static', filename='css/tailwind/tailwind.min.css') }}"/>
+      {#
     <link rel="stylesheet" type="text/css"
       href="{{ url_for('static', filename='css/custom/custom.css') }}"/>
+      #}
     <link rel="stylesheet" type="text/css"
       href="{{ url_for('static', filename='css/custom/navbar.css') }}"/>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"/>
+      {% block stylesheets %}{% endblock stylesheets %}
   </head>
 
   <body>
@@ -54,7 +57,7 @@
       </div>
     </nav>
 
-    <div class="bg-gray-300">
+    <div class="bg-gray-300 h-screen">
       <div class="bg-white shadow-md rounded pt-12 px-48 pb-2 mb-2">
         {% with messages = get_flashed_messages (with_categories = true) %} 
         {% if messages %} 
@@ -83,9 +86,10 @@
       </div>
       
       {% block content %}{%endblock content %}
-      <p class="footer text-center text-gray-700 text-xs non-printable">
+      <p class="footer text-center text-gray-700 text-sm bg-gray-200">
         &copy;2020 Living Peak. All rights reserved.
       </p>
+      <p class="text-center text-gray-700 text-xs"> Designed by Techpoint Systems&reg;</p>
     </div>
     {#
       <!-- CUSTOM SCRIPT -->
