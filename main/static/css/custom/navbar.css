@@ -28,7 +28,9 @@ nav{
 	margin: 5px;
 	padding: 5px;
 	justify-content: space-around;
+	font-size: 32px;
 }
+
 .nav-links a{
 	color: white;
 	letter-spacing: 2px;
@@ -52,7 +54,7 @@ nav{
 	}
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:1023px){
 	body{
 		overflow: hidden;
 	}

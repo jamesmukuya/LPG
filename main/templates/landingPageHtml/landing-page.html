@@ -7,19 +7,144 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 {% endblock stylesheets %}
 
 {% block content %}
-<!-- profile name banner -->
-<div class="profile-name text-center text-xl">SUSAN</div>
+<!-- body div-->
+<div class="flex-col bg-gray-300 w-full">
+	<!-- profile name banner -->
+	<div class="profile-name text-center text-xl py-2">SUSAN</div>
 
-<!-- intro-pic wrapper-->
-<div class="intro-pic-wrapper">
-	<div class="attr flex-col flex-grow">
-		<div class="attr-div">ATTR111111111111</div>
-		<div class="attr-div">ATTR2</div>
-		<div class="attr-div">ATTR33333333333</div>
+	<!--INTRO SECTION-->
+	<div class="intro-wrapper flex content-center">
+		<!-- intro-pic wrapper-->
+		<div class="intro-pic-wrapper">
+			<!--attributes ///use a loop///-->
+			<div class="attr flex-col flex-grow">
+				<div class="attr-div">PERSONAL DEVELOPMENT COACH</div>
+				<div class="attr-div">TRANSFORMATIONAL SPEAKER</div>
+				<div class="attr-div">CORPORATE TRAINER</div>
+			</div>
+
+			<!--photo-->
+			<div class="profile-image w-2/3">
+				<img src="{{ url_for('static', filename='images/susan_pics/DSC_1009-1.jpg') }}" alt="susan profile pic">
+			</div>
+		</div>
 	</div>
-	<div class="profile-image w-2/3">
-		<img src="{{ url_for('static', filename='images/susan_pics/DSC_1009-1.jpg') }}" alt="susan profile pic">
+
+	<!--title meet susan-->
+	<div class="bg-indigo-900 text-center py-4 lg:px-4">
+		<div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+			role="">
+			<span class="font-semibold mr-2 text-center flex-auto">MEET SUSAN</span>
+		</div>
 	</div>
+	
+	<!--body meet susan-->
+	<div class="meet-susan-wrapper flex-col">
+		<!--photo-->
+		<div class="meet-susan-pic">
+			<img src="{{ url_for('static', filename='images/susan_pics/DSC_0980-1.jpg') }}" alt="susan detail pic">
+		</div>
+		<!--details//// use a loop///-->
+		<div class="flex flex-wrap meet-susan-details rounded shadow-lg bg-white">
+			<p class="detail-paragraph">
+				I applaud you for choosing this path of your self- improvement process and for putting yourself on the path to
+				living a fulfilling life on all levels. I want the same for you. I am a stand for you to be who you truly are, do
+				what you love and have what you deserve. You are here to leave a legacy and make an impact on the world. You are
+				here for a purpose. Making a difference begins with you.
+			</p>
+			<p class="detail-paragraph">
+				As your partner and coach, I will support you in identifying, acknowledging and getting rid of the blocks to your
+				purpose. I will challenge you to say “no” to going through the motions of life and enthusiastically say “yes” to the
+				overflow that is available to you. We begin by taking an overview of your life and identifying areas that need
+				action and/or attention. I will assist you in establishing clear, concrete, measurable goals and support you in
+				connecting to your own inner wisdom. There is nothing you cannot shift. You are capable of so much more than you
+				know or are currently creating.
+			</p>
+			<p class="detail-paragraph">
+				Whether you have a specific goal or are seeking general guidance, our relationship will evolve in a way that best
+				supports you. I will hold you accountable to a plan that is manageable and created especially for you. I do not
+				solve your problems, but guide you into solving them on your own because the will power is within you somewhere.
+				Your every action will become more intentional. I listen with understanding and 100% confidentiality. My
+				relationships with my clients are intimate, honest, and rewarding.
+			</p>
+			<p class="detail-paragraph">
+				I am a Certified Life Coach (CLC) but my most important and extensive training comes from my life experiences and
+				gifts. Getting to the other side of career confusion and business failure, debt, family break-downs, relationship
+				issues and endings, have taught me life lessons that I am inspired to teach you. I believe we are all our own best
+				inner counsellor and coach, but sometimes we simply need someone else to help get us started. Coaching sessions can
+				be conducted via phone, Skype or in person. A minimum three months commitment is required up front because that
+				gives you time to truly create change in your life. I also offer one-day intensive breakthrough sessions for people
+				seeking immediate clarity.
+			</p>
+			<p class="detail-paragraph">
+				My clients are very diverse in terms of demographics. I work with men and women of all ages who are CEO’s,
+				entrepreneurs, parents, managers, students, thought-leaders, and so on. The one thing they all have in common is a
+				yearning for more aligned success, connection, fulfillment, and impact. I only work with four clients at a time who
+				are committed to being held accountable, showing up 100% for each session, and are willing to be break out of their
+				comfort zone.
+				Wishing you many blessings on your journey and I acknowledge you for knowing and seeing your true potential. I look
+				forward to working with you or recommending another coach that is a fit. I am here to support you!
+			</p>
+		</div>
+		<!--end details-->		
+	</div>
+	<!--end body meet susan-->
+
+	<!-- testimonial -->
+	<div class="bg-indigo-900 text-center py-4 lg:px-4">
+		<div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+			role="">
+			<span class="font-semibold mr-2 text-center flex-auto">TESTIMONIALS</span>
+		</div>
+	</div>
+	<div class="testimonial-wrapper">
+		<!--///use loop-->
+		<div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
+			<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
+			<div class="px-6 py-4 bg-white">
+				<div class="font-bold text-xl mb-2">My name 1</div>
+				<p class="text-gray-700 text-base">
+					"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
+					eaque, exercitationem praesentium nihil."
+				</p>
+			</div>
+		
+		</div>
+		<div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
+			<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
+			<div class="px-6 py-4 bg-white">
+				<div class="font-bold text-xl mb-2">My name 2</div>
+				<p class="text-gray-700 text-base">
+					"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
+					perferendis
+					eaque, exercitationem praesentium nihil."
+				</p>
+			</div>
+
+		</div>
+		<div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
+			<img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
+			<div class="px-6 py-4 bg-white">
+				<div class="font-bold text-xl mb-2">My name 3</div>
+				<p class="text-gray-700 text-base">
+					"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
+					perferendis
+					eaque, exercitationem praesentium nihil."
+				</p>
+			</div>
+
+		</div>
+	</div>
+
+	<!--take the next step link-->
+	<div class="next-step-div">
+		<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold 
+		hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+			TAKE THE NEXT STEP
+		</button>
+	</div>
+	
 </div>
+
 
 {% endblock content %}

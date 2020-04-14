@@ -1,12 +1,13 @@
 .attr-div{
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 0.25rem;
     color:#cbd5e0;
     font-size: 1.5rem;
+    font-weight: 600;
     background-color: #2c5282;
     margin: 0.5rem;
-    height: 3.0rem;
+    height: 4.5rem;
 }
 .profile-image{
     margin: 0.5rem;
@@ -14,7 +15,37 @@
     background-size: contain;
 }
 
+
+.meet-susan-pic{
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.detail-paragraph{
+    display: flex;
+    flex-wrap: wrap;
+    color: #4a5568;
+    padding: 0.5rem;
+}
+
+.testimonial-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.next-step-div{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
 @media screen and (max-width:2560px) {
+    .intro-wrapper {
+        height: 100%;
+    }
     .intro-pic-wrapper {
         display: flex;
         flex-direction: row;
@@ -22,15 +53,70 @@
     }
 }
 
+@media screen and (max-width:1024px) {
+    body {
+        overflow: scroll;
+    }
+    .intro-wrapper {
+        height: 100%;
+    }
+    .intro-pic-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .attr-div {
+        font-size: 1.0rem;
+        height: 2rem;
+    }
+}
+@media screen and (max-width:800px) {
+    body {
+        overflow: scroll;
+    }
+    .intro-wrapper {
+        height: 100%;
+    }
+    .intro-pic-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+    .profile-image {
+        margin: 0.5rem;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+    }
+    .attr-div {
+        font-size: 0.7rem;
+        height: 2rem;
+    }
+    .testimonial-wrapper {
+        display: flex;
+        justify-content: space-between;
+        overflow-x: hidden;
+    }
+}
+
 @media screen and (max-width:600px) {
+    body{
+        overflow: scroll;
+    }
+    .intro-wrapper{
+        height: 100%;
+    }
     .intro-pic-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: hidden;
     }
-    .attr-div{
+    .attr-div {
         font-size: 1.0rem;
         height: 1.5rem;
+    }
+    .testimonial-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
