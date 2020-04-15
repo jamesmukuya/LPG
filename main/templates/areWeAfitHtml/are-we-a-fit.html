@@ -1,0 +1,113 @@
+{% extends "base/base.html" %}
+{% block title %} {{title}} {% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/body.css') }}" />
+{% endblock stylesheets %}
+
+{% block content %}
+<!-- body div-->
+<div class="flex-col bg-cover bg-fixed bg-right bg-no-repeat"
+	style="background-image: url('static/images/are_we_a_fit/lost_purpose.jpeg');">
+    <!-- intro are we a fit -->
+    <div class="bg-white font-bold italic text-xl text-center py-4 lg:px-4">
+        Thinking whether you are a right fit for coaching?
+        <div class="p-2 items-center not-italic text-base text-gray-700 leading-none lg:rounded-full flex lg:inline-flex"
+            role="">
+            <span class="font-hairline mr-2  text-center flex-auto">
+                Read below to see if you connect with the types of people I work with
+            </span>
+        </div>
+		</div>
+
+		<div class="fit-wrapper flex-col">
+			<!--///use loop-->
+			<div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
+				<div class="px-6 py-4 bg-white">
+					<div class="font-bold text-xl mb-2">You feel lost</div>
+					<ul class="fit-detail-list">
+						<li>You doubt yourself</li>
+						<li>You have a vision, but no clear plan</li>
+						<li>You don't always follow through</li>
+						<li>You are a procastinator</li>
+						<li>Your self confidence could use a boost</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
+				<div class="px-6 py-4 bg-white">
+					<div class="font-bold text-xl mb-2">Pro-Active Individuals</div>
+					<ul class="fit-detail-list">
+						<li>You find yourself stuck, often in the same type of difficulty</li>
+						<li>You are ready to overcome your fears and stop the negative self talk 
+							that is holding you back</li>
+						<li>You know what you want in life, you just don't know how to make it a reality</li>
+						<li>You are ready to create your next purposefuel chapter in life</li>
+						<li>You are willing to put your ideas into action</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
+				<div class="px-6 py-4 bg-white">
+					<div class="font-bold text-xl mb-2">Moms in Transition</div>
+					<ul class="fit-detail-list">
+						<li>You are about to become a mom and want a vision for your new life ahead</li>
+						<li>You are already a mom and have new ideas about purposeful work you want to do</li>
+						<li>You realize that your old job no longer fits</li>
+						<li>You want to discover new challenges, event though being a mom is your priority</li>
+						<li>You are ready to reclaim your joy, energy and vitality</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
+				<div class="px-6 py-4 bg-white">
+					<div class="font-bold text-xl mb-2">Career Life</div>
+					<ul class="fit-detail-list">
+						<li>You are not happy at work</li>
+						<li>You are not doing a job you love</li>
+						<li>You are not getting promoted or advancing in your career</li>
+						<li>You feel like you have too many interests</li>
+						<li>You need help navigating a new job</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
+				<div class="px-6 py-4 bg-white">
+					<div class="font-bold text-xl mb-2">In Your Leadership</div>
+					<ul class="fit-detail-list">
+						<li>You want to become a better leader</li>
+						<li>You want to improve your interpersonal skills</li>
+						<li>You are stepping into a new role</li>
+						<li>You are going through organizational changes</li>
+						<li>You want someone to confide in and discuss your ideas</li>
+						<li>You want to become more self-aware and be better at reflecting
+							upon your actions
+						</li>
+						<li>You want to make yourself better so you can better serve others</li>
+						<li>You are willing to invest your time and effort</li>
+					</ul>
+				</div>
+			</div>
+
+		<!--end are we a fit-->
+		<div class="bg-white font-bold italic text-xl text-center py-4 lg:px-4">
+			Are We A fit?
+		</div>
+
+	</div>
+	<!--take the next step link-->
+	<div class="next-step-div">
+			<button class="bg-white hover:bg-blue-500 text-blue-700 font-semibold 
+	hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+					TAKE THE NEXT STEP
+			</button>
+	</div>
+
+</div>
+
+
+{% endblock content %}

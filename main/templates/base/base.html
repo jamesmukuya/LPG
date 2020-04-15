@@ -42,13 +42,13 @@
         <h4>Living Peak</h4>
       </div>
       <div id="btnDiv" class="nav-links">
-        <button class="btn active"><a href="#">Home</a></button>
-        <button class="btn"><a href="#">Are we a fit?</a></button>
-        <button class="btn"><a href="#">Coaching</a></button>
+        <button class="btn active"><a href="#">HOME</a></button>
+        <button class="btn"><a href="#">ARE WE A FIT?</a></button>
+        <button class="btn"><a href="#">COACHING</a></button>
         <button class="btn"><a href="#">RESOURCES</a></button>
         <button class="btn"><a href="#">SPEAKING</a></button>
-        <button class="btn"><a href="#">Blog</a></button>
-        <button class="btn"><a href="#">Contact</a></button>
+        <button class="btn"><a href="#">BLOG</a></button>
+        <button class="btn"><a href="#">CONTACT</a></button>
           {#
         <button class="btn"><a href="{{url_for('route_opt.route_analysis')}}">Route Optimization</a>
           #}
@@ -60,7 +60,7 @@
       </div>
     </nav>
     
-    <div class="bg-gray-300 h-screen">
+    <div class="bg-gray-300 h-full">
       <div class="bg-white shadow-md rounded pt-12 px-48 pb-2 mb-2">
         {% with messages = get_flashed_messages (with_categories = true) %} 
         {% if messages %} 
@@ -90,7 +90,7 @@
       
       {% block content %}{%endblock content %}
       <p class="footer text-center text-white text-sm bg-gray-700">
-        &copy;2020 Living Peak. All rights reserved.
+        &copy;2020 Living Peak Group. All rights reserved.
       </p>
       <p class="text-center text-gray-700 text-xs"> Designed by Techpoint Systems&reg;</p>
     </div>
