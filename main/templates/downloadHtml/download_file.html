@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tailwind/tailwind.min.css') }}" />
+</head>
+
+<body>
+
+  <div class="flex justify-center content-center w-full h-screen rounded overflow-hidden">
+    <div class="px-6 py-4">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+        type="submit">
+          <!--the file should be dynamic-->
+          <a href="{{url_for('download_file.download')}}">Download file</a>
+        </button>
+    </div>
+  </div>
+</body>
+
+</html>

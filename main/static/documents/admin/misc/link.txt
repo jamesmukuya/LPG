@@ -1,0 +1,5 @@
+webdev exploring
+https://pythonise.com/series/learning-flask/exploring-uwsgi-decorators
+
+youtube
+https://www.youtube.com/watch?v=MBxXMkQ3FRs

@@ -3,15 +3,17 @@ flask initialization modules
 blueprint import and registration
 """
 from flask import Flask
+from config import DevConfig
 
 app = Flask(__name__)
-
-# change this
-app.config['SECRET_KEY'] = '7daf12b8731868c589b15b625907dd7b'
+app.config.from_object(DevConfig)
 
 from main.landingPage.route import landing_page
 from main.areWeAfit.route import areWeAfit_page
+from main.fileUpDownloads.route import download_file, upload_file, download_route
 
 app.register_blueprint(landing_page)
 app.register_blueprint(areWeAfit_page)
-
+app.register_blueprint(download_file)
+app.register_blueprint(upload_file)
+app.register_blueprint(download_route)
