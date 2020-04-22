@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Register</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tailwind/tailwind.min.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/body.css') }}" />
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-400">
+	<!--[if lt IE 7]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+	<script src="" async defer></script>
+	<div class="form-div">
+		<form class="w-2/3 bg-white shadow-md rounded px-8 pt-6 pb-8 mt-24 mb-4 mx-auto"
+		 action="{{url_for('sign_up.register')}}" method="POST">
+			{{ form.hidden_tag() }}
+			<div class="flex flex-wrap -mx-3 mb-6">
+				<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+					<label class="block uppercase text-gray-700 text-sm font-bold mb-2"
+						for="grid-first-name">
+						First Name
+					</label>
+					{{
+						form.firstName(class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3
+						px-4 mb-3 leading-tight focus:outline-none focus:bg-white",id="firstName",type="text",placeholder="First",
+						autocomplete="on")
+					}}
+					{#
+					<input name="first_name" autocomplete="on" required
+						class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name" type="text" placeholder="Jane">
+					#}
+				</div>
+				<div class="w-full md:w-1/2 px-3">
+					<label class="block uppercase text-gray-700 text-sm font-bold mb-2"
+						for="grid-last-name">
+						Last Name
+					</label>
+					{{
+						form.lastName(class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3
+						px-4 mb-3 leading-tight focus:outline-none focus:bg-white",id="lastName",type="text",placeholder="Last",
+						autocomplete="on")
+					}}
+					{#
+					<input name="last_name" autocomplete="on" required
+						class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+						id="grid-last-name" type="text" placeholder="Doe">
+					#}
+				</div>
+			</div>
+			<div class="w-full px-3">
+				<label class="block uppercase text-gray-700 text-sm font-bold mb-2" for="email">
+					Email
+				</label>
+				<input name="user_email" autocomplete="on" required
+					class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+					id="userEmail" type="email" placeholder="example@email.com">
+			</div>
+			<div class="flex flex-wrap -mx-3 mb-6">
+				<div class="w-full px-3">
+					<label class="block uppercase text-gray-700 text-sm font-bold mb-2"
+						for="grid-password">
+						Password
+					</label>
+					<!-- flask password field -->
+        	{{ form.password (class= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", 
+					id='userPassword', type='password',minlength='4', placeholder='***********')}}
+					
+					<p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+				</div>
+				<div class="w-full px-3">
+					<label class="block uppercase text-gray-700 text-sm font-bold mb-2"
+						for="grid-password">
+						Confirm Password
+					</label>
+					{{ form.confirmPassword (class= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", 
+					id='confirmPassword', type='password', placeholder='***********')}}
+				</div>
+			</div>
+			<div class="register-btn-div flex items-center justify-between">
+				<button
+					class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+					type="submit">
+					Register
+				</button>
+				
+				{#
+				{{
+				form.submit(class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none
+				focus:shadow-outline")
+				}}
+				#}
+				<a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+					Already a user? Login
+				</a>
+			</div>
+
+		</form>
+		<p class="footer text-center text-white text-sm bg-gray-700">
+			&copy;2020 Living Peak Group. All rights reserved.
+		</p>
+		<p class="text-center text-gray-700 text-xs"> Designed by Techpoint Systems&reg;</p>
+	</div>
+
+</body>
+
+</html>
