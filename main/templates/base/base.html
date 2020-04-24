@@ -29,79 +29,77 @@
       {% block stylesheets %}{% endblock stylesheets %}
   </head>
 
-  <body>
+  <body class="bg-gray-300">
     <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <!-- NAV BAR -->
-    <nav class="nav-bar">
-      <div class="logo">
-        <h4>SUSAN AUMA</h4>
-      </div>
-      <div id="btnDiv" class="nav-links">
-        <button class="btn active"><a href="#">HOME</a></button>
-        <button class="btn"><a href="#">ARE WE A FIT?</a></button>
-        <button class="btn"><a href="#">COACHING</a></button>
-        <button class="btn"><a href="#">RESOURCES</a></button>
-        <button class="btn"><a href="#">SPEAKING</a></button>
-        <button class="btn"><a href="#">BLOG</a></button>
-        <button class="btn"><a href="#">CONTACT</a></button>
-          {#
-        <button class="btn"><a href="{{url_for('route_opt.route_analysis')}}">Route Optimization</a>
-          #}
-      </div>
-      <div id="navBurger" class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
-    </nav>
-    
-    <div class="bg-gray-300 h-full">
-      <div class="bg-white shadow-md rounded pt-12 px-48 pb-2 mb-2">
-        {% with messages = get_flashed_messages (with_categories = true) %} 
-        {% if messages %} 
-          {% for category, message in messages %} 
-            {% if category =='error' %}
-              <div id="flashMessage" role="alert">
-                <div class="bg-red-500 text-white text-center text-2xl font-bold rounded-t px-4 py-2">
-                  {{category}}
-                </div>
-                <div
-                  class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-center text-red-700">
-                  <p>{{message}}.</p>
-                </div>
-              </div>
-            {% else %}
-              <div id="flashMessage"
-                class="{{category}} bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3"
-                role="alert">
-                <p class="font-bold text-lg">{{category}}</p>
-                <p class="text-lg">{{message}}</p>
-              </div>
-              {% endif %} 
-            {% endfor %} 
-          {% endif %} 
-        {% endwith %} 
-      </div>
-      
-      {% block content %}{%endblock content %}
-      <p class="footer text-center text-white text-sm bg-gray-700">
-        &copy;2020 Living Peak Group. All rights reserved.
-      </p>
-      <p class="text-center text-gray-700 text-xs"> Designed by Techpoint Systems&reg;</p>
+  <!-- NAV BAR -->
+  <nav class="nav-bar">
+    <div class="logo">
+      <h4>SUSAN AUMA</h4>
     </div>
-    <!-- NAVBAR SCRIPT -->
-    <script src="{{ url_for('static',filename='js/custom/navbar.js') }}" type="text/javascript">
-    </script>
-    {#
-      <!-- CUSTOM SCRIPT -->
-      <script src="{{ url_for('static',filename='js/custom/customScript.js') }}" type="text/javascript"></script>
-     #}
-    {% block scripts %}
-    {% endblock scripts %}
+    <div id="btnDiv" class="nav-links">
+      <button class="btn active"><a href="#">HOME</a></button>
+      <button class="btn"><a href="#">ARE WE A FIT?</a></button>
+      <button class="btn"><a href="#">COACHING</a></button>
+      <button class="btn"><a href="#">RESOURCES</a></button>
+      <button class="btn"><a href="#">SPEAKING</a></button>
+      <button class="btn"><a href="#">BLOG</a></button>
+      <button class="btn"><a href="#">CONTACT</a></button>
+        {#
+      <button class="btn"><a href="{{url_for('route_opt.route_analysis')}}">Route Optimization</a>
+        #}
+    </div>
+    <div id="navBurger" class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
+  
+    <div class="bg-white shadow-md rounded pt-12 px-48 pb-2 mb-2">
+      {% with messages = get_flashed_messages (with_categories = true) %} 
+      {% if messages %} 
+        {% for category, message in messages %} 
+          {% if category =='error' %}
+            <div id="flashMessage" role="alert">
+              <div class="bg-red-500 text-white text-center text-2xl font-bold rounded-t px-4 py-2">
+                {{category}}
+              </div>
+              <div
+                class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-center text-red-700">
+                <p>{{message}}.</p>
+              </div>
+            </div>
+          {% else %}
+            <div id="flashMessage"
+              class="{{category}} bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3"
+              role="alert">
+              <p class="font-bold text-lg">{{category}}</p>
+              <p class="text-lg">{{message}}</p>
+            </div>
+            {% endif %} 
+          {% endfor %} 
+        {% endif %} 
+      {% endwith %} 
+    </div>
+    
+    {% block content %}{%endblock content %}
+    <p class="footer text-center text-white text-sm bg-gray-700">
+      &copy;2020 Living Peak Group. All rights reserved.
+    </p>
+    <p class="text-center text-gray-700 text-xs"> Designed by Techpoint Systems&reg;</p>
+  <!-- NAVBAR SCRIPT -->
+  <script src="{{ url_for('static',filename='js/custom/navbar.js') }}" type="text/javascript">
+  </script>
+  {#
+    <!-- CUSTOM SCRIPT -->
+    #}
+  {% block scripts %}
+  <script src="{{ url_for('static',filename='js/axios/axios.min.js') }}"></script>
+  {% endblock scripts %}
   </body>
 </html>

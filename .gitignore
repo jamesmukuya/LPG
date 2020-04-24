@@ -1,2 +1,5 @@
 # Ignore pycache folder
 __pycache__
+mysql_model
+.vscode
+db_test.py
