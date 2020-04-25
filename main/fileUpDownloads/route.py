@@ -45,11 +45,10 @@ def upload():
         # file is loaded and meets requirements
         # get the destination folder and save the file
         if file and allowed_file(file.filename):
-            print('all went ok')
             filename = secure_filename(file.filename)
+            print('all went ok', filename)
             # get the destination folder selected
             dest_name = request.form['location']
-            #conv_name = dest_name
             # create destination path
             dest = os.path.join(
                 app.config['UPLOAD_FOLDER'], dest_name)
@@ -60,8 +59,10 @@ def upload():
             try:
                 #save the file
                 file.save(os.path.join(dest, filename))
-
-                # if directory does not exist create one
+                flash('upload successful////supply file title', 'success')
+                return redirect(url_for('upload'))
+                #return render_template("uploadHtml/upload-file.html", title='Upload')
+            # if directory does not exist create one
             except FileNotFoundError:
                 os.mkdir(app.config['UPLOAD_FOLDER'] + dest_name)
                 
@@ -71,7 +72,6 @@ def upload():
             # save the file
             file.save(os.path.join(dest,filename))
 
-            #return 'file saved successfully'
             #return redirect(url_for('uploaded_file',
                                     #filename=filename))
             return render_template("uploadHtml/upload-file.html", title='Upload')
