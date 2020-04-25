@@ -2,30 +2,23 @@
 render and control resources
 the filename is in the db, the route is available in our downloads folder
 """
-from main import app
 from main.resources.form import ResourceRequestForm
-from flask import (Blueprint, render_template, send_from_directory,abort,
-                   flash, redirect, request, url_for)
+from flask import (Blueprint, render_template,flash, redirect, request, url_for)
 
 resources = Blueprint('resources', __name__)
 
 @resources.route("/resources", methods=["GET", "POST"])
 def resources_page():
+    # get available resources from the server and pass to context
+    filename='link.txt'
+    # if user is not logged in render this form to display on request
     form = ResourceRequestForm()
-    context={'form':form}
+    context={'form':form,'filename':filename}
     return render_template('resources/resources.html', title='Resources', **context)
 
-@resources.route("/resources-download/<filename>", methods=["POST"])
-def resources_direct_download():
-    filename = "link.txt"
-    try:
-        return send_from_directory(app.config['MISC_UPLOAD_FOLDER'],
-                                   filename=filename, as_attachment=True)
-    except FileNotFoundError:
-        abort(404)
-    pass
 
-
-@resources.route("/resources-download", methods=["POST"])
+@resources.route("/resources-link")
 def resources_get_link():
+    # use an expiring token 10mins
+    # use a uuid per download
     pass
