@@ -37,30 +37,35 @@
       </p>
     <![endif]-->
   <!-- NAV BAR -->
-  <nav class="nav-bar">
-    <div class="logo">
-      <h4>SUSAN AUMA</h4>
-    </div>
-    <div id="btnDiv" class="nav-links">
-      <button class="btn active"><a href="#">HOME</a></button>
-      <button class="btn"><a href="#">ARE WE A FIT?</a></button>
-      <button class="btn"><a href="#">COACHING</a></button>
-      <button class="btn"><a href="#">RESOURCES</a></button>
-      <button class="btn"><a href="#">SPEAKING</a></button>
-      <button class="btn"><a href="#">BLOG</a></button>
-      <button class="btn"><a href="#">CONTACT</a></button>
+    <nav class="nav-bar">
+      <div class="logo">
+        <h4>SUSAN AUMA</h4>
+      </div>
+      <div id="btnDiv" class="nav-links">
+        <button class="btn active"><a href="#">HOME</a></button>
+        <button class="btn"><a href="#">ARE WE A FIT?</a></button>
+        <button class="btn"><a href="#">COACHING</a></button>
+        <button class="btn"><a href="#">RESOURCES</a></button>
+        <button class="btn"><a href="#">SPEAKING</a></button>
+        <button class="btn"><a href="#">BLOG</a></button>
+        <button class="btn"><a href="#">CONTACT</a></button>
         {#
-      <button class="btn"><a href="{{url_for('route_opt.route_analysis')}}">Route Optimization</a>
-        #}
-    </div>
-    <div id="navBurger" class="burger">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div>
-  </nav>
+          <button class="btn"><a href="{{url_for('route_opt.route_analysis')}}">Route Optimization</a>
+            #}
+      </div>
+      <div class="flex justify-end">
+        <div id="navBurger" class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <div class="user-auth pl-8" id="userAuth">
+          <button class="btn"><a href="#">Login</a></button>
+        </div>
+      </div>
+    </nav>
   
-    <div class="bg-white shadow-md rounded pt-12 px-48 pb-2 mb-2">
+    <div class="bg-white shadow-md rounded pt-12 px-4 pb-2 mb-2">
       {% with messages = get_flashed_messages (with_categories = true) %} 
       {% if messages %} 
         {% for category, message in messages %} 

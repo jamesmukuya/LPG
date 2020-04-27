@@ -1,7 +1,9 @@
 """
 login registered user
 """
-
+from main import login_manager
+from flask_login import login_user
+from main.userAuth.user import User
 from main.dbConnect.db_conn import Connect
 from main.userAuth.forms import LoginForm
 from flask import (Blueprint, render_template,
@@ -14,20 +16,53 @@ def login():
     form = LoginForm()
     context = {'form': form}
     if request.method == "POST":
-        #email = request.form['email']
         if form.validate_on_submit():
-            #password = form.password.data
+            password = form.password.data
             email = form.email.data
+            #print(email)
             # check if user exists in database
-            connection(email)
-            #flash(f'login success {email}', 'success')
+            user = User()
+            user_mail = user.get_user(email)
+            first_name = user_mail.get('first_name')
+            last_name = user_mail.get('last_name')
+            if user_mail and password == 'acomplexpass':
+                login_user(user)
+                flash(f'Welcome {last_name}, {first_name}','login success')
+                return redirect(url_for('landing_page.index'))
+            #connection(email)
+            #print('invalid credentials')
+            flash(f'Your email or password is incorrect', 'error')
             #return redirect(url_for('landing_page.index'))
         else:
             # user is not registered. email or password is not correct
-            #flash(f'your email or password is not correct', 'error')
-            print('not validated')
+            flash(f'unknown error has occured, please contact admin\
+                    for assistance', 'error')
+            #print('not validated')
     return render_template('user_auth/login.html', title='Login', **context)
 
+
+@login_manager.user_loader
+def load_user(user_id):
+    """Given *user_id*, return the associated User object.
+
+    :param unicode user_id: user_id (email) user to retrieve
+
+    """
+    if user_id is not None:
+        user = User()
+        user_mail = user.get_id()
+        #print('user_id',user_id)
+        return user_mail
+    return None
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    """Redirect unauthorized users to Login page."""
+    flash('You must be logged in to view that page.','error')
+    return redirect(url_for('sign_in.login'))
+
+"""
 # we pass in the email since it is the unique variable
 def connection(e):
     # create a new object from class
@@ -46,4 +81,4 @@ def connection(e):
     # return required data
     print(data)
     return data
-
+"""

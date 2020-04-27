@@ -9,7 +9,9 @@ nav{
 	position: fixed;
 	z-index: 2;
 	width: 100%;
-	justify-content: space-around;
+	justify-content: space-between;
+	padding-left: 1rem;
+	padding-right: 1rem;
 	align-items: center;
 	min-height: 6vh;
 	background-color: #3182ce;
@@ -32,7 +34,7 @@ nav{
 }
 
 .nav-links a{
-	color: white;
+	color: black;
 	letter-spacing: 2px;
 	font-weight: bold;
 	font-size: 12px;
@@ -44,7 +46,7 @@ nav{
 .burger div{
 	width: 25px;
 	height: 3px;
-	background-color: white;
+	background-color: black;
 	margin: 5px;
 }
 
@@ -96,5 +98,5 @@ nav{
 }
 
 nav a:hover{
-	background-color: #003C80;
+	color: #ed8936;
 }
