@@ -1,7 +1,8 @@
 """
 register new user
 """
-from flask_bcrypt import Bcrypt
+from main import bcrypt
+#from flask_bcrypt import Bcrypt
 from main.userAuth.forms import RegisterForm
 from flask import (Blueprint, render_template,
                    flash, redirect, request, url_for)
@@ -11,13 +12,13 @@ sign_up = Blueprint('sign_up', __name__)
 @sign_up.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
-    bcrypt = Bcrypt()
+    #bcrypt = Bcrypt()
     context = {'form': form}
     if request.method == 'POST':
-        # get email and check if exists in database
-        email = request.form['user_email']
-        #print(first_name, last_name, email, user_name)
         if form.validate_on_submit():
+            # get email and check if exists in database
+            email = request.form['user_email']
+
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
             #first_name = request.form['first_name']
             #last_name = request.form['last_name']
