@@ -1,8 +1,8 @@
 """
 login and registered user
 """
-import mysql.connector as sql
 from datetime import datetime
+import mysql.connector as sql
 from flask_login import login_user
 from main.userAuth.user import User
 from main import login_manager,bcrypt

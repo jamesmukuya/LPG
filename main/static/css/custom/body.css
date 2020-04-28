@@ -2,13 +2,14 @@
     display: flex;
     align-items: center;
     padding-left: 0.25rem;
-    color:#cbd5e0;
+    color:#000;
     font-size: 1.5rem;
     font-weight: 600;
-    background-color: #2c5282;
+    background-color: #f6ad55;
     margin: 0.5rem;
     height: 4.5rem;
 }
+
 .profile-image{
     margin: 0.5rem;
     background-repeat: no-repeat;
@@ -139,6 +140,13 @@ form-div{
     body {
         overflow: scroll;
     }
+    .login-form {
+        width: 90%;
+    }
+    .register-form{
+        width: 90%;
+    }
+
     .login-btn-div{
         display: flex;
         flex-direction: column;

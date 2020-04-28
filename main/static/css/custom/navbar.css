@@ -14,12 +14,14 @@ nav{
 	padding-right: 1rem;
 	align-items: center;
 	min-height: 6vh;
-	background-color: #3182ce;
+	background-color: whitesmoke;
+	opacity: 0.5;
 	font-family: 'Ubuntu', sans-serif;
+	transition: opacity 1s;
 }
 
 .logo{
-	color: white;
+	color: #ed8936;
 	letter-spacing: 3px;
 	font-size: 22px;
 }
@@ -38,6 +40,7 @@ nav{
 	letter-spacing: 2px;
 	font-weight: bold;
 	font-size: 12px;
+	transition: font-size 0.5s;
 }
 .burger{
 	display: none;
@@ -62,14 +65,14 @@ nav{
 	}
 	.nav-links{
 		position: absolute;
-		right: 0px;
+		right: -1.2rem;
 		height: 92vh;
 		top: 8vh;
-		background-color: #3182ce;
+		background-color: #ed8936;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		width: 30%;
+		width: 25%;
 		transform: translateX(100%);
 		transition: transform 0.5s ease-in;
 	}
@@ -90,13 +93,19 @@ nav{
 }
 
 .active{
-	background-color:#003C80;
+	color:#ed8936;
 }
 .btn.nav-active{
 	color: white;
 	text-transform: uppercase;
 }
 
+nav:hover{
+	opacity: 1.0;
+}
+
+
 nav a:hover{
-	color: #ed8936;
+	font-weight: bold;
+	font-size: 18px;
 }
