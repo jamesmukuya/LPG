@@ -2,6 +2,7 @@
 landing page/index/home page
 """
 from flask import Blueprint
+from flask_login import current_user
 from flask import redirect, url_for, render_template
 landing_page = Blueprint('landing_page', __name__)
 

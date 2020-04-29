@@ -3,7 +3,7 @@ login and registered user
 """
 from datetime import datetime
 import mysql.connector as sql
-from flask_login import login_user
+from flask_login import login_user,logout_user,current_user
 from main.userAuth.user import User
 from main import login_manager,bcrypt
 from main.dbConnect.db_conn import Connect
@@ -24,14 +24,18 @@ def login():
             #print(email)
             # check if user exists in database
             user = User()
-            user_mail = user.get_user(email)
-            first_name = user_mail.get('first_name').capitalize()
-            last_name = user_mail.get('last_name').capitalize()
-            user_password=user_mail.get('user_password')
-            if user_mail and bcrypt.check_password_hash(user_password,password):
+            user_data = user.get_user(email)
+            first_name = user_data.get('first_name').capitalize()
+            last_name = user_data.get('last_name').capitalize()
+            user_password = user_data.get('user_password')
+            if user and bcrypt.check_password_hash(user_password,password):
                 login_user(user)
-                flash(f'Welcome {last_name}, {first_name}','login success')
-                return redirect(url_for('landing_page.index'))
+                # the below prints True, True
+                print('active and auth',user.is_active,user.is_authenticated)
+                # user is able to login
+                if current_user.is_authenticated:
+                    flash(f'Welcome {last_name}, {first_name}','login success')
+                    return redirect(url_for('landing_page.index'))
             #connection(email)
             flash(f'Your email or password is incorrect', 'error')
         else:
@@ -73,10 +77,8 @@ def register():
                 # login registered user
                 #user=User(name=first_name,email=email)
                 #login_user(user)
-
                 flash(f'Account created for {last_name}, {first_name}', 'success')
                 return redirect(url_for('landing_page.index'))
-            # continue registering
         else:
             print('some error occured')
             flash('an error occured during validation','error')
@@ -133,8 +135,13 @@ def register_user(first_name, last_name, email, user_password):
 
         # close connection
         con.close()
-    except (sql.Error, sql.Warning) as error:
+    except (sql.Error, sql.Warning):
         flash('could not create user','error')
+
+@user_auth.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('user_auth.login'))
 
 # monitor this function
 @login_manager.user_loader
@@ -146,9 +153,7 @@ def load_user(user_id):
     """
     if user_id is not None:
         user = User()
-        user_mail = user.get_id()
-        #print('user_id',user_id)
-        return user_mail
+        return user.get_user(user_id)
     return None
 
 
@@ -157,6 +162,7 @@ def unauthorized():
     """Redirect unauthorized users to Login page."""
     flash('You must be logged in to view that page.','error')
     return redirect(url_for('user_auth.login'))
+
 
 """
 # we pass in the email since it is the unique variable

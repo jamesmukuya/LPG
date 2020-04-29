@@ -18,8 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-400"
-  style="background-image: url('static/images/login_register/blur-clouds-color-dawn-459271.jpg');">
+<body class="bg-orange-400">
   <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please
@@ -79,7 +78,8 @@
       </div>
       <div class="flex items-center mt-4">
         <p class="text-center text-gray-600 text-sm pr-4">Don't have an account? </p>
-        <a class="inline-block align-baseline font-bold text-sm text-orange-400 hover:text-orange-500" href="#">
+        <a class="inline-block align-baseline font-bold text-sm text-orange-400 hover:text-orange-500" 
+          href="{{url_for('user_auth.register')}}">
           Register Here
         </a>
       </div>

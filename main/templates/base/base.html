@@ -38,14 +38,14 @@
     <![endif]-->
   <!-- NAV BAR -->
     <nav class="nav-bar">
-      <div class="logo">
+      <div class="logo opacity-100">
         <h4>SUSAN AUMA</h4>
       </div>
       <div id="btnDiv" class="nav-links">
         <button class="btn"><a href="{{url_for('landing_page.index')}}">HOME</a></button>
         <button class="btn"><a href="{{url_for('areWeAfit_page.index')}}">ARE WE A FIT?</a></button>
         <button class="btn"><a href="#">COACHING</a></button>
-        <button class="btn"><a href="#">RESOURCES</a></button>
+        <button class="btn"><a href="{{url_for('resources.resources_page')}}">RESOURCES</a></button>
         <button class="btn"><a href="#">SPEAKING</a></button>
         <button class="btn"><a href="#">BLOG</a></button>
         <button class="btn"><a href="#">CONTACT</a></button>
@@ -59,17 +59,19 @@
           <div class="line2"></div>
           <div class="line3"></div>
         </div>
+        <!-- if user is authorized -->
+        {% if current_user.is_authenticated %}
+        <div class="user-auth pl-8 text-orange-500" id="userAuth">
+          <button class="btn"><a href="{{url_for('user_auth.logout')}}">Logout</a></button>
+        </div>
+        {% else %}
         <!-- if user is not authenticated display login-->
         <div class="user-auth pl-8 text-orange-500" id="userAuth">
           <button class="btn"><a href="{{url_for('user_auth.login')}}">Login</a></button>
         </div>
-        <!-- if user is authorized -->
-        <div class="user-auth pl-8 text-orange-500" id="userAuth">
-          <button class="btn"><a href="{{url_for('user_auth.register')}}">Register</a></button>
-        </div>
+        {% endif %}
       </div>
     </nav>
-  
     <div class="bg-white shadow-md rounded pt-12 px-4 pb-2 mb-2">
       {% with messages = get_flashed_messages (with_categories = true) %} 
       {% if messages %} 

@@ -18,8 +18,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-400"
-	style="background-image: url('static/images/login_register/blur-clouds-color-dawn-459271.jpg');">
+<body class="bg-orange-400">
 	<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -105,16 +104,21 @@
 				focus:shadow-outline")
 				}}
 				#}
-				<a class="inline-block align-baseline font-bold text-sm text-orange-400 hover:text-orange-500" href="#">
-					Already a user? Login
-				</a>
+				<p>Already a user?
+					<a class="inline-block align-baseline font-bold text-base text-orange-400 hover:text-orange-500" 
+						href="{{url_for('user_auth.login')}}">
+						Login
+					</a>
+				</p>
 			</div>
 
 		</form>
 		<p class="footer text-center text-white text-sm bg-gray-700">
 			&copy;2020 Living Peak Group. All rights reserved.
 		</p>
-		<p class="text-center text-white text-xs"> Designed by Techpoint Systems&reg;</p>
+		<p class="text-center text-black text-xs"> Designed by 
+			<a href="https://techpoint.systems"> Techpoint Systems&reg;</a>
+		</p>
 	</div>
 
 </body>
