@@ -3,15 +3,19 @@ login and registered user
 """
 from datetime import datetime
 import mysql.connector as sql
-from flask_login import login_user,logout_user,current_user
-from main.userAuth.user import User
-from main import login_manager,bcrypt
+#from flask_login import login_user,logout_user,current_user
+#from main.userAuth.user import User
+from main.model.user import User
+from main import bcrypt  # login_manager,
 from main.dbConnect.db_conn import Connect
 from main.userAuth.forms import LoginForm, RegisterForm
-from flask import (Blueprint, render_template,
+from flask import (Blueprint, render_template, session,
                    flash, redirect, request, url_for)
 
 user_auth = Blueprint('user_auth', __name__)
+
+session_in_data = {'logged_in':True}
+#session_out_data = {'logged_in':None}
 
 @user_auth.route("/login", methods=["GET", "POST"])
 def login():
@@ -22,24 +26,30 @@ def login():
             password = form.password.data
             email = form.email.data
             #print(email)
-            # check if user exists in database
+            # check if user data exists in database
             user = User()
             user_data = user.get_user(email)
             first_name = user_data.get('first_name').capitalize()
             last_name = user_data.get('last_name').capitalize()
             user_password = user_data.get('user_password')
-            if user and bcrypt.check_password_hash(user_password,password):
-                login_user(user)
-                # the below prints True, True
-                print('active and auth',user.is_active,user.is_authenticated)
-                # user is able to login
-                if current_user.is_authenticated:
-                    flash(f'Welcome {last_name}, {first_name}','login success')
-                    return redirect(url_for('landing_page.index'))
-            #connection(email)
+            if user_data and bcrypt.check_password_hash(user_password, password):
+                # start a session with the user
+                session_in_data.update(user_data)
+                session.update(session_in_data)
+                flash(f'{last_name}, {first_name}', 'Welcome')
+                # insert session data in database
+
+
+                # get the current page of the user
+
+
+                # redirect the user to the required page
+                return redirect(url_for('landing_page.index'))
+            
+            # the email or password is incorrect
             flash(f'Your email or password is incorrect', 'error')
         else:
-            # user is not registered. email or password is not correct
+            # another error occured
             flash(f'unknown error has occured, please contact admin\
                     for assistance', 'error')
     return render_template('user_auth/login.html', title='Login', **context)
@@ -48,7 +58,6 @@ def login():
 @user_auth.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
-    #bcrypt = Bcrypt()
     context = {'form': form}
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -61,11 +70,10 @@ def register():
                     print('email already exists')
                     flash(f'email address already exists. login?','error')
                     return render_template('user_auth/register.html', title='Register', **context)
-                #print('user mail data',user_mail.get('email'))
             
             # the user does not exist
             except AttributeError:
-                #pass
+                # generate a secret password
                 hashed_password = bcrypt.generate_password_hash(
                     form.password.data).decode('utf-8')
                 first_name = form.firstName.data.capitalize()
@@ -74,9 +82,14 @@ def register():
                 register_user(first_name=first_name, last_name=last_name, email=email,
                 user_password=hashed_password)
                 
-                # login registered user
-                #user=User(name=first_name,email=email)
-                #login_user(user)
+                # login registered user and start a session
+                session['logged_in'] = True
+                session['first_name'] = first_name
+                session['last_name'] = last_name
+
+                # commit session to database
+
+
                 flash(f'Account created for {last_name}, {first_name}', 'success')
                 return redirect(url_for('landing_page.index'))
         else:
@@ -140,47 +153,6 @@ def register_user(first_name, last_name, email, user_password):
 
 @user_auth.route("/logout")
 def logout():
-    logout_user()
+    [session.pop(key) for key in list(session.keys())]
     return redirect(url_for('user_auth.login'))
 
-# monitor this function
-@login_manager.user_loader
-def load_user(user_id):
-    """Given *user_id*, return the associated User object.
-
-    :param unicode user_id: user_id (email) user to retrieve
-
-    """
-    if user_id is not None:
-        user = User()
-        return user.get_user(user_id)
-    return None
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    """Redirect unauthorized users to Login page."""
-    flash('You must be logged in to view that page.','error')
-    return redirect(url_for('user_auth.login'))
-
-
-"""
-# we pass in the email since it is the unique variable
-def connection(e):
-    # create a new object from class
-    conn = Connect()
-    # establish the connection
-    con = conn.connect_db()
-    # create a cursor
-    myCur = con.cursor()
-    # make a query on the basic_user_details table
-    query="select * from basic_user_details where email = %(email)s"
-    print(query)
-    # execute the query
-    myCur.execute(query, {'email':e})    
-    # get data from the returned query object
-    data = myCur.fetchone()
-    # return required data
-    print(data)
-    return data
-"""

@@ -1,22 +1,13 @@
-"""
-user model for a flask authentication
-"""
 from six import text_type
-from flask_login import UserMixin
 from main.dbConnect.db_conn import Connect
 
-class User(UserMixin):
+class User:
     """
-    model for basic user details
+    Connecting and returning user data from database as per email_id
     """
     user_data = {}
-    """
-    def __init__(self,id=None):
-        self.user_data = self.get_user(id)
-        print('user data from User',self.user_data)
-    """
 
-    def get_user(self,e):
+    def get_user(self, e):
         # create a new object from class
         conn = Connect()
         # establish the connection
@@ -37,21 +28,12 @@ class User(UserMixin):
         self.user_data = data
         return self.user_data
 
-    def get_id(self):
+    def get_email(self):
         """
         This method must return a unicode that uniquely identifies this user,
         and can be used to load the user from the user_loader callback. 
         """
         user_id = self.user_data.get('email')
-        print('user id from get_id',user_id)
+        print('user id from get_id', user_id)
         return text_type(user_id)
-    """
-    def is_anonymous(self):
-        return False
 
-    def is_active(self):
-        return True
-
-    def is_authenticated(self):
-        return True
-    """
