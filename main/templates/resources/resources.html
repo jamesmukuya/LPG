@@ -48,11 +48,12 @@
 					<button
 						class="resource-link bg-transparent hover:bg-blue-500 text-blue-700 font-semibold 
 						hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-						Get link
+						Request file
 					</button>
 				</a>
 				{% endif %}
 			</div>
+		
 		</div>
 		<div id="resourceId2"
 		class="resource h-auto max-w-sm rounded overflow-y-scroll bg-white shadow-lg m-4">
@@ -95,7 +96,37 @@
 			</div>
 		</div>
 	</div>
-
+	<!--this form is usually hidden will display when an unregistered user
+		clicks the get link button-->
+	<div id="emailResource" class="flex w-full justify-center hidden">
+		<div class="w-full max-w-xs">
+			<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+				<div class="mb-4">
+					<label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+						Email
+					</label>
+					{{
+						form.email(class= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3
+						px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+						id='emailAddress',placeholder='example@email.com')
+					}}
+				</div>
+				<div class="flex items-center justify-between">
+					<!--submit button-->
+					<button id="{{filename}}"
+						class="email-submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+						type="button">
+						Submit
+					</button>
+					<!--cancel button-->
+					<button id="cancelRequest"
+						class="bg-white hover:bg-gray-100 text-red-500 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+						Cancel
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
 	<!--take the next step link-->
 	<div class="next-step-div">
 		<button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
@@ -105,38 +136,6 @@
 	</div>
 </div>
 
-<!--this form is usually hidden will display when an unregistered user
-		clicks the get link button-->
-<div id="emailResource" class="flex w-full justify-center hidden">
-	<div class="w-full max-w-xs">
-		<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-			<div class="mb-4">
-				<label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-					Email
-				</label>
-				{{
-          form.email(class= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3
-          px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
-          id='emailResource',placeholder='example@email.com')
-        }}
-				
-			</div>
-			<div class="flex items-center justify-between">
-				<!--submit button-->
-				<button
-					class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-					type="button">
-					Submit
-				</button>
-				<!--cancel button-->
-				<button
-					class="bg-white hover:bg-gray-100 text-red-500 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-					Cancel
-				</button>
-			</div>
-		</form>
-	</div>
-</div>
 
 {% endblock content %}
 
