@@ -38,20 +38,23 @@
     <![endif]-->
   <!-- NAV BAR -->
     <nav class="nav-bar">
-      <div class="logo opacity-100">
-        <h4>SUSAN AUMA</h4>
+      <div class="logo">
+        <a href="{{url_for('landing_page.index')}}">
+          <img src="{{ url_for('static', filename='images/susan_pics/nav_logo_final.png') }}" 
+               alt="nav logo" style="width: 350px; height: 100px;">
+        </a>
       </div>
       <div id="btnDiv" class="nav-links">
-        <button class="btn"><a href="{{url_for('landing_page.index')}}">HOME</a></button>
-        <button class="btn"><a href="{{url_for('areWeAfit_page.index')}}">ARE WE A FIT?</a></button>
+        <button class="nav_btn active"><a href="{{url_for('landing_page.index')}}">HOME</a></button>
+        <button class="nav_btn"><a href="{{url_for('areWeAfit_page.index')}}">ARE WE A FIT?</a></button>
         <!--
           <button class="btn"><a href="#">COACHING</a></button>
           <button class="btn"><a href="#">SPEAKING</a></button>
           <button class="btn"><a href="#">BLOG</a></button>
 
         -->
-        <button class="btn"><a href="{{url_for('resources.resources_page')}}">RESOURCES</a></button>
-        <button class="btn"><a href="#">CONTACT</a></button>
+        <button class="nav_btn"><a href="{{url_for('resources.resources_page')}}">RESOURCES</a></button>
+        <button class="nav_btn"><a href="#">CONTACT</a></button>
       </div>
       <div class="flex justify-end">
         <div id="navBurger" class="burger">
@@ -74,7 +77,8 @@
         <!-- session user name -->
       </div>
     </nav>
-    <div class="bg-white shadow-md rounded pt-12 px-4 pb-2 mb-2">
+    <!-- pt-12 px-4 pb-2 mb-2 -->
+    <div class="bg-white shadow-md pt-16 rounded px-4">
       {% with messages = get_flashed_messages (with_categories = true) %} 
       {% if messages %} 
         {% for category, message in messages %} 
