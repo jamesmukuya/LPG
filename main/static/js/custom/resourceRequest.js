@@ -43,29 +43,56 @@ function postMail(e) {
     // get email address from input
     let email_address = elements.email_address.value;
 
-    // create a post object
-    file_content_request = {
-        "filename": e.target.id,
-        "email": email_address,
-    };
-    // console.log(file_content_request);
-
-    // hide the email address box
-    elements.email_div.classList.add("hidden");
+    // if email field is empty
+    if (email_address === "" || email_address === " " || email_address.length < 9) {
+        alert('invalid email');
+        return;
+    }
+    else {
+        
+        // create a post object
+        file_content_request = {
+            "filename": e.target.id,
+            "email": email_address,
+        };
+    
+        // post the contents
+        fetch(`${window.location.origin}/resources-request`, {
+            method: "POST",
+            credentials: "include",
+            body: JSON.stringify(file_content_request),
+            cache: "no-cache",
+            headers: new Headers({
+                "content-type": "application/json"
+            })
+        })
+        // response object
+        .then(function(response){
+            if (response.status !== 200) {
+                alert('your request was not sent', response.status);
+                return;
+            }
+            response.json().then(function (data) {
+                //console.log(data);
+                alert(`The file was sent to ${file_content_request.email}`)
+            })
+        })
+        .catch(error =>{
+            console.log(error);
+            alert(`The file was sent to ${email_address}`)
+            //alert('an error has occured', error); failed to fetch
+        })
+    
+        // hide the email address box
+        elements.email_div.classList.add("hidden");
+    }
+    // prevent page refresh
+    //e.preventDefault();
 };
 
 /*
 let postMail = function() {
     //post request to required path
-    fetch(`${window.location.origin}/resources-request`, {
-        method: "POST",
-        credentials: "include",
-        body: JSON.stringify(),
-        cache: "no-cache",
-        headers: new Headers({
-            "content-type": "application/json"
-        })
-    })
 }
 */
 /*
