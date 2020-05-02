@@ -51,8 +51,10 @@
           <button class="btn"><a href="#">COACHING</a></button>
           <button class="btn"><a href="#">SPEAKING</a></button>
           <button class="btn"><a href="#">BLOG</a></button>
-
         -->
+        {% if session.is_staff %}
+        <button class="nav_btn"><a href="{{url_for('upload_file.upload')}}">UPLOAD RESOURCE</a></button>
+        {% endif %}
         <button class="nav_btn"><a href="{{url_for('resources.resources_page')}}">RESOURCES</a></button>
         <button class="nav_btn"><a href="#">CONTACT</a></button>
       </div>
@@ -65,13 +67,13 @@
         <!-- if user is authorized -->
         {% if session.logged_in %}
         <div class="user-auth pl-12 pr-2 text-orange-500" id="userAuth">
-          <button class="btn"><a href="{{url_for('user_auth.logout')}}">Logout</a></button>
+          <button class="logout-btn"><a href="{{url_for('user_auth.logout')}}">Logout</a></button>
         </div>
         {{ session.last_name }},{{ session.first_name }}
         {% else %}
         <!-- if user is not authenticated display login-->
         <div class="user-auth pl-8 text-orange-500" id="userAuth">
-          <button class="btn"><a href="{{url_for('user_auth.login')}}">Login</a></button>
+          <button class="login-btn"><a href="{{url_for('user_auth.login')}}">Login</a></button>
         </div>
         {% endif %}
         <!-- session user name -->
@@ -109,7 +111,47 @@
     <p class="footer text-center text-white text-sm bg-gray-700">
       &copy;2020 Living Peak Group. All rights reserved.
     </p>
-    <p class="text-center text-gray-700 text-xs"> Designed by Techpoint Systems&reg;</p>
+    <p class="text-center text-black text-xs"> Designed by
+      <a href="https://techpoint.systems"> Techpoint Systems&reg;</a>
+    </p>
+    <div class="bg-orange-400 text-center py-4 lg:px-4">
+      <div class="p-2 bg-transparent items-center leading-none lg:rounded-full flex lg:inline-flex" role="">
+        <span class="text-black font-semibold mr-2 text-center flex-auto">USEFUL LINKS</span>
+      </div>
+    </div>
+    <div class="useful-links flex justify-around w-full mb-8 p-3 bg-gray-400">
+      <!-- staff login -->
+      <p class="staff-login text-gray-700 text-lg">
+        <a href="{{url_for('user_auth.staff_login')}}">&verbar; <i class="fas fa-sign-in-alt"></i> &verbar;
+          <span class="text-sm">staff login</span>
+        </a>
+      </p>
+      <!-- facebook -->
+      <p class="facebook-login text-blue-600 text-lg">
+        <a href="https://facebook.com">&verbar; <i class="fab fa-facebook-f"></i> &verbar;
+          <span class="text-sm">facebook</span>
+        </a>
+      </p>
+      <!-- gmail -->
+      <p class="facebook-login text-blue-600 text-lg">
+        <a href="https://mail.google.com/mail/">&verbar; <i class="fab fa-google"></i> &verbar;
+          <span class="text-sm">gmail</span>
+        </a>
+      </p>
+      <!-- instagram -->
+      <p class="facebook-login text-black text-lg">
+        <a href="https://www.instagram.com/">&verbar; <i class="fab fa-instagram"></i> &verbar;
+          <span class="text-sm">instagram</span>
+        </a>
+      </p>
+      <!-- linkedin -->
+      <p class="facebook-login text-blue-600 text-lg">
+        <a href="https://www.linkedin.com/">&verbar; <i class="fab fa-linkedin-in"></i> &verbar;
+          <span class="text-sm">linkedin</span>
+        </a>
+      </p>
+
+    </div>
   <!-- NAVBAR SCRIPT -->
   <script src="{{ url_for('static',filename='js/custom/navbar.js') }}" type="text/javascript">
   </script>

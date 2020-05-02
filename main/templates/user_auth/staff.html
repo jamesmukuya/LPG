@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Login</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tailwind/tailwind.min.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/body.css') }}" />
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-orange-400">
+	<!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+	<script src="" async defer></script>
+	<div class="form-div">
+		<form class="login-form w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mt-24 mb-4 mx-auto"
+			action="{{url_for('user_auth.staff_login')}}" method="POST">
+			{{ form.hidden_tag() }}
+			<!-- STAFF NUMBER-->
+			<div class="mb-4">
+				<label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+					Staff number
+				</label>
+				<input name="staff_number" autocomplete="on" required
+					class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight 
+					focus:outline-none focus:shadow-outline"	id="staffNumber" type="text">
+				{#
+					{{
+						form.email(class= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3
+						px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+						id='email',placeholder='example@email.com')
+					}}
+          #}
+			</div>
+			<!-- PASSWORD -->
+			<div class="mb-6">
+				<label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+					Password
+				</label>
+				{{ form.password (class= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3
+         leading-tight focus:outline-none focus:bg-white focus:border-gray-500", 
+					id='userPassword', type='password',minlength='4', placeholder='***********')}}
+
+				<p class="text-red-500 text-xs italic">Please enter your password.</p>
+			</div>
+			<div class="login-btn-div flex items-center justify-between">
+				<button
+					class="bg-orange-400 hover:bg-orange-500 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+					type="submit">
+					Login
+				</button>
+				<a class="inline-block align-baseline font-bold text-sm text-black hover:text-orange-500" href="#">
+					Forgot Password?
+				</a>
+			</div>
+		</form>
+		<p class="footer text-center text-white text-sm bg-gray-700">
+			&copy;2020 Living Peak Group. All rights reserved.
+		</p>
+		<p class="text-center text-black text-xs"> Designed by
+			<a href="https://techpoint.systems"> Techpoint Systems&reg;</a>
+		</p>
+	</div>
+</body>
+
+</html>

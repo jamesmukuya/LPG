@@ -31,7 +31,7 @@
     <form class="login-form w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mt-24 mb-4 mx-auto" 
     action="{{url_for('user_auth.login')}}" method="POST">
       {{ form.hidden_tag() }}
-      <!-- STAFF NUMBER-->
+      <!-- email-->
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
           Email
@@ -87,7 +87,9 @@
     <p class="footer text-center text-white text-sm bg-gray-700">
       &copy;2020 Living Peak Group. All rights reserved.
     </p>
-    <p class="text-center text-white text-xs"> Designed by Techpoint Systems&reg;</p>
+    <p class="text-center text-black text-xs"> Designed by
+      <a href="https://techpoint.systems"> Techpoint Systems&reg;</a>
+    </p>
   </div>
 </body>
 

@@ -15,6 +15,7 @@ from flask import (Blueprint, render_template, session,
 user_auth = Blueprint('user_auth', __name__)
 
 session_in_data = {'logged_in':True}
+session_staff_data = {'logged_in':True,'is_staff':True}
 #session_out_data = {'logged_in':None}
 
 @user_auth.route("/login", methods=["GET", "POST"])
@@ -54,6 +55,46 @@ def login():
                     for assistance', 'error')
     return render_template('user_auth/login.html', title='Login', **context)
 
+@user_auth.route("/staff-login", methods=["GET", "POST"])
+def staff_login():
+    # create an instance of the form
+    form = LoginForm()
+    # pass the form objects to context
+    context = {'form': form}
+
+    # get the post credentials
+    if request.method == "POST":
+        staff_number = request.form['staff_number']
+        password = form.password.data
+
+        # create an instance of User
+        staff = User()
+        # pass in the staff number for query
+        staff_data = staff.get_staff(staff_number)
+        staff_password = staff_data.get('user_password')
+        # check if credentials provided are correct
+        if staff_data and bcrypt.check_password_hash(staff_password, password):
+            # start a session with the user
+            session_staff_data.update(staff_data)
+            # update the entire session
+            session.update(session_staff_data)
+
+            last_name = staff_data.get('last_name')
+            first_name = staff_data.get('first_name')
+
+            flash(f'{last_name}, {first_name}', 'Welcome')
+            # insert session data in database
+
+            # get the current page of the user
+
+            # redirect the user to the required page ###
+            return redirect(url_for('landing_page.index'))
+
+        # the email or password is incorrect
+        flash(f'Your email or password is incorrect', 'error')
+        return render_template('user_auth/staff.html', title='Staff Login', **context)
+
+    return render_template('user_auth/staff.html', title='Staff Login', **context)
 
 @user_auth.route("/register", methods=["GET", "POST"])
 def register():
@@ -153,6 +194,15 @@ def register_user(first_name, last_name, email, user_password):
 
 @user_auth.route("/logout")
 def logout():
+    # record logout time in database
+    
+    # if session was user redirect to user login else staff login
+    if session.get('is_staff') == True:
+        # remove session cookies
+        [session.pop(key) for key in list(session.keys())]
+        return redirect(url_for('user_auth.staff_login'))
+    # remove session cookies
+    
     [session.pop(key) for key in list(session.keys())]
     return redirect(url_for('user_auth.login'))
 

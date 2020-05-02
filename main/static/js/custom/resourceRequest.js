@@ -37,14 +37,21 @@ function getLink(el) {
 
 // when the user interacts with the email box
 function postMail(e) {
+    // invalid email characters
+    let invalid_characters = ["`", "~", "!", "#", "$", "%", "^", "&", "*", "(",
+        ")", "{", "}", "[", "]", ";", ":", "'", "<", ">", '"', "?", "/", "\\"]
+    //
     // declare a variable object to hold the post data
     let file_content_request;
 
     // get email address from input
     let email_address = elements.email_address.value;
 
+    // checking for the invalid characters
+    const found = invalid_characters.some(r => email_address.includes(r));
     // if email field is empty
-    if (email_address === "" || email_address === " " || email_address.length < 9) {
+    if (email_address === "" || email_address === " " || email_address.length < 9
+        || found) {
         alert('invalid email');
         return;
     }

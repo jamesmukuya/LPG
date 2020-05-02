@@ -1,7 +1,7 @@
 """
 file upload and downloads
 """
-import os
+import os, string
 from main import app
 from flask import (Blueprint, send_from_directory, abort, render_template,
                     flash,redirect,request,url_for)
@@ -46,7 +46,12 @@ def upload():
         # get the destination folder and save the file
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            print('all went ok', filename)
+
+            # get title, description and flag
+            file_title = string.capwords(request.form['file_title'])
+            descr = request.form['description']
+            flag = request.form['flag']
+            
             # get the destination folder selected
             dest_name = request.form['location']
             # create destination path
@@ -59,15 +64,15 @@ def upload():
             try:
                 #save the file
                 file.save(os.path.join(dest, filename))
-                flash('upload successful////supply file title', 'success')
-                return redirect(url_for('upload'))
+                flash(f'{file_title} has been uploaded', 'success')
+                return redirect(url_for('upload_file.upload'))
                 #return render_template("uploadHtml/upload-file.html", title='Upload')
             # if directory does not exist create one
             except FileNotFoundError:
                 os.mkdir(app.config['UPLOAD_FOLDER'] + dest_name)
                 
-            except Exception:
-                flash('AN ERROR HAS OCCURED, contact admin for rectification',
+            except Exception as e:
+                flash(f'AN ERROR HAS OCCURED,{e}, contact admin for rectification',
                 'error')
             # save the file
             file.save(os.path.join(dest,filename))

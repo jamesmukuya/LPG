@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base/base.html" %}
+{% block title %} {{title}} {% endblock title %}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Upload</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tailwind/tailwind.min.css') }}" />
-</head>
-
-<body>
+{% block content %}
 
 	<div class="flex justify-center w-full rounded shadow-md">
 		<!--recommended form-->
@@ -46,7 +39,7 @@
 					</label>
 				</div>
 				<div class="flex items-center w-full md:w-2/3">
-					<input required
+					<input required name="file_title"
 						class="bg-gray-200 border-2 border-gray-500 rounded w-full py-2 px-4 
 						text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
 						id="uploadTitle" type="text" placeholder="title">
@@ -59,7 +52,7 @@
 					</label>
 				</div>
 				<div class="flex items-center w-full md:w-2/3">
-					<textarea required 
+					<textarea required name="description"
 					class=" border-2 border-gray-500 rounded w-full py-2 px-4 
 						text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
 						id="uploadDescription"	placeholder="enter description"></textarea>
@@ -83,7 +76,8 @@
 			</div>
 			<div class="flex items-center justify-between mt-4">
 				<button
-					class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+					class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold
+					hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded"
 					type="submit">
 					Upload file
 				</button>
@@ -97,6 +91,5 @@
 			</div>
 		</form>
 	</div>
-</body>
-
-</html>
+	
+{% endblock content %}
