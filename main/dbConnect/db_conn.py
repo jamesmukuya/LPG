@@ -1,7 +1,7 @@
 """
 db connection class
 """
-import os
+import os, glob, json
 import mysql.connector as sql
 
 class Connect:
@@ -20,26 +20,30 @@ class Connect:
             db = 'lpg_mysql'
             host = 'localhost'
             conn = sql.connect(
-                host=host, db=db, user=user_name, password=user_pass, use_unicode=True, charset="utf8")
+                host=host, db=db, user=user_name, password=user_pass,
+                use_unicode=True, charset="utf8")
             return conn
         except (sql.Error, sql.Warning):
             try:
                 #web db
-                db = 'techwcop_lpg_mysql'
-                user_name ='techwcop_james'
-                user_pass = 'K@zumi@1'
-                conn = sql.connect(
-                    host=host, db=db, user=user_name, password=user_pass, use_unicode=True, charset="utf8")
-                return conn
-            except Exception as ex:
-                print(ex)
+                for files in glob.iglob('**/*.json', recursive=True):
+                    #print(files)
+                    with open(files) as f:
+                        data = json.load(f)
+                        #print()
+                        db = data.get('web_db')
+                        user_name = data.get('web_admin')
+                        user_pass = data.get('web_p')
+                        conn = sql.connect(
+                            host=host, db=db, user=user_name, password=user_pass,
+                            use_unicode=True, charset="utf8")
+                        return conn
+            except Exception:
                 return None
-            #sys.exit
             #conn.close()
         except Exception as ex:
             print('UNKNOWN ERROR OCCURED', ex)
             return None
-            #sys.exit
 
     def check_conn(self):
         #print('success')

@@ -3,3 +3,4 @@ __pycache__
 mysql_model
 .vscode
 db_test.py
+json
