@@ -57,6 +57,17 @@ form-div{
     width: 100%;
 }
 
+/* RESOURCES PAGE EMAIL FIELD*/
+#emailResource{
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    z-index: 9999;
+}
+
 @media screen and (max-width:2560px) {
     .intro-wrapper {
         height: 100%;

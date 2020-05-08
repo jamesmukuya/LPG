@@ -42,10 +42,10 @@ class User:
             "select * from employee "
             "LEFT JOIN basic_user_details on employee.basic_user_details_id =\
             basic_user_details.id "
-            "WHERE employee.id = %(id)s"
+            "WHERE employee.emp_no = %(emp_no)s"
             )
         # execute the query
-        myCur.execute(query, {'id': e})
+        myCur.execute(query, {'emp_no': e})
         # get data from the returned query object
         data = myCur.fetchone()
         con.close()

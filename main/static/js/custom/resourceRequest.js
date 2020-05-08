@@ -1,13 +1,24 @@
 //GET AND POST METHOD FOR THE RESOURCES
 //get elements. the query selectorAll returns a node-list
-{
+
 const elements = {
     resource_link: document.querySelectorAll('.resource-link'),
     resource_download: document.querySelectorAll('.resource-download'),
     email_div: document.getElementById('emailResource'),
     email_address: document.getElementById('emailAddress'),
     email_submit: document.querySelectorAll('.email-submit'),
+    email_cancel: document.getElementById('cancelRequest'),
 };
+
+// when user clicks cancel button
+elements.email_cancel.addEventListener('click', (e) => {
+    // prevent page from submitting
+
+    e.preventDefault();
+    
+    // hide the form
+    getLink();
+})
     
 //convert from nodelist to array
 const resource_link_array = Array.from(elements.resource_link);
@@ -25,6 +36,7 @@ email_submit_array.forEach(el_btn => {
 function getLink(el) {
     //display the email request link
     elements.email_div.classList.toggle("hidden");
+    elements.email_div.classList.add("flex");
     //console.log(filename);
     
 };
@@ -87,7 +99,6 @@ function postMail(e) {
     //e.preventDefault();
 };
 
-}
 
 
 

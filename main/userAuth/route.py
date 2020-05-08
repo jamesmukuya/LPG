@@ -1,12 +1,12 @@
 """
 login and registered user
 """
+#from flask_login import login_user,logout_user,current_user
+
+from main import bcrypt
 from datetime import datetime
 import mysql.connector as sql
-#from flask_login import login_user,logout_user,current_user
-#from main.userAuth.user import User
 from main.model.user import User
-from main import bcrypt  # login_manager,
 from main.dbConnect.db_conn import Connect
 from main.userAuth.forms import LoginForm, RegisterForm
 from flask import (Blueprint, render_template, session,
