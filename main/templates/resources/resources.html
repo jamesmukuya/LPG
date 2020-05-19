@@ -45,7 +45,7 @@
 				{% else %}
 				<!--if user is not logged in/registered-->
 				<a href="#">
-					<button
+					<button name="{{filename}}"
 						class="resource-link bg-transparent hover:bg-blue-500 text-blue-700 font-semibold 
 						hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
 						Request file
@@ -72,7 +72,7 @@
 					aegoiehgidgjoipgjaewiogtpoeiwjgt
 					gfoialijgeiothieojtapoitjeoith
 				</p>
-				<button
+				<button name="random name"
 					class="resource-link bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
 					Get link
 				</button>
@@ -121,7 +121,7 @@
 				</div>
 				<div class="flex items-center justify-between">
 					<!--submit button-->
-					<button id="{{filename}}"
+					<button
 						class="email-submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 						type="submit">
 						Submit

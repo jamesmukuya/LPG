@@ -9,16 +9,6 @@ const elements = {
     email_submit: document.querySelectorAll('.email-submit'),
     email_cancel: document.getElementById('cancelRequest'),
 };
-
-// when user clicks cancel button
-elements.email_cancel.addEventListener('click', (e) => {
-    // prevent page from submitting
-
-    e.preventDefault();
-    
-    // hide the form
-    getLink();
-})
     
 //convert from nodelist to array
 const resource_link_array = Array.from(elements.resource_link);
@@ -30,16 +20,37 @@ resource_link_array.forEach(el_link => {
 });
 
 email_submit_array.forEach(el_btn => {
-    el_btn.addEventListener('click', postMail);
+    //el_btn.addEventListener('click', postMail);
+    el_btn.addEventListener('click', somefxn);
 });
+
+// filename
+let file_name;
 
 function getLink(el) {
     //display the email request link
     elements.email_div.classList.toggle("hidden");
     elements.email_div.classList.add("flex");
-    //console.log(filename);
-    
+
+    //hide all the request file buttons
+    for (const arr of resource_link_array) {
+        //console.log(arr);
+        arr.classList.add('hidden')
+    }
+    //temporarily set the filename
+    file_name = el.target.name;
 };
+///////////////////////////////
+function somefxn(e) {
+    console.log('filename name called', file_name);
+    e.preventDefault();
+    //show the buttons
+    for (const arr of resource_link_array) {
+        //console.log(arr);
+        arr.classList.toggle('hidden');
+    }
+}
+//////////////////////////////
 
 // when the user interacts with the email box
 function postMail(e) {
@@ -61,7 +72,7 @@ function postMail(e) {
         
         // create a post object
         file_content_request = {
-            "filename": e.target.id,
+            "filename": file_name,
             "email": email_address,
         };
     
@@ -99,8 +110,19 @@ function postMail(e) {
     //e.preventDefault();
 };
 
+// when user clicks cancel button
+elements.email_cancel.addEventListener('click', (e) => {
+    // prevent page from submitting
+    e.preventDefault();
 
-
+    // hide the form
+    elements.email_div.classList.toggle("hidden");
+    //show the buttons
+    for (const arr of resource_link_array) {
+        //console.log(arr);
+        arr.classList.toggle('hidden');
+    }
+})
 
 
 
