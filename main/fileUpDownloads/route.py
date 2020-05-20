@@ -99,8 +99,6 @@ def upload():
             except Exception as e:
                 flash(f'AN ERROR HAS OCCURED,{e}, contact admin for rectification',
                 'error')
-            # save the file
-            #file.save(os.path.join(dest,filename))
 
             #return redirect(url_for('uploaded_file',
                                     #filename=filename))
@@ -112,13 +110,13 @@ def upload():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
-
-
+"""
 @upload_file.route('/sql')
 def sql_trial():
     insert_file(file_title='New file', file_descr='new_file', filename='new.pdf',
         file_flag='free', date_time=datetime.utcnow(), file_cost=0.0, emp_no='LPG0')
     return 'insert successful'
+"""
 
 def insert_file(file_title, filename, file_descr, file_flag, file_cost,
                 date_time, emp_no):
@@ -141,7 +139,6 @@ def insert_file(file_title, filename, file_descr, file_flag, file_cost,
         INSERT INTO file_system(file_title, filename, file_descr, file_flag, file_cost,
                                  date_time, employee_id) 
         VALUES (%s, %s, %s, %s, %s, %s, %s)
-        ON DUPLICATE KEY UPDATE filename = concat('dupv2_',filename)
         """
     
     #(SELECT employee.id FROM employee WHERE employee.emp_no= % (emp_no)s)

@@ -20,8 +20,8 @@ resource_link_array.forEach(el_link => {
 });
 
 email_submit_array.forEach(el_btn => {
-    //el_btn.addEventListener('click', postMail);
-    el_btn.addEventListener('click', somefxn);
+    el_btn.addEventListener('click', postMail);
+    //el_btn.addEventListener('click', somefxn);
 });
 
 // filename

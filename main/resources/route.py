@@ -3,19 +3,56 @@ render and control resources
 the filename is in the db, the route is available in our downloads folder
 """
 from main import app
+import mysql.connector as sql
 import smtplib, os, glob, json
 from email.message import EmailMessage
-
+from main.dbConnect.db_conn import Connect
 from main.resources.form import ResourceRequestForm
 from flask import (Blueprint, render_template, flash, redirect, request, url_for,
                     make_response, jsonify)
 
 resources = Blueprint('resources', __name__)
 
+def get_files_db():
+    """
+    fetch files from database and check if they exist in the filesystem
+    return the filenames that exist in both
+    """
+    # instanciate database
+    conn = Connect()
+    # connect to the database
+    con = conn.connect_db()
+    # create cursor object
+    myCur = con.cursor(buffered=True, dictionary=True)
+
+    # get employee_id
+    files_query = """
+    select * from file_system
+    """
+    myCur.execute(files_query)
+    files = myCur.fetchall()
+    #print(files)
+    return files
+
+def get_files_local():
+    # get filenames locally
+    names = [os.path.basename(x)
+             for x in glob.iglob('**/*.png', recursive=True)]
+    return names
+
 @resources.route("/resources", methods=["GET", "POST"])
 def resources_page():
     # get available resources from the server and pass to context
-    filename = 'link.txt'
+    db_files = get_files_db()
+    local_files = get_files_local()
+    filename = []
+    # check if filenames in db match the local filenames
+    for f in db_files:
+        if f['filename'] in local_files:
+            # append the filenames
+            #print(f)
+            filename.append(f)
+    print(filename)
     #credentials = get_auth()
     #print(credentials[0],credentials[1],credentials[2])
     # if user is not logged in render this form to display on request
@@ -57,12 +94,10 @@ def resources_get_link():
         )  # this is the body
 
     #sending an attachement
-    file_path = app.config['MISC_UPLOAD_FOLDER']
-    full_path = os.path.join(file_path, file_name)
-
-    # read the file
-    with open(full_path, 'rb') as f:
-        file_data = f.read()
+    # get path and read the file
+    for file_path in glob.iglob(f'**/{file_name}', recursive=True):
+        with open(file_path, 'rb') as f:
+            file_data = f.read()
 
     # add attachment to mail
     msg.add_attachment(file_data, maintype='application', subtype='octet-stream',

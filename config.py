@@ -21,7 +21,7 @@ class DevConfig(BaseConfig):
     """
     DEBUG = True
     TESTING = True
-    MISC_UPLOAD_FOLDER = os.getcwd()+r"/main/static/documents/admin/misc/"
+    MISC_UPLOAD_FOLDER = os.getcwd()+r"/main/static/documents/client/misc/"
     # SOME OTHER CONFIG VARS
 
 class TestConfig(BaseConfig):
