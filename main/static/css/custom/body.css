@@ -16,7 +16,11 @@
     background-size: contain;
 }
 
-
+.meet-susan-wrapper{
+    font-family: 'Handlee', cursive;
+    font-size: large;
+    font-weight: 400;
+}
 .meet-susan-pic{
     height: auto;
     background-size: cover;
@@ -31,6 +35,7 @@
 
 .testimonial-wrapper{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 

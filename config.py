@@ -22,6 +22,7 @@ class DevConfig(BaseConfig):
     DEBUG = True
     TESTING = True
     MISC_UPLOAD_FOLDER = os.getcwd()+r"/main/static/documents/client/misc/"
+    LOGGING_FOLDER = os.getcwd()+r"/main/appLogger/"
     # SOME OTHER CONFIG VARS
 
 class TestConfig(BaseConfig):
@@ -35,4 +36,5 @@ class ProductionConfig(BaseConfig):
     Production configuration attributes. Should be highly secretive.
     Recommended to obtain from environment variables or a private server.
     """
-    pass
+    LOGGING_FOLDER = os.getcwd()+r"/main/appLogger"
+    

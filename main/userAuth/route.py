@@ -3,7 +3,8 @@ login and registered user
 """
 #from flask_login import login_user,logout_user,current_user
 
-from main import bcrypt
+import logging
+from main import bcrypt,app
 from datetime import datetime
 import mysql.connector as sql
 from main.model.user import User
@@ -50,10 +51,16 @@ def login():
             
             # the email or password is incorrect
             flash(f'Your email or password is incorrect', 'error')
+            # log the error
+            logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_auth.log',
+                level=logging.WARN)
+            logging.warning('incorrect username/password')
+
         else:
             # another error occured
             flash(f'unknown error has occured, please contact admin\
-                    for assistance', 'error')
+                    for assistance ', ' error ')
+            logging.error('unknown error')
     return render_template('user_auth/login.html', title='Login', **context)
 
 @user_auth.route("/staff-login", methods=["GET", "POST"])
@@ -92,7 +99,11 @@ def staff_login():
             return redirect(url_for('landing_page.index'))
 
         # the email or password is incorrect
-        flash(f'Your email or password is incorrect', 'error')
+        flash(f'Your staff number or password is incorrect', 'error')
+        # log the error
+        logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_auth.log',
+                            level=logging.WARN)
+        logging.warning('incorrect username/password')
         return render_template('user_auth/staff.html', title='Staff Login', **context)
 
     return render_template('user_auth/staff.html', title='Staff Login', **context)
@@ -131,12 +142,18 @@ def register():
                 flash(f'Account created for {last_name}, {first_name}', 'success')
                 
                 # commit session to database
-
+                # created in the register method. 
+                # TODO...A new user does not submit a logout session
+                # for some reason
 
                 return redirect(url_for('landing_page.index'))
         else:
             #print('some error occured')
-            flash('an error occured during validation','error')
+            flash('an error occured during validation', 'error')
+            # log the error
+            logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_reg.log',
+                                level=logging.WARN)
+            logging.warning('Validation Error')
     return render_template('user_auth/register.html', title='Register', **context)
 
 def register_user(first_name, last_name, email, user_password):
@@ -203,7 +220,11 @@ def register_user(first_name, last_name, email, user_password):
 
         # close connection
         con.close()
-    except (sql.Error, sql.Warning):
+    except (sql.Error, sql.Warning) as e:
+        # log the error
+        logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_reg.log',
+                            level=logging.ERROR)
+        logging.warning(f'{e}')
         flash('could not create user', 'error')
 
 def user_session_in(uid):
@@ -253,6 +274,10 @@ def user_session_in(uid):
         # close connection
         con.close()
     except (sql.Error, sql.Warning) as e:
+        # log the error
+        logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_session.log',
+                            level=logging.WARN)
+        logging.warning(f'{e}')
         flash('could not create user session', 'error')
 
 def user_session_out(sid):
@@ -296,7 +321,10 @@ def user_session_out(sid):
         # close connection
         con.close()
     except (sql.Error, sql.Warning) as e:
-        #print(e)
+        # log the error
+        logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_auth.log',
+                            level=logging.WARN)
+        logging.warning(f'{e}')
         flash('could not update user session', 'error')
 
 @user_auth.route("/logout")
