@@ -72,13 +72,6 @@
 					autocomplete="on"	placeholder='example@email.com'
 					class= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3
 					px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-					{#
-					{{
-						form.email(class= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3
-						px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
-						id='emailAddress',placeholder='example@email.com')
-					}}
-					#}
 				</div>
 				<div class="flex items-center justify-between">
 					<!--submit button-->
@@ -98,10 +91,12 @@
 	</div>
 	<!--take the next step link-->
 	<div class="next-step-div">
-		<button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
-		hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded">
-			TAKE THE NEXT STEP
-		</button>
+		<a href="{{url_for('coaching.coaching_page')}}">
+			<button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
+					hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded">
+				TAKE THE NEXT STEP
+			</button>
+		</a>
 	</div>
 </div>
 

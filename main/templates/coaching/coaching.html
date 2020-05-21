@@ -1,0 +1,140 @@
+{% extends "base/base.html" %}
+{% block title %} {{title}} {% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/body.css') }}" />
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="flex-col">
+  <!-- How it works header -->
+  <div class="w-full bg-orange-400 text-center py-4 lg:px-4">
+    <div class="p-2 bg-transparent items-center leading-none lg:rounded-full flex lg:inline-flex" role="">
+      <span class="text-black font-semibold mr-2 text-center flex-auto">HOW IT ALL WORKS</span>
+    </div>
+  </div>
+
+  <!-- How it works pic and statement-->
+  <div class="how-it-works-wrapper">
+    <!--Pic-->
+    <div class="how-it-works-pic">
+      <img src="{{ url_for('static', filename='images/coaching/kelly-sikkema-kDN490mHVjI-unsplash.jpg') }}"
+        alt="how it works pic">
+      <span class="text-sm">Photo by Kelly Sikkema on Unsplash</span>
+    </div>
+    <!-- Statement -->
+    <div class="flex-col content-center py-8 h-full">
+      <div class="w-full bg-orange-200 py-4 lg:px-4 mr-2 my-2">
+        <div class="p-2 bg-transparent items-center leading-none lg:rounded-full" role="">
+          <span class="text-black font-semibold mx-2 text-center">THE PROCESS</span>
+        </div>
+      </div>
+      <div class="flex how-it-works-statement rounded shadow-lg bg-white items-center mx-2">
+        <p class="px-2">
+          What I offer is a path to self discovery and fulfillment by leading you through a process that explores what it
+          is you believe in and what you want to contribute to the outer world. My mission is to provide a safe and
+          powerful place for you to discover the answers you need in order to move forward with purpose and clarity.
+          With structure comes freedom. For each of the foundational sessions and courses, there will be an area of focus
+          coupled with assessments, prep work and take away actions.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Five step process header -->
+  <div class="w-full bg-orange-400 text-center py-4 lg:px-4">
+    <div class="p-2 bg-transparent items-center leading-none lg:rounded-full flex lg:inline-flex" role="">
+      <span class="text-black font-semibold mr-2 text-center flex-auto">THE FIVE STEP PROCESS</span>
+    </div>
+  </div>
+  <!-- Five step process-->
+  <!-- session one-->
+  <div class="w-full bg-orange-200 py-4 lg:px-4 mr-2 my-2">
+    <div class=" bg-transparent items-center leading-none lg:rounded-full" role="">
+      <span class="text-black font-semibold mx-2 text-center">Session One - Your Story</span>
+    </div>
+  </div>
+  <!-- Session one content-->
+  <div class="flex five-step-process rounded shadow-lg bg-white items-center mx-2">
+    <p class="px-2 py-4">
+      You will begin the coaching process by stating your goal for the session. It is a chance for you to See all the
+      possibilities that your future holds. Imagine the satisfaction and pleasure as you reach your goal! Setting a
+      measurable, achievable, timely goal is the key here. Enthusiasm, passion and energy around your goal are elements
+      that will help support and sustain your efforts towards achieving your goals.
+    </p>
+  </div>
+  <!-- session two-->
+  <div class="w-full bg-orange-200 py-4 lg:px-4 mr-2 my-2">
+    <div class="bg-transparent items-center leading-none lg:rounded-full" role="">
+      <span class="flex text-black font-semibold mx-2">Session Two - Assessing Your Current Reality</span>
+    </div>
+  </div>
+  <!-- Session two content-->
+  <div class="flex five-step-process rounded shadow-lg bg-white items-center mx-2">
+    <p class="px-2 py-4">
+      The next part of the process will focus on working to uncover what is holding you from reaching your full
+      potential. Through a number of different tools, I will partner with you to help you gain clarity of purpose.
+      Uncovering and identifying your purpose will provide you with an internal set of guidelines that you can use
+      consistently to test your choices against, making sure that your decisions align with who you truly are. When you
+      own your unique set of purposeful skills and talents, you can then paint the picture to new people and current
+      leadership about who you are and what you are ready for in your career
+    </p>
+  </div>
+  <!-- session three-->
+  <div class="w-full bg-orange-200 py-4 lg:px-4 mr-2 my-2">
+    <div class=" bg-transparent items-center leading-none lg:rounded-full" role="">
+      <span class="text-black font-semibold mx-2 text-center">Session Three - Options</span>
+    </div>
+  </div>
+  <!-- Session three content-->
+  <div class="flex five-step-process rounded shadow-lg bg-white items-center mx-2">
+    <p class="px-2 py-4">
+      Through this step you will map your route to your goal. Now that the destination is established, how will you get
+      there? We examine what support and resources you will need to get there
+    </p>
+  </div>
+  <!-- session four-->
+  <div class="w-full bg-orange-200 py-4 lg:px-4 mr-2 my-2">
+    <div class=" bg-transparent items-center leading-none lg:rounded-full" role="">
+      <span class="text-black font-semibold mx-2 text-center">Session Four - Action Planning</span>
+    </div>
+  </div>
+  <!-- Session four content-->
+  <div class="flex five-step-process rounded shadow-lg bg-white items-center mx-2">
+    <p class="px-2 py-4">
+      After the options are complete, comes the action planning. I will help you to create short and long term actions
+      in all areas of your life. This action plan will feel INSPIRING, connected to WHAT YOU WANT in your life and
+      DO-ABLE. How will you reach your goal? Capture and document your plan and keep it visible to help you stay focused
+      on your end in mind.
+    </p>
+  </div>
+  <!-- session five-->
+  <div class="w-full bg-orange-200 py-4 lg:px-4 mr-2 my-2">
+    <div class=" bg-transparent items-center leading-none lg:rounded-full" role="">
+      <span class="text-black font-semibold mx-2 text-center">Session Five - Outcome</span>
+    </div>
+  </div>
+  <!-- Session five content-->
+  <div class="flex five-step-process rounded shadow-lg bg-white items-center mx-2 mb-2">
+    <p class="px-2 py-4">
+      How will you feel when you achieve your goal? Imagine the feeling. As your coach, I will hold you responsible for
+      completing the actions you commit to over the following months. You will report on your progress and we will
+      create a long-term action plan for moving forward.
+    </p>
+  </div>
+  <!-- Closing remarks -->
+  <div class="bg-white font-bold italic text-xl text-center mt-4 py-4 lg:px-4">
+    So now that you know the journey to long-term change...
+  </div>
+  <!-- Next step-->
+  <div class="next-step-div">
+    <a href="{{url_for('coaching.coaching_page')}}">
+      <button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
+					hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded">
+        LET'S GET STARTED
+      </button>
+    </a>
+  </div>
+</div>
+
+{% endblock content %}

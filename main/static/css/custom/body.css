@@ -73,6 +73,13 @@ form-div{
     z-index: 9999;
 }
 
+/* COACHING PAGE*/
+.how-it-works-wrapper{
+    display: flex;
+    margin-top:0.5rem;
+    margin-bottom:2px;
+}
+
 @media screen and (max-width:2560px) {
     .intro-wrapper {
         height: 100%;
@@ -176,5 +183,9 @@ form-div{
     }
     .register-btn-div button {
         margin-bottom: 1rem;
+    }
+    .how-it-works-wrapper{
+        display: flex;
+        flex-direction: column;
     }
 }

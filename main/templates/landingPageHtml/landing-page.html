@@ -130,18 +130,15 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 		</div>
 
 	</div>
-</div>
-	
-
 	<!--take the next step link-->
 	<div class="next-step-div">
-		<button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
-		hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded">
-			TAKE THE NEXT STEP
-		</button>
+		<a href="{{url_for('coaching.coaching_page')}}">
+			<button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
+					hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded">
+				TAKE THE NEXT STEP
+			</button>
+		</a>
 	</div>
-	
 </div>
-
 
 {% endblock content %}

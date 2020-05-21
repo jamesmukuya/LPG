@@ -1,0 +1,66 @@
+{% extends "base/base.html" %}
+{% block title %} {{title}} {% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/body.css') }}" />
+{% endblock stylesheets %}
+
+{% block content %}
+<!-- Contact Header -->
+<div class="w-full bg-orange-400 text-center py-4 lg:px-4">
+  <div class="p-2 bg-transparent items-center leading-none lg:rounded-full flex lg:inline-flex" role="">
+    <span class="text-black font-semibold mr-2 text-center flex-auto">CONTACT US</span>
+  </div>
+</div>
+
+<div class="my-4">
+  <form name="email-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST">
+    <div class="mb-4 flex">
+      <label class="flex items-center text-gray-700 text-sm font-bold mb-2 mr-4 w-16" for="emailAddress">
+        Email
+      </label>
+      <input required
+      type="email" name="email" id="emailAddress" autocomplete="on" placeholder='example@email.com'
+        class="border-2 border-gray-600 rounded w-1/2 py-2 px-4 hover:border-orange-500
+        text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500">
+    </div>
+    <!-- Subject -->
+    <div class="mb-4 flex">
+      <label class="flex items-center text-gray-700 text-sm font-bold mb-2 mr-4 w-16" for="subject">
+        Subject
+      </label>
+      <input required type="text" name="subject" id="subject" autocomplete="on"
+        class="border-2 border-gray-600 rounded w-3/4 py-2 px-4 hover:border-orange-500
+        text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500">
+    </div>
+    <!-- Description -->
+    <div class="mb-4 flex">
+      <label class="flex items-center text-gray-700 text-sm font-bold mb-2 mr-4 w-16" for="message">
+        Message
+      </label>
+      <textarea required name="message" id="message"
+      class="border-2 border-gray-600 rounded w-3/4 py-2 px-4 hover:border-orange-500 h-64
+        text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500">
+      </textarea>
+    </div>
+    <div class="flex items-center justify-between">
+      <!--submit button-->
+      <button
+        class="email-submit bg-orange-400 hover:bg-orange-500 text-black font-bold py-2 px-4 rounded 
+          focus:outline-none focus:shadow-outline"
+        type="submit">
+        Submit
+      </button>
+      <!--cancel button-->
+      <a href="{{url_for('coaching.coaching_page')}}">
+        <button id="cancel" type="button"
+          class="bg-white hover:bg-gray-100 text-red-500 font-semibold py-2 px-4 border border-gray-400 
+          rounded shadow">
+          Cancel
+        </button>
+      </a>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

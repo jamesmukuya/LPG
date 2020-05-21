@@ -52,7 +52,6 @@ def resources_page():
             # append the filenames
             #print(f)
             filename.append(f)
-    print(filename)
     #credentials = get_auth()
     #print(credentials[0],credentials[1],credentials[2])
     # if user is not logged in render this form to display on request
