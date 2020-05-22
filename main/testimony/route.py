@@ -13,17 +13,19 @@ testimony = Blueprint('testimony', __name__)
 @testimony.route("/testimony/new", methods=["GET", "POST"])
 def add_testimony():
   # only employees have access to the page
-  if request.method == "POST":
-    # add a testimony and redirect to main page
-    client_name = request.form['client_name'].strip()
-    client_name = string.capwords(client_name)
-    client_job = request.form['client_job'].strip()
-    client_job = string.capwords(client_job)
-    testimony = request.form['testimony'].strip()
-    # insert into db
-    insert_testimony(client_name, client_job, testimony)
-    return redirect(url_for('landing_page.index'))
-  return render_template('testimony/testimony.html',title='New Testimony')
+  if session.get('is_staff'):
+    if request.method == "POST":
+      # add a testimony and redirect to main page
+      client_name = request.form['client_name'].strip()
+      client_name = string.capwords(client_name)
+      client_job = request.form['client_job'].strip()
+      client_job = string.capwords(client_job)
+      testimony = request.form['testimony'].strip()
+      # insert into db
+      insert_testimony(client_name, client_job, testimony)
+      return redirect(url_for('landing_page.index'))
+    return render_template('testimony/testimony.html',title='New Testimony')
+  return redirect(url_for('user_auth.staff_login'))
 
 def insert_testimony(client_name,client_job,testimony):
     """

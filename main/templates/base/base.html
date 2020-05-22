@@ -57,6 +57,7 @@
         -->
         {% if session.is_staff %}
         <button class="nav_btn"><a href="{{url_for('upload_file.upload')}}">UPLOAD RESOURCE</a></button>
+        <button class="nav_btn"><a href="{{url_for('testimony.add_testimony')}}">ADD TESTIMONY</a></button>
         {% endif %}
         <button class="nav_btn"><a href="{{url_for('resources.resources_page')}}">RESOURCES</a></button>
         <button class="nav_btn"><a href="{{url_for('contact.contact_page')}}">CONTACT</a></button>

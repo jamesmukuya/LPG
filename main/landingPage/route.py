@@ -11,7 +11,6 @@ landing_page = Blueprint('landing_page', __name__)
 def index():
 	testimony = get_testimonials()
 	context = {'testimony':testimony}
-	
 	return render_template("landingPageHtml/landing-page.html", title="Home", **context)
 
 # get testimonials from db
