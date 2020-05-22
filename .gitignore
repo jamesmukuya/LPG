@@ -5,3 +5,4 @@ mysql_model
 db_test.py
 json
 user_auth.log
+user_testimony.log

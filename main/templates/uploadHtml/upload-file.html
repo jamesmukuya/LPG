@@ -3,105 +3,105 @@
 
 {% block content %}
 
-	<div class="flex justify-center w-full rounded shadow-md">
-		<!--recommended form-->
-		<form class="my-8 w-2/3 bg-gray-100 p-3 rounded border border-orange-500" 
-		action="{{ url_for('upload_file.upload') }}" method="POST" enctype="multipart/form-data">
-			<div class="md:flex md:items-center mb-6 mt-4">
-				<div class="md:w-2/3">
-					<input
-						class="appearance-none bg-white shadow-md w-full text-gray-700 mr-3 py-1 px-2 leading-tight 
-						hover:border-orange-500 focus:outline-none"	type="file" name="file">
-				</div>
+<div class="flex justify-center w-full rounded shadow-md">
+	<!--recommended form-->
+	<form class="my-8 w-2/3 bg-gray-100 p-3 rounded border border-orange-500" 
+	action="{{ url_for('upload_file.upload') }}" method="POST" enctype="multipart/form-data">
+		<div class="md:flex md:items-center mb-6 mt-4">
+			<div class="md:w-2/3">
+				<input
+					class="appearance-none bg-white shadow-md w-full text-gray-700 mr-3 py-1 px-2 leading-tight 
+					hover:border-orange-500 focus:outline-none"	type="file" name="file">
 			</div>
-			<div class="mb-6">
-				<div class="flex items-center md:w-1/3">
-					<label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-state">
-						Choose upload location
-					</label>
-				</div>
-				<div class="flex items-center w-full md:w-2/3">
-					<select id="locationSelect" name="location" 
-					class="block appearance-none w-full bg-white border border-gray-400 hover:border-orange-500 px-4 py-2 pr-8 rounded
+		</div>
+		<div class="mb-6">
+			<div class="flex items-center md:w-1/3">
+				<label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-state">
+					Choose upload location
+				</label>
+			</div>
+			<div class="flex items-center w-full md:w-2/3">
+				<select id="locationSelect" name="location" 
+				class="block appearance-none w-full bg-white border border-gray-400 hover:border-orange-500 px-4 py-2 pr-8 rounded
+					shadow leading-tight focus:outline-none focus:shadow-outline mb-8">
+					<option value="client/misc/">misc</option>
+					<option value="admin">admin</option>
+					<option value="client/registered/">free for registered</option>
+					<option value="client/subscribed/">premium clients</option>
+				</select>
+			</div>
+		</div>
+		<div class="flex mb-6">
+			<div class="flex items-center md:w-1/3">
+				<label class="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" 
+				for="uploadTitle">
+					Title
+				</label>
+			</div>
+			<div class="flex items-center w-full md:w-2/3">
+				<input required name="file_title"
+					class="bg-white border-2 border-gray-600 rounded w-full py-2 px-4 hover:border-orange-500
+					text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
+					id="uploadTitle" type="text" placeholder="title">
+			</div>
+		</div>
+		<div class="flex mb-6">
+			<div class="flex items-center md:w-1/3">
+				<label class="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="uploadTitle">
+					Description
+				</label>
+			</div>
+			<div class="flex items-center w-full md:w-2/3">
+				<textarea required name="description"
+				class="border-2 border-gray-600 rounded w-full py-2 px-4 hover:border-orange-500
+					text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
+					id="uploadDescription"	placeholder="enter description"></textarea>
+			</div>
+		</div>
+		<div class="flex mb-6">
+			<div class="flex items-center md:w-1/3">
+				<label class="block uppercase text-gray-700 text-base font-bold mb-2" for="grid-state">
+					Choose flag
+				</label>
+			</div>
+			<div class="flex items-center w-full md:w-2/3">
+				<select id="setFlag" name="flag" 
+				class="block appearance-none w-full bg-white border-2 border-gray-600 hover:border-orange-500 px-4 py-2 pr-8 rounded
 						shadow leading-tight focus:outline-none focus:shadow-outline mb-8">
-						<option value="client/misc/">misc</option>
-						<option value="admin">admin</option>
-						<option value="client/registered/">free for registered</option>
-						<option value="client/subscribed/">premium clients</option>
-					</select>
-				</div>
+					<option value="free">free</option>
+					<option value="registered">registered users</option>
+					<option value="purchase">purchase</option>
+				</select>
 			</div>
-			<div class="flex mb-6">
-				<div class="flex items-center md:w-1/3">
-					<label class="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" 
-					for="uploadTitle">
-						Title
-					</label>
-				</div>
-				<div class="flex items-center w-full md:w-2/3">
-					<input required name="file_title"
-						class="bg-white border-2 border-gray-600 rounded w-full py-2 px-4 hover:border-orange-500
-						text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
-						id="uploadTitle" type="text" placeholder="title">
-				</div>
+		</div>
+		<div class="flex mb-6">
+			<div class="flex items-center md:w-1/3">
+				<label class="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="uploadTitle">
+					Cost (USD)
+				</label>
 			</div>
-			<div class="flex mb-6">
-				<div class="flex items-center md:w-1/3">
-					<label class="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="uploadTitle">
-						Description
-					</label>
-				</div>
-				<div class="flex items-center w-full md:w-2/3">
-					<textarea required name="description"
+			<div class="flex items-center w-full md:w-2/3">
+				<input type="number" id="fileCost" name="cost" min="0" placeholder="0.0" required
 					class="border-2 border-gray-600 rounded w-full py-2 px-4 hover:border-orange-500
-						text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
-						id="uploadDescription"	placeholder="enter description"></textarea>
-				</div>
+					text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500">
 			</div>
-			<div class="flex mb-6">
-				<div class="flex items-center md:w-1/3">
-					<label class="block uppercase text-gray-700 text-base font-bold mb-2" for="grid-state">
-						Choose flag
-					</label>
-				</div>
-				<div class="flex items-center w-full md:w-2/3">
-					<select id="setFlag" name="flag" 
-					class="block appearance-none w-full bg-white border-2 border-gray-600 hover:border-orange-500 px-4 py-2 pr-8 rounded
-						 shadow leading-tight focus:outline-none focus:shadow-outline mb-8">
-						<option value="free">free</option>
-						<option value="registered">registered users</option>
-						<option value="purchase">purchase</option>
-					</select>
-				</div>
-			</div>
-			<div class="flex mb-6">
-				<div class="flex items-center md:w-1/3">
-					<label class="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="uploadTitle">
-						Cost (USD)
-					</label>
-				</div>
-				<div class="flex items-center w-full md:w-2/3">
-					<input type="number" id="fileCost" name="cost" min="0" placeholder="0.0" required
-						class="border-2 border-gray-600 rounded w-full py-2 px-4 hover:border-orange-500
-						text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500">
-				</div>
-			</div>
-			<div class="flex items-center justify-between mt-4">
-				<button
-					class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold
-					hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded"
-					type="submit">
-					Upload file
+		</div>
+		<div class="flex items-center justify-between mt-4">
+			<button
+				class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold
+				hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded"
+				type="submit">
+				Upload file
+			</button>
+			<a href="{{url_for('landing_page.index')}}">
+				<button 
+					class="inline-block align-baseline font-bold text-sm text-red-500 hover:text-red-800" 
+					type="button">
+					Cancel
 				</button>
-				<a href="{{url_for('landing_page.index')}}">
-					<button 
-						class="inline-block align-baseline font-bold text-sm text-red-500 hover:text-red-800" 
-						type="button">
-						Cancel
-					</button>
-				</a>
-			</div>
-		</form>
-	</div>
+			</a>
+		</div>
+	</form>
+</div>
 	
 {% endblock content %}

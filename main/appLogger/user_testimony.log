@@ -1,0 +1,4 @@
+WARNING:root:1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%s,%s,%s)' at line 2
+INFO:werkzeug:127.0.0.1 - - [22/May/2020 12:05:32] "[32mPOST /testimony/new HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [22/May/2020 12:05:32] "[37mGET /testimony/new HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in '/home/james/Documents/projects/LPG/main/testimony/route.py', reloading

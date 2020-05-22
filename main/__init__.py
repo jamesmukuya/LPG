@@ -29,6 +29,7 @@ from main.userAuth.route import user_auth
 from main.services.route import services
 from main.resources.route import resources
 from main.contact.route import contact
+from main.testimony.route import testimony
 from main.blog.route import blog
 
 # blueprint routes registration
@@ -40,4 +41,5 @@ app.register_blueprint(user_auth)
 app.register_blueprint(services)
 app.register_blueprint(resources)
 app.register_blueprint(contact)
+app.register_blueprint(testimony)
 app.register_blueprint(blog)

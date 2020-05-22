@@ -100,37 +100,19 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 	</div>
 	<div class="testimonial-wrapper">
 		<!--///use loop-->
-		<div class="h-auto max-w-sm rounded overflow-y-scroll shadow-lg bg-white m-4 px-6 py-4">
-				<div class="font-bold text-xl mb-2">My name 1</div>
-				<p class="text-gray-700 text-base">
-					"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-					eaque, exercitationem praesentium nihil."
-				</p>
-		</div>
-
-		<div class="h-auto max-w-sm rounded overflow-y-scroll shadow-lg bg-white m-4 px-6 py-4">
-			<div class="font-bold text-xl mb-2">My name 1</div>
-			<p class="text-gray-700 text-base">
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-				eaque, exercitationem praesentium nihil."
+		{% for test in testimony %}
+		<div class="h-auto rounded shadow-lg bg-white m-4 px-6 py-4">
+			<span class="text-4xl">"</span>
+			<p class="text-gray-700 text-xl text-left font-medium">
+				{{test.testimony}}
 			</p>
+			<span class="flex w-full justify-end text-4xl">"</span>
+			<div class="flex flex-col items-center mt-4">
+				<div class="flex font-bold font-sans text-xl text-orange-500 mb-2">{{test.client_name}}</div>
+				<div class="flex font-semibold font-sans text-lg">{{test.client_job}}</div>
+			</div>
 		</div>
-
-		<div class="h-auto max-w-sm rounded overflow-y-scroll shadow-lg bg-white m-4 px-6 py-4">
-			<div class="font-bold text-xl mb-2">My name 1</div>
-			<p class="text-gray-700 text-base">
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-				eaque, exercitationem praesentium nihil."
-			</p>
-		</div>
-
-		<div class="h-auto max-w-sm rounded overflow-y-scroll shadow-lg bg-white m-4 px-6 py-4">
-			<div class="font-bold text-xl mb-2">My name 1</div>
-			<p class="text-gray-700 text-base">
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-				eaque, exercitationem praesentium nihil."
-			</p>
-		</div>
+		{% endfor %}
 
 	</div>
 	<!--take the next step link-->
