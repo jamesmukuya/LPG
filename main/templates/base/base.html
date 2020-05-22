@@ -18,12 +18,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
       href="{{ url_for('static', filename='css/tailwind/tailwind.min.css') }}"/>
-      {#
-    <link rel="stylesheet" type="text/css"
-      href="{{ url_for('static', filename='css/custom/custom.css') }}"/>
-      #}
+    {#
+    <link rel="stylesheet" type="text/css" 
+    href="{{ url_for('static', filename='css/custom/body.css') }}" />
+    #}
     <link rel="stylesheet" type="text/css"
       href="{{ url_for('static', filename='css/custom/navbar.css') }}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
       rel="stylesheet"/>
@@ -47,17 +49,17 @@
       </div>
       <div id="btnDiv" class="nav-links">
         <button class="nav_btn active"><a href="{{url_for('landing_page.index')}}">HOME</a></button>
-        <button class="nav_btn"><a href="{{url_for('areWeAfit_page.index')}}">ARE WE A FIT?</a></button>
-        <button class="nav_btn"><a href="{{url_for('coaching.coaching_page')}}">COACHING</a></button>
+        <button class="nav_btn"><a href="{{url_for('services.services_page')}}">SERVICES</a></button>
         <!--
+          <button class="nav_btn"><a href="{{url_for('areWeAfit_page.index')}}">ARE WE A FIT?</a></button>
           <button class="btn"><a href="#">SPEAKING</a></button>
-          <button class="btn"><a href="#">BLOG</a></button>
         -->
         {% if session.is_staff %}
         <button class="nav_btn"><a href="{{url_for('upload_file.upload')}}">UPLOAD RESOURCE</a></button>
         {% endif %}
         <button class="nav_btn"><a href="{{url_for('resources.resources_page')}}">RESOURCES</a></button>
         <button class="nav_btn"><a href="{{url_for('contact.contact_page')}}">CONTACT</a></button>
+        <button class="nav_btn"><a href="{{url_for('blog.blog_page')}}">BLOG</a></button>
       </div>
       <div class="flex justify-end">
         <div id="navBurger" class="burger">

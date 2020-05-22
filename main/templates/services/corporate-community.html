@@ -1,0 +1,108 @@
+{% extends "base/base.html" %}
+{% block title %} {{title}} {% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/body.css') }}" />
+{% endblock stylesheets %}
+
+{% block content %}
+<!-- body div-->
+<div class="flex-col bg-cover bg-fixed bg-right bg-no-repeat"
+  style="background-image: url('static/images/corporate_community/perry-grone-lbLgFFlADrY-unsplash.jpg');">
+  <span class="text-xs text-white">Photo by Perry Grone on Unsplash</span>
+  <!-- intro are we a fit -->
+  <div class="bg-orange-300 font-bold italic text-xl text-center py-4 lg:px-4">
+    Are we what you are looking for?
+    <div class="p-2 items-center not-italic text-base text-gray-700 leading-none lg:rounded-full flex lg:inline-flex"
+      role="">
+      <span class="font-hairline mr-2  text-center flex-auto">
+        Read below to see our focus areas
+      </span>
+    </div>
+  </div>
+
+  <div class="fit-wrapper flex-col">
+    <!--///use loop-->
+    <div class="max-w-md rounded overflow-hidden shadow-lg m-4">
+      <div class="px-6 py-4 bg-white">
+        <div class="font-bold text-xl mb-2">Motivational talks</div>
+        <p>I help your teams to spark to life there ideas and explore new possibilities, thereby enhancing consistency
+          and growth.
+        </p>
+          <p class="font-bold">Focus Areas</p>
+        <ul class="fit-detail-list">
+          <li>Staff motivation Talks</li>
+          <li>Retreats/Parties</li>
+          <li>University/College/High school </li>
+          <li>Goal Setting</li>
+          <li>Mentorship</li>
+          <li>Group Coaching</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-md rounded overflow-hidden shadow-lg m-4">
+      <div class="px-6 py-4 bg-white">
+        <div class="font-bold text-xl mb-2">Corporate training</div>
+        <p>This program is meant to birth new skills by helping your staff to come up with ways of becoming more
+          efficient and productive while boosting their self-esteem and sense of team work.
+        </p>
+        <p class="font-bold">Focus Areas</p>
+        <ul class="fit-detail-list">
+          <li>Customer Service</li>
+          <li>Leadership Training</li>
+          <li>Personal Branding</li>
+          <li>Team Work</li>
+          <li>Stress Management</li>
+          <li>Time Management</li>
+          <li>Financial Management</li>
+          <li>Personal Development</li>
+          <li>Communication</li>
+          <li>Change Management</li>
+          <li>Life Skill Training</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-md rounded overflow-hidden shadow-lg m-4">
+      <div class="px-6 py-4 bg-white">
+        <div class="font-bold text-xl mb-2">Mentorship training</div>
+        <p>This program is meant to bring about personal identity and awareness, 
+          identification of gifts thereby helping
+          individuals to work better and function better in the society.
+        </p>
+        <p class="font-bold">Focus Areas</p>
+        <ul class="fit-detail-list">
+          <li>Identify your purpose in life</li>
+          <li>Knowing your Identity</li>
+          <li>Self esteem</li>
+          <li>Career Choice and peer pressure</li>
+          <li>Relationship, Sexuality/ Hiv& Aids</li>
+          <li>Drug & Substance Abuse</li>
+          <li>Depression and suicidal Tendencies</li>
+          <li>Media/Technology Exposure</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <!--end are we a fit-->
+    <div class="bg-white font-bold italic text-xl text-center py-4 lg:px-4">
+      Are We A fit?
+    </div>
+
+  </div>
+  <!--take the next step link-->
+  <div class="next-step-div">
+    <a href="{{url_for('services.services_page')}}">
+      <button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
+					hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded">
+        TAKE THE NEXT STEP
+      </button>
+    </a>
+  </div>
+</div>
+
+
+{% endblock content %}

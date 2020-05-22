@@ -18,17 +18,17 @@
 	</div>
 	<!--resource wrapper-->
 	{% for files in filename %}
-	<div class="testimonial-wrapper">
+	<div class="testimonial-wrapper flex flex-wrap">
 		<!--///use loop///-->
 		<div
-		class="resource h-auto max-w-lg rounded overflow-y-scroll shadow-lg bg-white m-4">
+		class="resource  h-auto rounded overflow-y-scroll shadow-lg bg-white m-4">
 			<div class="flex-col justify-between px-6 py-4">
 				<!--id and name will be dynamic-->
 				<div class="flex justify-between font-bold text-l mb-2">
 					<span>{{files.file_title}} </span>
 				</div>
 				<p class="flex justify-between font-bold text-l mb-2">
-					<span class="resource-tag text-gray-500 text-sm"> {{files.file_flag}} </span>
+					<span class="resource-tag text-gray-500 text-sm mr-2"> {{files.file_flag}} </span>
 					<span class="resource-tag text-orange-500 text-base">USD {{files.file_cost}} </span>
 				</p>
 				<p class="text-gray-700 text-base">
@@ -91,7 +91,7 @@
 	</div>
 	<!--take the next step link-->
 	<div class="next-step-div">
-		<a href="{{url_for('coaching.coaching_page')}}">
+		<a href="{{url_for('services.services_page')}}">
 			<button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
 					hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded">
 				TAKE THE NEXT STEP

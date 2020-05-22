@@ -1,0 +1,48 @@
+{% extends "base/base.html" %}
+{% block title %} {{title}} {% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/body.css') }}" />
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="flex-col">
+  <!--Blog header-->
+  <div class="bg-orange-400 text-center py-4 lg:px-4">
+    <div class="p-2 bg-transparent items-center leading-none lg:rounded-full flex lg:inline-flex" role="">
+      <span class="text-black font-semibold mr-2 text-center text-lg flex-auto">BLOGS</span>
+    </div>
+  </div>
+  <div class="flex flex-wrap m-2">
+    <div class="max-w-4xl h-64 rounded overflow-hidden overflow-y-scroll shadow-lg bg-white">
+      <img class="w-1/2" src="/img/card-top.jpg" alt="author-">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+        </p>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+        </p>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+        </p>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 py-4">
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

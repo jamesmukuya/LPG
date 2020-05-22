@@ -5,7 +5,6 @@
 <link rel="stylesheet" type="text/css" 
 href="{{ url_for('static', filename='css/custom/body.css') }}" />
 <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
 {% endblock stylesheets %}
 
 {% block content %}
@@ -67,13 +66,11 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 				relationships with my clients are intimate, honest, and rewarding.
 			</p>
 			<p class="detail-paragraph">
-				I am a Certified Life Coach (CLC) but my most important and extensive training comes from my life experiences and
-				gifts. Getting to the other side of career confusion and business failure, debt, family break-downs, relationship
-				issues and endings, have taught me life lessons that I am inspired to teach you. I believe we are all our own best
-				inner counsellor and coach, but sometimes we simply need someone else to help get us started. Coaching sessions can
-				be conducted via phone, Skype or in person. A minimum three months commitment is required up front because that
-				gives you time to truly create change in your life. I also offer one-day intensive breakthrough sessions for people
-				seeking immediate clarity.
+				I am a Certified Life Coach (CLC) and trainer but my most important and extensive training comes from my life
+				experiences. I believe we are all our own best inner counsellor and coach, but sometimes we simply need someone else
+				to help get us started. Personal Coaching sessions can be conducted via phone, Skype or in person. A minimum three
+				months commitment is required up front because that gives you time to truly create change in your life. I also offer
+				one-day intensive breakthrough sessions for individuals and groups seeking immediate clarity.
 			</p>
 			<p class="detail-paragraph">
 				My clients are very diverse in terms of demographics. I work with men and women of all ages who are CEO’s,
@@ -81,6 +78,12 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 				yearning for more aligned success, connection, fulfillment, and impact. I only work with four clients at a time who
 				are committed to being held accountable, showing up 100% for each session, and are willing to be break out of their
 				comfort zone.
+			</p>
+			<p class="detail-paragraph">
+				I also work with groups at corporate and community levels to help bring out the best in their teams, improve
+				cohesiveness and leverage on strengths of their members.
+			</p>
+			<p class="detail-paragraph">
 				Wishing you many blessings on your journey and I acknowledge you for knowing and seeing your true potential. I look
 				forward to working with you or recommending another coach that is a fit. I am here to support you!
 			</p>
@@ -132,7 +135,7 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 	</div>
 	<!--take the next step link-->
 	<div class="next-step-div">
-		<a href="{{url_for('coaching.coaching_page')}}">
+		<a href="{{url_for('services.services_page')}}">
 			<button class="bg-transparent hover:bg-orange-400 text-lg text-orange-500 font-semibold 
 					hover:text-black py-2 px-4 border border-orange-500 hover:border-transparent rounded">
 				TAKE THE NEXT STEP
