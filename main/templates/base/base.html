@@ -160,11 +160,11 @@
   <!-- NAVBAR SCRIPT -->
   <script src="{{ url_for('static',filename='js/custom/navbar.js') }}" type="text/javascript">
   </script>
+  {% block scripts %}
+  {% endblock scripts %}
   {#
     <!-- CUSTOM SCRIPT -->
-    #}
-  {% block scripts %}
-  <script src="{{ url_for('static',filename='js/axios/axios.min.js') }}"></script>
-  {% endblock scripts %}
+    <script src="{{ url_for('static',filename='js/axios/axios.min.js') }}"></script>
+  #}
   </body>
 </html>

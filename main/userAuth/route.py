@@ -39,7 +39,7 @@ def login():
                 session_in_data.update(user_data)
                 session.update(session_in_data)
                 flash(f'{last_name}, {first_name}', 'Welcome')
-
+                #print(session)
                 # insert session data in database
                 user_session_in(user_data.get('id'))
 
@@ -79,10 +79,12 @@ def staff_login():
         staff = User()
         # pass in the staff number for query
         staff_data = staff.get_staff(staff_number)
+        staff_id = staff.get_staff_id(staff_number)
         staff_password = staff_data.get('user_password')
         # check if credentials provided are correct
         if staff_data and bcrypt.check_password_hash(staff_password, password):
             # start a session with the user
+            session['staff_id'] = staff_id.get('id')
             session_staff_data.update(staff_data)
             # update the entire session
             session.update(session_staff_data)

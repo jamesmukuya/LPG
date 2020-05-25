@@ -92,6 +92,17 @@ form-div{
     }
 }
 
+/* BLOG PAGE */
+.reply-sub-comment{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 20rem;
+    max-width: 42rem;
+    margin-bottom: 1rem;
+    background-color:azure;
+}
+
 @media screen and (max-width:1024px) {
     body {
         overflow: scroll;

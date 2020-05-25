@@ -38,22 +38,4 @@ def get_testimonials():
 		return data
 	except (sql.Error, sql.Warning) as e:
 		print(e)
-
-
-
-"""
-    try:
-			myCur.execute(testimony_query)
-			# store results in an object
-			data = myCur.fetchall()
-			# close cursor
-			myCur.close()
-			# close connection
-			con.close()
-			# return the data
-			print(data)
-			return data
-    except (sql.Error, sql.Warning) as e:
-			# log the error
-			print(e)
-"""
+		# log the error

@@ -13,36 +13,97 @@
       <span class="text-black font-semibold mr-2 text-center text-lg flex-auto">BLOGS</span>
     </div>
   </div>
-  <div class="flex flex-wrap m-2">
-    <div class="max-w-4xl h-64 rounded overflow-hidden overflow-y-scroll shadow-lg bg-white">
-      <img class="w-1/2" src="/img/card-top.jpg" alt="author-">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
+  <!-- // LOOP BLOGS //-->
+  {% for blog in blogs %}
+  
+  <div class="flex flex-col m-2">
+    <!-- blog 1-->
+    <div class="blog-wrapper max-w-4xl h-64 rounded overflow-hidden overflow-y-scroll shadow-lg bg-white">
+      <div class="flex justify-between">
+        <label class="w-1/2 m-2 p-2">Author: <strong>{{blog.last_name}}, {{blog.first_name}} </strong></label>
+        <label class="w-1/2 m-2 p-2">Date: {{blog.date_created.strftime('%d-%m-%Y')}} </label>
       </div>
       <div class="px-6 py-4">
-        <span
-          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
-        <span
-          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+        <div class="font-bold text-xl mb-2">{{blog.blog_title}}</div>
+        <p class="text-gray-700 text-base">
+          {{blog.blog_content}}
+        </p>
       </div>
     </div>
+    <div class="px-6 py-4">
+      <div class="flex">
+        <button id="comm_{{blog.id}}" class="comment-btn flex text-center text-sm hover:text-orange-400 mr-3 p-2">
+          <i class="material-icons">comment</i>comment
+        </button>
+        <button class="flex text-center text-sm hover:text-red-400 mx-3 p-2">
+          <i class="material-icons">delete_outline</i>delete
+        </button>
+      </div>
+    </div>
+    <!-- comment text area usually hidden -->
+    <div id="text_{{blog.id}}" class="flex-col reply-main-comment max-w-3xl hidden">
+      <form class="" action="{{ url_for('blog.blog_reply') }}" method="POST">
+        <div class="">
+          <textarea id="comment_reply_{{blog.id}}" class="h-32 border-2 border-gray-600 rounded w-full py-2
+          px-4 hover:border-orange-500 text-gray-700 leading-tight focus:outline-none focus:bg-white
+          focus:border-orange-500" required></textarea>
+        </div>
+        <div class="flex px-3 py-2">
+          <button id="post_{{blog.id}}" 
+            class="post-comment flex text-center text-sm hover:text-orange-400 mr-3 p-2">
+            <i class="material-icons">add</i>post</button>
+          <button class="flex text-center text-sm hover:text-red-400 mx-3 p-2">
+            <i class="material-icons">remove_circle_outline</i>cancel</button>
+        </div>
+      </form>
+    </div>
+    <!-- comment replies -->
+    <div class="reply-sub-comment">
+      <!-- comment 1-->
+      <label class="w-1/2 m-2 p-2">Author: </label>
+      <div class="flex border-l-2 border-gray-500 px-2 m-2">
+        <p class="text-gray-700 text-base bg-orange-200 p-2">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+      </div>
+      <div class="flex px-3 py-2">
+        <button class="flex text-center text-sm hover:text-orange-400 mr-3 p-2"><i
+            class="material-icons">reply</i>reply</button>
+      </div>
+      <!-- reply comment text area usually hidden -->
+      <div class="flex-col reply-main-comment max-w-3xl">
+        <div class="">
+          <textarea name="subcomment_reply" class="h-32 border-2 border-gray-600 rounded w-full py-2 px-4 hover:border-orange-500
+            text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"></textarea>
+        </div>
+        <div class="flex px-3 py-2">
+          <button class="flex text-center text-sm hover:text-orange-400 mr-3 p-2"><i
+              class="material-icons">add</i>post reply</button>
+          <button class="flex text-center text-sm hover:text-red-400 mx-3 p-2"><i
+              class="material-icons">remove_circle_outline</i>cancel</button>
+        </div>
+      </div>
+      <!-- comment 2-->
+      <label class="w-1/2 m-2 p-2">Author: </label>
+      <div class="flex border-l-2 border-gray-500 px-2 m-2">
+        <p class="text-gray-700 text-base bg-orange-200 p-2">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+      </div>
+      <div class="flex px-3 py-2">
+        <button class="flex text-center text-sm hover:text-orange-400 mr-3 p-2"><i
+            class="material-icons">reply</i>reply</button>
+        <button class="flex text-center text-sm hover:text-red-400 mx-3 p-2"><i
+            class="material-icons">remove_circle_outline</i>cancel</button>
+      </div>
+    </div>
+    <!-- POST SEPARATOR -->
+    <div class="flex w-full border-2 border-gray-700"></div>
   </div>
+  {% endfor %}
 </div>
 {% endblock content %}
+
+{% block scripts %}
+<script src="{{ url_for('static',filename='js/custom/blogPage.js') }}"></script>
+{% endblock scripts %}

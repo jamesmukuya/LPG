@@ -7,6 +7,7 @@ class User:
     """
     user_data = {}
     staff_data = {}
+    staff_id = {}
 
     def get_user(self, e):
         # create a new object from class
@@ -17,8 +18,11 @@ class User:
         #myCur = con.cursor()
         myCur = con.cursor(buffered=True, dictionary=True)
         # make a query on the basic_user_details table
-        query = "select * from basic_user_details where email = %(email)s\
-            limit 1"
+        query = """select basic_user_details.id, first_name, last_name, email,
+        user_password, user_registration.id as reg_id,basic_user_details_id
+        from basic_user_details inner join user_registration
+        on basic_user_details_id = basic_user_details.id where email = %(email)s
+        limit 1"""
         # execute the query
         myCur.execute(query, {'email': e})
         # get data from the returned query object
@@ -52,6 +56,28 @@ class User:
         # return required data
         self.staff_data = data
         return self.staff_data
+
+    def get_staff_id(self, e):
+        # create a new object from class
+        conn = Connect()
+        # establish the connection
+        con = conn.connect_db()
+        # create a cursor
+        #myCur = con.cursor()
+        myCur = con.cursor(buffered=True, dictionary=True)
+        # make a query on the basic_user_details table
+        query = (
+            "select id from employee "
+            "WHERE employee.emp_no = %(emp_no)s"
+        )
+        # execute the query
+        myCur.execute(query, {'emp_no': e})
+        # get data from the returned query object
+        data = myCur.fetchone()
+        con.close()
+        # return required data
+        self.staff_id = data
+        return self.staff_id
 
     def get_email(self):
         """
