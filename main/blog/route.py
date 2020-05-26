@@ -14,7 +14,7 @@ blog = Blueprint('blog', __name__)
 # VIEWS #
 
 # visible to anyone
-@blog.route("/blog")
+@blog.route("/blog", methods=["GET","POST"])
 def blog_page():
   blogs = get_blogs()
   context = {"blogs": blogs}
@@ -41,18 +41,22 @@ def blog_post():
 # comment/reply post route only for registered users accepts posts only
 @blog.route("/blog/reply", methods=["POST"])
 def blog_reply():
+  #if request.method=="POST":
   # check if user is registered
-  if request.method == "POST":
-    if session['logged_in'] == True:
-      req = request.get_json()
-      #print(req)
-      # get id of blog being replied to
-      main_blogs_id = req.get('post_id')
-      blog_reply = req.get('post_content')
-      user_registration_id = session['reg_id']
-      # submit to database
-      reply_blog(blog_reply, main_blogs_id, user_registration_id)
-      return redirect(url_for('blog.blog_page'))
+  if session['logged_in'] == True:
+    req = request.get_json()
+    # get id of blog being replied to
+    main_blogs_id = req.get('post_id')
+    blog_reply = req.get('post_content')
+    user_registration_id = session['reg_id']
+    # submit to database
+    reply_blog(blog_reply, main_blogs_id, user_registration_id)
+
+    # make response
+    if request.headers['Content-Type']=='application/json':
+      res = make_response(jsonify(main_blogs_id, blog_reply), 200)
+      return res
+    
 
 # edit route takes in the blog id
 @blog.route("/blog/edit/<int:id>",methods=["GET","POST"])
@@ -76,8 +80,10 @@ def get_blogs():
 
   # get blogs and details of who posted
   blogs_query = """
-  select main_blogs.id,blog_title,blog_content,date_created,last_name,first_name
-  from main_blogs inner join employee on employee_id = employee.id 
+  select main_blogs.id,blog_title,blog_content,date_created,last_name,first_name,
+  blog_reply,reply_date,main_blogs_id,basic_user_details_id
+  from main_blogs left join blogs_history 
+  on main_blogs.id = main_blogs_id inner join employee on employee_id = employee.id 
   inner join basic_user_details on basic_user_details_id = basic_user_details.id;
   """
   #reqs="main_blogs.id,blog_title,blog_content,date_created,last_name,first_name"

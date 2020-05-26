@@ -14,19 +14,26 @@ for (p_btn of blogPageElements.post_comment) {
   p_btn.addEventListener('click', postComment);
 }
 
+// test //
+function btnclick(e) {
+  //e.preventDefault()
+  console.log('button clicked',e.target.id)
+}
+
 // when the comment btn is clicked
 function display_hide_textarea(el) {
   // get id of the button that clicked and split to attain base id
-  base_id = el.target.id.split('comm_')[1];
+  let base_id = el.target.id.split('comm_')[1];
   // get required textarea div using text_+base_id
-  textarea_div = document.getElementById('text_' + base_id);
+  let textarea_div = document.getElementById('text_' + base_id);
   // toggle hidden attr of the textarea
   textarea_div.classList.toggle('hidden');
 }
 
+
 function postComment(el) {
   // get base id
-  base_id = parseInt(el.target.id.split('post_')[1]);
+  let base_id = parseInt(el.target.id.split('post_')[1]);
   // get text area content
   let contentArea = document.getElementById('comment_reply_' + base_id);
   let content = contentArea.value;
@@ -41,7 +48,6 @@ function postComment(el) {
     post_content: content,
   }
   
-  console.log( 'button clicked');
   // post the contents to blog/reply
   fetch(`${window.location.origin}/blog/reply`, {
       method: "POST",
@@ -55,11 +61,11 @@ function postComment(el) {
     // response object
     .then(function (response) {
       if (response.status !== 200) {
-        alert('your request was not sent', response.status);
+        alert('your post was not sent', response.status);
         return;
       }
       response.json().then(function (data) {
-        console.log(data);
+        console.log('response data',data);
         //alert(`The file was sent to ${file_content_request.email}`)
       })
     })
@@ -68,7 +74,9 @@ function postComment(el) {
       //alert('an error has occured', error); failed to fetch
     })
   // get required textarea div using text_+base_id
-  textarea_div = document.getElementById('text_' + string(base_id));
+  textarea_div = document.getElementById('text_' + String(base_id));
   // toggle hidden attr of the textarea
   textarea_div.classList.toggle('hidden');
+  // prevent page refresh
+  // el.preventDefault();
 }

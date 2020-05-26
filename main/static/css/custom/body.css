@@ -102,6 +102,14 @@ form-div{
     margin-bottom: 1rem;
     background-color:azure;
 }
+.blog-wrapper {
+    overflow: hidden;
+    overflow-y: auto;
+    max-width: 56rem;
+    height: auto;
+    max-height: 15rem;
+
+}
 
 @media screen and (max-width:1024px) {
     body {
