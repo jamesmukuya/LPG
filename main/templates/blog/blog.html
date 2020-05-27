@@ -30,18 +30,20 @@
         </p>
       </div>
     </div>
+    <!--
     <div class="px-6 py-4">
       <div class="flex">
         <button id="comm_{{blog.id}}" class="comment-btn flex text-center text-sm hover:text-orange-400 mr-3 p-2">
           <i class="material-icons">comment</i>comment
         </button>
-        <!--
+        
           <button class="flex text-center text-sm hover:text-red-400 mx-3 p-2">
             <i class="material-icons">delete_outline</i>delete
           </button>
-        -->
+        
       </div>
     </div>
+    -->
     <!-- comment text area usually hidden -->
     <div id="text_{{blog.id}}" class="flex-col reply-main-comment max-w-3xl hidden">
       <form class="" action="{{url_for('blog.blog_page')}}" method="POST">
@@ -59,7 +61,8 @@
         </div>
       </form>
     </div>
-    <!-- comment replies -->
+    <!-- comment replies will hide replies for now -->
+    {#
     <div class="reply-sub-comment">
       {% if blog.blog_reply != None %}
       <!-- comment 1-->
@@ -76,7 +79,7 @@
             class="material-icons">reply</i>reply</button>
       </div>
       <!-- reply comment text area usually hidden -->
-      <div class="flex-col reply-main-comment max-w-3xl">
+      <div class="flex-col reply-main-comment max-w-3xl hidden">
         <div class="">
           <textarea name="subcomment_reply" class="h-32 border-2 border-gray-600 rounded w-full py-2 px-4 hover:border-orange-500
             text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"></textarea>
@@ -90,6 +93,7 @@
         {% endif %}
       </div>
     </div>
+    #}
     <!-- POST SEPARATOR -->
     <div class="flex w-full border-2 border-gray-700"></div>
   </div>

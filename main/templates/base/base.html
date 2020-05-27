@@ -40,21 +40,21 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-  <!-- NAV BAR -->
+    <!-- NAV BAR -->
     <nav class="nav-bar">
       <div class="logo">
         <a href="{{url_for('landing_page.index')}}">
-          <img src="{{ url_for('static', filename='images/susan_pics/nav_logo_final.png') }}" 
-               alt="nav logo" style="width: 350px; height: 100px;">
+          <img src="{{ url_for('static', filename='images/susan_pics/nav_logo_final.png') }}" alt="nav logo"
+            style="width: 350px; height: 100px;">
         </a>
       </div>
       <div id="btnDiv" class="nav-links">
-        <button class="nav_btn active"><a href="{{url_for('landing_page.index')}}">HOME</a></button>
+        <button class="nav_btn"><a href="{{url_for('landing_page.index')}}">HOME</a></button>
         <button class="nav_btn"><a href="{{url_for('services.services_page')}}">SERVICES</a></button>
         <!--
-          <button class="nav_btn"><a href="{{url_for('areWeAfit_page.index')}}">ARE WE A FIT?</a></button>
-          <button class="btn"><a href="#">SPEAKING</a></button>
-        -->
+        <button class="nav_btn"><a href="{{url_for('areWeAfit_page.index')}}">ARE WE A FIT?</a></button>
+        <button class="btn"><a href="#">SPEAKING</a></button>
+      -->
         {% if session.is_staff %}
         <button class="nav_btn"><a href="{{url_for('upload_file.upload')}}">UPLOAD RESOURCE</a></button>
         <button class="nav_btn"><a href="{{url_for('testimony.add_testimony')}}">ADD TESTIMONY</a></button>
@@ -63,7 +63,7 @@
         <button class="nav_btn"><a href="{{url_for('contact.contact_page')}}">CONTACT</a></button>
         <button class="nav_btn"><a href="{{url_for('blog.blog_page')}}">BLOG</a></button>
       </div>
-      <div class="flex justify-end">
+      <div class="flex justify-end w-full">
         <div id="navBurger" class="burger">
           <div class="line1"></div>
           <div class="line2"></div>
@@ -71,13 +71,13 @@
         </div>
         <!-- if user is authorized -->
         {% if session.logged_in %}
-        <div class="user-auth pl-12 pr-2 text-orange-500" id="userAuth">
+        <div class="user-auth pl-12 pr-2 text-orange-500">
           <button class="logout-btn"><a href="{{url_for('user_auth.logout')}}">Logout</a></button>
         </div>
         {{ session.last_name }},{{ session.first_name }}
         {% else %}
         <!-- if user is not authenticated display login-->
-        <div class="user-auth pl-8 text-orange-500" id="userAuth">
+        <div class="user-auth pl-8 text-orange-500">
           <button class="login-btn"><a href="{{url_for('user_auth.login')}}">Login</a></button>
         </div>
         {% endif %}
@@ -111,8 +111,12 @@
         {% endif %} 
       {% endwith %} 
     </div>
-    
-    {% block content %}{%endblock content %}
+
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+      {% block content %}{%endblock content %}
+    </div>
+
     <p class="footer text-center text-white text-sm bg-gray-700">
       &copy;2020 Living Peak Group. All rights reserved.
     </p>

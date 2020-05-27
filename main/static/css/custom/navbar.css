@@ -37,7 +37,7 @@ nav{
 	font-size: 32px;
 }
 
-.nav-links nav_btn{
+.nav-links .nav_btn{
 	outline: none;
 }
 
@@ -68,11 +68,31 @@ nav{
 	margin: 5px;
 }
 
-@media screen and (max-width:1024px){
+/* SCREEN RESPONSE */
+@media screen and (max-width:1440px) {
 	.nav-links {
-		width: 60%;
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		letter-spacing: 2px;
+		font-weight: bold;
+		font-size: 32px;
+		transition: font-size 0.5s;
 	}
 }
+
+@media screen and (max-width:1024px){
+	.nav-links {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		letter-spacing: 2px;
+		font-weight: bold;
+		font-size: 28px;
+		transition: font-size 0.5s;
+	}
+}
+
 
 @media screen and (max-width:1023px){
 	body{
@@ -100,10 +120,40 @@ nav{
 	}
 }
 
+@media screen and (max-width:500px) {
+
+	.nav-links {
+		width: 50%;
+	}
+
+	.page-content {
+		margin-top: 1rem;
+	}
+
+}
+
+
+@media screen and (max-width:400px) {
+	.nav-bar{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.nav-links {
+		width: 50%;
+	}
+	.page-content{
+		margin-top: 2rem;
+	}
+	
+}
+
+/* WHEN YOU CLICK THE BURGER DIVS */
 .nav-active{
 	transform: translateX(0%);
 	z-index: 2;
 }
+
 /*
 .active{
 	color:#ed8936;

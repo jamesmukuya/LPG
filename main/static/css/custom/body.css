@@ -40,6 +40,12 @@
     font-family: 'Marck Script', cursive;
 }
 
+.resource-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .next-step-div{
     display: flex;
     justify-content: center;
@@ -110,6 +116,11 @@ form-div{
     max-height: 15rem;
 
 }
+@media screen and (max-width:1440px){
+    .cc-card-title {
+        color: cyan;
+    }
+}
 
 @media screen and (max-width:1024px) {
     body {
@@ -126,6 +137,9 @@ form-div{
     .attr-div {
         font-size: 1.0rem;
         height: 3rem;
+    }
+    .cc-card-title {
+        color: cyan;
     }
 }
 @media screen and (max-width:800px) {
@@ -149,10 +163,13 @@ form-div{
         font-size: 0.7rem;
         height: 2rem;
     }
-    .testimonial-wrapper {
+    .testimonial-wrapper .resource-wrapper {
         display: flex;
         justify-content: space-between;
         overflow-x: hidden;
+    }
+    .cc-card-title {
+        color: black;
     }
 }
 
@@ -172,7 +189,7 @@ form-div{
         font-size: 1.0rem;
         height: 1.5rem;
     }
-    .testimonial-wrapper {
+    .testimonial-wrapper .resource-wrapper{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -207,5 +224,19 @@ form-div{
     .how-it-works-wrapper{
         display: flex;
         flex-direction: column;
+    }
+    .services-card{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:375px){
+    .cc-card{
+        display: flex;
+        flex-direction: column;
+    }
+    .cc-card-title {
+        color: aquamarine;
     }
 }

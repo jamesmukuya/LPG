@@ -97,13 +97,9 @@
 					type="submit">
 					Register
 				</button>
-				
-				{#
-				{{
-				form.submit(class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none
-				focus:shadow-outline")
-				}}
-				#}
+				<p class="text-center text-black text-xs mx-3"> by clicking register you are agreeing to Living Peak's Group&reg;
+					<a href="https://techpoint.systems"><strong>terms and conditions</strong></a>
+				</p>
 				<p>Already a user?
 					<a class="inline-block align-baseline font-bold text-base text-orange-400 hover:text-orange-500" 
 						href="{{url_for('user_auth.login')}}">

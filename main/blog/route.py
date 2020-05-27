@@ -79,11 +79,17 @@ def get_blogs():
   myCur = con.cursor(buffered=True, dictionary=True)
 
   # get blogs and details of who posted
-  blogs_query = """
+  """blogs_query =
   select main_blogs.id,blog_title,blog_content,date_created,last_name,first_name,
   blog_reply,reply_date,main_blogs_id,basic_user_details_id
   from main_blogs left join blogs_history 
   on main_blogs.id = main_blogs_id inner join employee on employee_id = employee.id 
+  inner join basic_user_details on basic_user_details_id = basic_user_details.id;
+  """
+  
+  blogs_query = """
+  select main_blogs.id,blog_title,blog_content,date_created,last_name,first_name
+  from main_blogs inner join employee on employee_id = employee.id 
   inner join basic_user_details on basic_user_details_id = basic_user_details.id;
   """
   #reqs="main_blogs.id,blog_title,blog_content,date_created,last_name,first_name"
