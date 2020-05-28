@@ -27,3 +27,13 @@ class LoginForm(FlaskForm):
     email = StringField(label='email', validators=[Email(
         message="please enter a valid email address")])
     submit = SubmitField(label='Login')
+
+
+class ResetPasswordForm(FlaskForm):
+    """
+    Reset Password Form
+    """
+    password = PasswordField(label='password', 
+                validators=[DataRequired(), Length(min=4, message="Min length is 4")])
+    confirmPassword = PasswordField(label='password', validators=[DataRequired(),
+                            EqualTo('password')])

@@ -5,7 +5,7 @@ blueprint import and registration
 from flask import Flask
 from config import DevConfig
 from flask_bcrypt import Bcrypt
-#from flask_login import LoginManager
+from flask_mail import Mail
 
 # app instances
 app = Flask(__name__)
@@ -20,6 +20,10 @@ app.config.from_object(DevConfig)
 # password hashing
 bcrypt = Bcrypt()
 bcrypt.init_app(app)
+
+# mail sending
+mail = Mail()
+mail.init_app(app)
 
 # blueprint routes
 from main.landingPage.route import landing_page

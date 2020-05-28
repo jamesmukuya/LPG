@@ -22,7 +22,12 @@ def contact_page():
     msg['From'] = f'Request from Contact Form <{sending_addr}>'
     msg['To'] = 'james.mukuya@gmail.com'
     # message body
-    msg.set_content(f'Sender: <{email_from}>, Message:{message}')
+    
+    msg.set_content(f"""Sender: <{email_from}>
+     
+Message:{message}
+
+""")
     
     # get credentials from file
     credentials = get_auth()
