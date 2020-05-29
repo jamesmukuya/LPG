@@ -36,7 +36,7 @@ class Connect:
                         user_pass = data.get('web_p')
                         conn = sql.connect(
                             host=host, db=db, user=user_name, password=user_pass,
-                            use_unicode=True, charset="utf8")
+                            use_unicode=True, charset="utf8", auth_plugin='mysql_native_password')
                         return conn
             except Exception:
                 return None

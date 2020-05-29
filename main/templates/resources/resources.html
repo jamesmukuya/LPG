@@ -16,6 +16,17 @@
 			<span class="text-black font-semibold mr-2 text-center flex-auto">RESOURCES</span>
 		</div>
 	</div>
+	{% if filename == [] %}
+	<!-- IF NO RESOURCES ARE AVAILABLE -->
+	<div class="w-full bg-blue-400 text-center py-4 lg:px-4 my-64">
+		<div class="flex flex-col justify-center p-2 bg-transparent items-center leading-none lg:rounded-full 
+				lg:inline-flex">
+			<i class="material-icons text-6xl"> build </i>
+			<span class="text-2xl"> We are currently working on resources. Please come back later</span>
+		</div>
+	</div>
+	{% endif %}
+	
 	<!--resource wrapper-->
 	{% for files in filename %}
 	<!-- IF FILES ARE AVAILABLE ELSE SHOW ANOTHER MESSAGE-->

@@ -19,9 +19,15 @@ def get_auth():
     for files in glob.iglob('**/*.json', recursive=True):
         with open(files) as f:
             data = json.load(f)
+            web_db = data.get('web_db')
+
             user_name = data.get('local_db_user')
+            user_name_web = data.get('web_admin')
+
             user_pass = data.get('local_db_pass')
-    return user_name, user_pass
+            user_pass_web = data.get('web_p')
+
+    return user_name, user_pass, web_db, user_name_web, user_pass_web
 auth = get_auth()
 # Define the MySQL engine using MySQL Connector/Python
 try:
@@ -29,9 +35,14 @@ try:
       f'mysql+mysqlconnector://{user_name}:{user_pass}@localhost:3306/lpg_mysql?auth_plugin=mysql_native_password',
     echo=False)
 except:
-  engine = sqlalchemy.create_engine(
-      f'mysql+mysqlconnector://{auth[0]}:{auth[1]}@localhost:3306/lpg_mysql?auth_plugin=mysql_native_password',
-      echo=False)
+  try:
+    engine = sqlalchemy.create_engine(
+        f'mysql+mysqlconnector://{auth[0]}:{auth[1]}@localhost:3306/lpg_mysql?auth_plugin=mysql_native_password',
+        echo=False)
+  except:
+    engine = sqlalchemy.create_engine(
+        f'mysql+mysqlconnector://{auth[3]}:{auth[4]}@localhost:3306/{auth[2]}?auth_plugin=mysql_native_password',
+        echo=False)
 
 # create session object
 session = Session(engine)
@@ -66,7 +77,7 @@ class UserTable(Base):
     return None
 
   # 21600sec=6hrs
-  def get_reset_token(self, expires=300):
+  def get_reset_token(self, expires=21600):
     """
     pass token to reset a user password
     payload to match token is user_id
@@ -92,9 +103,3 @@ class UserTable(Base):
     our_user = session.query(UserTable).filter_by(id=user_id).first()
     #return UserTable.query.get(user_id)
     return our_user
-
-  def update_password(self, user_id,password):
-    """
-    query takes the user id and hashed password
-    """
-    pass

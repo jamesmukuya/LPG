@@ -113,27 +113,3 @@ class User:
         user_id = self.user_data.get('email')
         print('user id from get_id', user_id)
         return user_id
-    # 21600sec=6hrs
-    def get_reset_token(self, expires=3000):
-        """
-        pass token to reset a user password
-        payload to match token is user_id
-        token currenly expires after 6hrs
-        """
-        s = Serializer(app.config['SECRET_KEY'])
-        return s.dumps({'user_id': self.user_data.get('id')}).decode('utf-8')
-
-    @staticmethod
-    def verify_reset_token(token):
-        # make the serializer object
-        s = Serializer(app.config['SECRET_KEY'])
-        # instance of the user class
-        user = User()
-        try:
-            # pass the user id to the token to verify['user_id']
-            user_id = s.loads(token)['user_id']
-            print('the user of token',user_id)
-        except:
-            return None
-        # if id is verified return the user object
-        return user.get_user_using_id(user_id)
