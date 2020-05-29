@@ -4,17 +4,20 @@ login and registered user
 #from flask_login import login_user,logout_user,current_user
 
 import logging
-import smtplib, os, glob, json
+import smtplib
+import os
+import glob
+import json
 from email.message import EmailMessage
-from main import bcrypt, app, mail
+from main import bcrypt, app
 from datetime import datetime
 import mysql.connector as sql
 from main.model.user import User
+from main.model.UserReset import UserTable
 from main.dbConnect.db_conn import Connect
 from main.userAuth.forms import LoginForm, RegisterForm, ResetPasswordForm
 from flask import (Blueprint, render_template, session,
                    flash, redirect, request, url_for)
-from flask_mail import Message
 
 user_auth = Blueprint('user_auth', __name__)
 
@@ -164,32 +167,35 @@ def register():
             logging.warning('Validation Error')
     return render_template('user_auth/register.html', title='Register', **context)
 
-def send_reset_email(user):
-	"""
-	send reset email to user email provided
-	"""
-	u = User()
-	token = u.get_reset_token()
-	# get data from fields change to noreply@livingpeak.org
-	sending_addr = 'info@techpoint.systems'
-	msg = EmailMessage()
-	msg['subject'] = 'Password Reset'
-	msg['From'] = f'noreply <{sending_addr}>'
-	msg['To'] = user
 
-	msg.set_content(f"""To reset your password, visit the following link:
+def send_reset_email(user):
+    """
+    send reset email to user email provided
+    """
+    u = UserTable()
+    token = u.get_reset_token()
+    # get data from fields change to noreply@livingpeak.org
+    sending_addr = 'info@techpoint.systems'
+    msg = EmailMessage()
+    msg['subject'] = 'Password Reset'
+    msg['From'] = f'noreply <{sending_addr}>'
+    msg['To'] = user
+
+    msg.set_content(f"""To reset your password, visit the following link:
 {url_for('user_auth.password_reset',token=token,_external=True)}
 
 If you did not send this request, please ignore and no changes will be made
 """)
-	
-	# get credentials from file
-	credentials = get_auth()
-	with smtplib.SMTP_SSL(credentials[0], 465) as smtp:
-		smtp.login(credentials[1], credentials[2])
-		smtp.send_message(msg)
+
+    # get credentials from file
+    credentials = get_auth()
+    with smtplib.SMTP_SSL(credentials[0], 465) as smtp:
+        smtp.login(credentials[1], credentials[2])
+        smtp.send_message(msg)
 
 # get the credentials from secure file
+
+
 def get_auth():
     for files in glob.iglob('**/*.json', recursive=True):
         with open(files) as f:
@@ -199,73 +205,87 @@ def get_auth():
             user_pass = data.get('test_email_pass')
     return url, user_name, user_pass
 
-# route to display form with email entry to request password request link
 @user_auth.route('/password-link', methods=['GET', 'POST'])
 def password_reset_request():
-	form = RegisterForm()
-	context = {'form': form}
-	# if user is currently logged in and tries to reset password
-	# redirect to home page
-	if session.get('logged_in'):
-		return redirect(url_for('landing_page.index'))
-	# check request type
-	if request.method == 'POST':
-	# request==post, get email entry
-		email = request.form['email']
-		user = User()
-		user_mail = user.get_user(email)
-		# check if email exists in db
+    form = ResetPasswordForm()
+    context = {'form': form}
 
-		if user_mail.get('email') == email:
-			#print('OK',user_mail)
-			# if exist send the token link and redirect to password reset form
-			send_reset_email(email)
-			flash(f'password reset link has been sent to your email. If you do not\
+    # user cannot forget password while logged in
+    if session.get('logged_in'):
+        return redirect(url_for('landing_page.index'))
+    if request.method == 'POST':
+        # get user data and confirm they exist in database
+        email = request.form['email']
+        user = UserTable()
+        user_mail = user.verify_email(email)
+
+        if user_mail != None:
+            send_reset_email(email)
+            flash('password reset link has been sent to your email. If you do not\
 			receive within 10 minutes please contact us for assistance', 'success')
-			return redirect(url_for('user_auth.login'))
+            return redirect(url_for('user_auth.login'))
 
-		# else return same form with flash message email does not exist
-		flash(f'the email address does not exist. Register?', 'error')
-	return render_template('user_auth/password-link.html', title='Request link', **context)
+        flash(
+            f'The email does not exist.{url_for("user_auth.register")} Register?', 'error')
+    return render_template('user_auth/password-link.html', **context)
 
 # route to display form with password entry to change password
 @user_auth.route('/password-reset/<token>', methods=['GET', 'POST'])
 def password_reset(token):
-	form = ResetPasswordForm()
-	context = {'form': form}
-	# if user is currently logged in and tries to reset password
-	# redirect to home page
-	if session.get('logged_in'):
-		return redirect(url_for('landing_page.index'))
+    form = ResetPasswordForm()
+    context = {'form': form}
+    # if user is currently logged in and tries to reset password
+    # redirect to home page
+    if session.get('logged_in'):
+        return redirect(url_for('landing_page.index'))
+
+    user = UserTable()
+    user = user.verify_reset_token(token)
+    if user is None:
+        flash('That is an invalid or expired token', 'error')
+        return redirect(url_for('user_auth.password_reset_request'))
+
+    #print('the token is still okay',user)
+    # check request type
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(
+            form.password.data).decode('utf-8')
+
+        # both passwords match, update record in db
+        update_password(user_id=user.id, new_password=hashed_password)
+        return redirect(url_for('user_auth.login'))
+    # return login form
+    flash('Your passwords do not match','error')
+    return render_template('user_auth/password-reset.html',
+                           title='Password Reset', **context)
 
 
-	# link is live since token is not expired
-	user = User()
-	user = user.verify_reset_token(token)
-	if user is None:
-		flash('That is an invalid or expired token','error')
-		return redirect(url_for('user_auth.password_reset_request'))
-	
-	print('the token is still okay')		
-	# check request type
-	if form.validate_on_submit():
-		hashed_password = bcrypt.generate_password_hash(
-                    form.password.data).decode('utf-8')
-		
-		# both passwords match, update record in db
-		update_pass_query = """update basic_user_details 
-		set user_password = %(user_password)s
-		where basic_user_details.id = %(id)s
-		"""
-		update_data = {
-			'user_password':hashed_password,
-			'id':user
-		}
-		print('this is the user: ',user.get_email())
-
-	# return login form
-	return render_template('user_auth/password-reset.html', title='Password Reset', **context)
-
+def update_password(user_id, new_password):
+    """
+    query takes in user id and new hashed password
+    """
+    conn = Connect()
+    con = conn.connect_db()
+    myCur = con.cursor()
+    
+    update_pass_query = """
+    update basic_user_details set user_password = %(user_password)s
+    where basic_user_details.id = %(id)s
+    """
+    update_data = {
+        'id': user_id,
+        'user_password': new_password
+    }
+    try:
+        myCur.execute(update_pass_query, update_data)
+        con.commit()
+        myCur.close()
+        con.close()
+        flash('Your password has been changed', 'success')
+    except(sql.Error, sql.Warning) as e:
+        print(e)
+        flash('could not update your password, kindly contact us for\
+             assistance', 'error')
 
 
 def register_user(first_name, last_name, email, user_password):
