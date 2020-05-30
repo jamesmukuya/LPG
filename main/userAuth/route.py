@@ -31,46 +31,46 @@ def login():
     form = LoginForm()
     context = {'form': form}
     if request.method == "POST":
-        if form.validate_on_submit():
-            password = form.password.data
-            email = form.email.data
-            # check if user data exists in database
-            user = User()
-            user_data = user.get_user(email)
-            first_name = user_data.get('first_name').capitalize()
-            last_name = user_data.get('last_name').capitalize()
-            user_password = user_data.get('user_password')
-            
-            if user_data and bcrypt.check_password_hash(user_password, password):
-                #print('password from db:',user_password)
-                # start a session with the user
-                session_in_data.update(user_data)
-                session.update(session_in_data)
-                flash(f'{last_name}, {first_name}', 'Welcome')
-                # print(session)
-                # insert session data in database
-                user_session_in(user_data.get('id'))
+        #if form.validate_on_submit():
+        password = form.password.data
+        email = form.email.data
+        # check if user data exists in database
+        user = User()
+        user_data = user.get_user(email)
+        first_name = user_data.get('first_name').capitalize()
+        last_name = user_data.get('last_name').capitalize()
+        user_password = user_data.get('user_password')
 
-                # get the current page of the user
+        if user_data and bcrypt.check_password_hash(user_password, password):
+            #print('password from db:',user_password)
+            # start a session with the user
+            session_in_data.update(user_data)
+            session.update(session_in_data)
+            flash(f'{last_name}, {first_name}', 'Welcome')
+            # print(session)
+            # insert session data in database
+            user_session_in(user_data.get('id'))
 
-                # redirect the user to the required page
-                return redirect(url_for('landing_page.index'))
+            # get the current page of the user
 
-            # the email or password is incorrect
-            flash(f'Your email or password is incorrect', 'error')
-            # log the error
-            logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_auth.log',
-                                level=logging.WARN)
-            logging.warning('incorrect username/password')
+            # redirect the user to the required page
+            return redirect(url_for('landing_page.index'))
 
-        else:
-            # another error occured
-            flash(f'unknown error has occured, please contact admin\
-                    for assistance ', 'error')
-            # log the error
-            logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_auth.log',
-                                level=logging.ERROR)
-            logging.error('error occured')
+        # the email or password is incorrect
+        flash(f'Your email or password is incorrect', 'error')
+        # log the error
+        logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_auth.log',
+                            level=logging.WARN)
+        logging.warning('incorrect username/password')
+
+        #else:
+        #    # another error occured
+        #    flash(f'unknown error has occured, please contact admin\
+        #            for assistance ', 'error')
+        #    # log the error
+        #    logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_auth.log',
+        #                        level=logging.ERROR)
+        #    logging.error('error occured')
     return render_template('user_auth/login.html', title='Login', **context)
 
 

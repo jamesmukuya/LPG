@@ -9,6 +9,18 @@ const navSlide =() =>{
 }
 navSlide();
 
+
+const navHide = () => {
+  const body = document.getElementById('bodyDiv');
+  body.addEventListener('click', (e) => {
+    console.log('body clicked');
+    console.log(e.target);
+  })
+}
+
+navHide();
+
+/*
 var btnContainer = document.getElementById("btnDiv");
 
 // Get all buttons with class="btn" inside the container
@@ -22,3 +34,4 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+*/

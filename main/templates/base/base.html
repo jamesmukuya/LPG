@@ -17,6 +17,7 @@
       rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
       href="{{ url_for('static', filename='css/tailwind/tailwind.min.css') }}"/>
     {#
@@ -77,7 +78,7 @@
         {{ session.last_name }},{{ session.first_name }}
         {% else %}
         <!-- if user is not authenticated display login-->
-        <div class="user-auth pl-8 text-orange-500">
+        <div class="user-auth pl-8 text-orange-500 font-bold">
           <button class="login-btn"><a href="{{url_for('user_auth.login')}}">Login</a></button>
         </div>
         {% endif %}
@@ -113,9 +114,9 @@
     </div>
 
     <!-- PAGE CONTENT -->
-    <button class="page-content cursor-default">
+    <div class="page-content cursor-default" id="bodyDiv">
       {% block content %}{%endblock content %}
-    </button>
+    </div>
 
     <p class="footer text-center text-white text-sm bg-gray-700">
       &copy;2020 Living Peak Group. All rights reserved.
