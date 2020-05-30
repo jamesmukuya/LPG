@@ -40,8 +40,9 @@ def login():
             first_name = user_data.get('first_name').capitalize()
             last_name = user_data.get('last_name').capitalize()
             user_password = user_data.get('user_password')
+            
             if user_data and bcrypt.check_password_hash(user_password, password):
-
+                #print('password from db:',user_password)
                 # start a session with the user
                 session_in_data.update(user_data)
                 session.update(session_in_data)

@@ -113,9 +113,9 @@
     </div>
 
     <!-- PAGE CONTENT -->
-    <div class="page-content">
+    <button class="page-content cursor-default">
       {% block content %}{%endblock content %}
-    </div>
+    </button>
 
     <p class="footer text-center text-white text-sm bg-gray-700">
       &copy;2020 Living Peak Group. All rights reserved.
@@ -128,7 +128,7 @@
         <span class="text-black font-semibold mr-2 text-center flex-auto">USEFUL LINKS</span>
       </div>
     </div>
-    <div class="useful-links flex justify-around w-full mb-8 p-3 bg-gray-400">
+    <div class="useful-links flex sm:flex flex-wrap justify-around w-full mb-8 p-3 bg-gray-400">
       <!-- staff login -->
       <p class="staff-login text-gray-700 text-lg">
         <a href="{{url_for('user_auth.staff_login')}}">&verbar; <i class="fas fa-sign-in-alt"></i> &verbar;
@@ -166,9 +166,5 @@
   </script>
   {% block scripts %}
   {% endblock scripts %}
-  {#
-    <!-- CUSTOM SCRIPT -->
-    <script src="{{ url_for('static',filename='js/axios/axios.min.js') }}"></script>
-  #}
   </body>
 </html>
