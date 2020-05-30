@@ -65,8 +65,11 @@ def login():
         else:
             # another error occured
             flash(f'unknown error has occured, please contact admin\
-                    for assistance ', ' error ')
-            logging.error('unknown error')
+                    for assistance ', 'error')
+            # log the error
+            logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_auth.log',
+                                level=logging.ERROR)
+            logging.error('error occured')
     return render_template('user_auth/login.html', title='Login', **context)
 
 
