@@ -13,7 +13,7 @@ navSlide();
 const body = document.getElementById('bodyDiv');
 body.addEventListener('click', function (e) {
   if (e.target.className.includes('nav-active')){
-    console.log('clicked nav div');
+    return;
   }
   let nav_list = document.querySelector('.nav-links');
   nav_list.classList.remove('nav-active');

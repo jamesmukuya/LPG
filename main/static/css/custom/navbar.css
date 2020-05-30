@@ -1,9 +1,10 @@
+/*
 {
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
 }
-
+*/
 nav{
 	display: flex;
 	position: fixed;
@@ -103,6 +104,7 @@ nav{
 		right: -1.2rem;
 		height: 92vh;
 		top: 8vh;
+		margin-top: 2rem;
 		background-color: #ed8936;
 		display: flex;
 		flex-direction: column;
@@ -141,6 +143,7 @@ nav{
 
 	.nav-links {
 		width: 50%;
+		margin-top: 3rem;
 	}
 	.page-content{
 		margin-top: 2rem;
