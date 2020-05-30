@@ -1,7 +1,7 @@
 
 const navSlide =() =>{
-	const burger = document.querySelector('.burger');
-	const nav = document.querySelector('.nav-links');
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
 
 	burger.addEventListener('click',()=>{
 		nav.classList.toggle('nav-active');
@@ -9,17 +9,15 @@ const navSlide =() =>{
 }
 navSlide();
 
-
-const navHide = () => {
-  const body = document.getElementById('bodyDiv');
-  body.addEventListener('click', (e) => {
-    console.log('body clicked');
-    console.log(e.target);
-  })
-}
-
-navHide();
-
+// when user clicks outside the Nav
+const body = document.getElementById('bodyDiv');
+body.addEventListener('click', function (e) {
+  if (e.target.className.includes('nav-active')){
+    console.log('clicked nav div');
+  }
+  let nav_list = document.querySelector('.nav-links');
+  nav_list.classList.remove('nav-active');
+})
 /*
 var btnContainer = document.getElementById("btnDiv");
 
