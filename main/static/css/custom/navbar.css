@@ -32,13 +32,13 @@ nav{
 	display: flex;
 	justify-content: space-around;
 	outline: none;
-	width: 40%;
+	width: 100%;
 	margin: 5px;
 	padding: 5px;
 	font-size: 32px;
 }
 
-.nav-links .nav_btn{
+.nav_btn{
 	outline: none;
 }
 

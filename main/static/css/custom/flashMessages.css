@@ -1,0 +1,7 @@
+.close-flash-message{
+  outline: none;
+}
+
+.flash-message.inactive{
+  display: none;
+}
