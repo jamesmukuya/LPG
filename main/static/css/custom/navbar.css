@@ -105,6 +105,7 @@ nav{
 		height: 92vh;
 		top: 8vh;
 		margin-top: 2rem;
+		margin-bottom: 0.5rem;
 		background-color: #ed8936;
 		display: flex;
 		flex-direction: column;
@@ -130,6 +131,7 @@ nav{
 
 	.page-content {
 		margin-top: 1rem;
+		margin-bottom: 0.5rem;
 	}
 
 }
@@ -144,6 +146,7 @@ nav{
 	.nav-links {
 		width: 50%;
 		margin-top: 3rem;
+		margin-bottom: 0.5rem;
 	}
 	.page-content{
 		margin-top: 2rem;
