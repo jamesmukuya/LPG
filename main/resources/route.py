@@ -75,7 +75,8 @@ def resources_get_link():
     # subject
     msg['subject'] = 'Attached File'
     # sending address
-    sending_addr = 'info@techpoint.systems'
+    #sending_addr = 'info@techpoint.systems'
+    sending_addr = 'info@livingpeak.org'
     # multiple recipients
     #recipients = ['james.mukuya@gmail.com', email_addr]
     #msg['From'] = 'info@techpoint.systems'

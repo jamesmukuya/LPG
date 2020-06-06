@@ -179,7 +179,8 @@ def send_reset_email(user):
     u = UserTable()
     token = u.get_reset_token()
     # get data from fields change to noreply@livingpeak.org
-    sending_addr = 'info@techpoint.systems'
+    #sending_addr = 'info@techpoint.systems'
+    sending_addr = 'info@livingpeak.org'
     msg = EmailMessage()
     msg['subject'] = 'Password Reset'
     msg['From'] = f'noreply <{sending_addr}>'
