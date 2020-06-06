@@ -32,7 +32,7 @@ auth = get_auth()
 # Define the MySQL engine using MySQL Connector/Python
 try:
   engine = sqlalchemy.create_engine(
-      f'mysql+mysqlconnector://{user_name}:{user_pass}@localhost:3306/lpg_mysql?auth_plugin=mysql_native_password',
+      f'mysql+mysqlconnector://{auth[0]}:{auth[1]}@localhost:3306/lpg_mysql?auth_plugin=mysql_native_password',
     echo=False)
 except:
   try:
