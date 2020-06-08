@@ -474,3 +474,13 @@ App 538985 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi
 App 538985 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
 App 790607 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
 App 790607 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 969909 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 969909 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 995164 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 995164 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 1000150 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 1000150 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 75055 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 75055 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 99293 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 99293 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
