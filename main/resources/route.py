@@ -37,7 +37,7 @@ def get_files_db():
 def get_files_local():
     # get filenames locally
     names = [os.path.basename(x)
-             for x in glob.iglob('**/*.png', recursive=True)]
+             for x in glob.iglob('**/*.pdf', recursive=True)]
     return names
 
 @resources.route("/resources", methods=["GET", "POST"])

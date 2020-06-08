@@ -22,3 +22,455 @@ App 354092 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi
 App 354092 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
 App 354506 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
 App 354506 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 537117 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 537117 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 579994 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 579994 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 604334 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 604334 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 707225 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 707225 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 707225 output: [ pid=707225, time=2020-06-06 07:19:15,978 ]: WSGI application raised an exception!
+App 707225 output: Traceback (most recent call last):
+App 707225 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 707225 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 707225 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 707225 output:     result = self.app(env, start_response)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 707225 output:     return self.wsgi_app(environ, start_response)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 707225 output:     response = self.handle_exception(e)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 707225 output:     reraise(exc_type, exc_value, tb)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 707225 output:     raise value
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 707225 output:     response = self.full_dispatch_request()
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 707225 output:     rv = self.handle_user_exception(e)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 707225 output:     reraise(exc_type, exc_value, tb)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 707225 output:     raise value
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 707225 output:     rv = self.dispatch_request()
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 707225 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 707225 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 96, in staff_login
+App 707225 output:     if staff_data and bcrypt.check_password_hash(staff_password, password):
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask_bcrypt.py", line 193, in check_password_hash
+App 707225 output:     return safe_str_cmp(bcrypt.hashpw(password, pw_hash), pw_hash)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/bcrypt/__init__.py", line 80, in hashpw
+App 707225 output:     original_salt, salt = salt, _normalize_re.sub(b"$2b$", salt)
+App 707225 output: TypeError: expected string or bytes-like object
+App 707225 output: [ pid=707225, time=2020-06-06 07:19:29,456 ]: WSGI application raised an exception!
+App 707225 output: Traceback (most recent call last):
+App 707225 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 707225 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 707225 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 707225 output:     result = self.app(env, start_response)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 707225 output:     return self.wsgi_app(environ, start_response)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 707225 output:     response = self.handle_exception(e)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 707225 output:     reraise(exc_type, exc_value, tb)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 707225 output:     raise value
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 707225 output:     response = self.full_dispatch_request()
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 707225 output:     rv = self.handle_user_exception(e)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 707225 output:     reraise(exc_type, exc_value, tb)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 707225 output:     raise value
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 707225 output:     rv = self.dispatch_request()
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 707225 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 707225 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 96, in staff_login
+App 707225 output:     if staff_data and bcrypt.check_password_hash(staff_password, password):
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask_bcrypt.py", line 193, in check_password_hash
+App 707225 output:     return safe_str_cmp(bcrypt.hashpw(password, pw_hash), pw_hash)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/bcrypt/__init__.py", line 80, in hashpw
+App 707225 output:     original_salt, salt = salt, _normalize_re.sub(b"$2b$", salt)
+App 707225 output: TypeError: expected string or bytes-like object
+App 707225 output: [ pid=707225, time=2020-06-06 07:20:51,493 ]: WSGI application raised an exception!
+App 707225 output: Traceback (most recent call last):
+App 707225 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 707225 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 707225 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 707225 output:     result = self.app(env, start_response)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 707225 output:     return self.wsgi_app(environ, start_response)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 707225 output:     response = self.handle_exception(e)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 707225 output:     reraise(exc_type, exc_value, tb)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 707225 output:     raise value
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 707225 output:     response = self.full_dispatch_request()
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 707225 output:     rv = self.handle_user_exception(e)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 707225 output:     reraise(exc_type, exc_value, tb)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 707225 output:     raise value
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 707225 output:     rv = self.dispatch_request()
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 707225 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 707225 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 96, in staff_login
+App 707225 output:     if staff_data and bcrypt.check_password_hash(staff_password, password):
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask_bcrypt.py", line 193, in check_password_hash
+App 707225 output:     return safe_str_cmp(bcrypt.hashpw(password, pw_hash), pw_hash)
+App 707225 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/bcrypt/__init__.py", line 80, in hashpw
+App 707225 output:     original_salt, salt = salt, _normalize_re.sub(b"$2b$", salt)
+App 707225 output: TypeError: expected string or bytes-like object
+App 861867 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 861867 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 862140 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 862140 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 236124 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 236124 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 527488 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 527488 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 661680 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 661680 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 183193 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 183193 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 584655 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 584655 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 402136 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 402136 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 402473 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 402473 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 236762 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 236762 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 237385 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 237385 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 236762 output: [ pid=236762, time=2020-06-06 15:19:34,534 ]: WSGI application raised an exception!
+App 236762 output: Traceback (most recent call last):
+App 236762 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 236762 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 236762 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 236762 output:     result = self.app(env, start_response)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 236762 output:     return self.wsgi_app(environ, start_response)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 236762 output:     response = self.handle_exception(e)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 236762 output:     reraise(exc_type, exc_value, tb)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 236762 output:     raise value
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 236762 output:     response = self.full_dispatch_request()
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 236762 output:     rv = self.handle_user_exception(e)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 236762 output:     reraise(exc_type, exc_value, tb)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 236762 output:     raise value
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 236762 output:     rv = self.dispatch_request()
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 236762 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 236762 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 40, in login
+App 236762 output:     first_name = user_data.get('first_name').capitalize()
+App 236762 output: AttributeError: 'NoneType' object has no attribute 'get'
+App 236762 output: [ pid=236762, time=2020-06-06 15:19:56,273 ]: WSGI application raised an exception!
+App 236762 output: Traceback (most recent call last):
+App 236762 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 236762 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 236762 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 236762 output:     result = self.app(env, start_response)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 236762 output:     return self.wsgi_app(environ, start_response)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 236762 output:     response = self.handle_exception(e)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 236762 output:     reraise(exc_type, exc_value, tb)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 236762 output:     raise value
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 236762 output:     response = self.full_dispatch_request()
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 236762 output:     rv = self.handle_user_exception(e)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 236762 output:     reraise(exc_type, exc_value, tb)
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 236762 output:     raise value
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 236762 output:     rv = self.dispatch_request()
+App 236762 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 236762 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 236762 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 40, in login
+App 236762 output:     first_name = user_data.get('first_name').capitalize()
+App 236762 output: AttributeError: 'NoneType' object has no attribute 'get'
+App 252921 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 252921 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 252921 output: [ pid=252921, time=2020-06-06 15:20:26,648 ]: WSGI application raised an exception!
+App 252921 output: Traceback (most recent call last):
+App 252921 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 252921 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 252921 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 252921 output:     result = self.app(env, start_response)
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 252921 output:     return self.wsgi_app(environ, start_response)
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 252921 output:     response = self.handle_exception(e)
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 252921 output:     reraise(exc_type, exc_value, tb)
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 252921 output:     raise value
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 252921 output:     response = self.full_dispatch_request()
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 252921 output:     rv = self.handle_user_exception(e)
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 252921 output:     reraise(exc_type, exc_value, tb)
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 252921 output:     raise value
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 252921 output:     rv = self.dispatch_request()
+App 252921 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 252921 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 252921 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 40, in login
+App 252921 output:     first_name = user_data.get('first_name').capitalize()
+App 252921 output: AttributeError: 'NoneType' object has no attribute 'get'
+App 865564 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 865564 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 962031 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 962031 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 999797 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 999797 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 1002091 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 1002091 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 249683 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 249683 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 490334 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 490334 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 554713 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 554713 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 420144 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 420144 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 875977 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 875977 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 625251 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 625251 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 252824 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 252824 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 67116 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 67116 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 67615 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 67615 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 68515 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 68515 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 711264 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 711264 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 1043129 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 1043129 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 1043580 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 1043580 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 653059 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 653059 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 870491 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 870491 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 871359 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 871359 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 163780 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 163780 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 173505 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 173505 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 223139 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 223139 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 366064 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 366064 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 510069 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 510069 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 428302 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 428302 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 861251 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 861251 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 1023519 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 1023519 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 1024243 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 1024243 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 484259 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 484259 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 55903 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 55903 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 56239 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 56239 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 726618 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 726618 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 257868 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 257868 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 258832 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 258832 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 10313 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 10313 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 222122 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 222122 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 670928 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 670928 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 729544 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 729544 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 403752 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 403752 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 606289 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 606289 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 57179 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 57179 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 482521 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 482521 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 946166 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 946166 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 751182 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 751182 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 770413 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 770413 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 855741 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 855741 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 202851 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 202851 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 142094 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 142094 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 143621 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 143621 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 163159 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 163159 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 166042 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 166042 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 163159 output: [ pid=163159, time=2020-06-08 06:14:30,547 ]: WSGI application raised an exception!
+App 163159 output: Traceback (most recent call last):
+App 163159 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 163159 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 163159 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 163159 output:     result = self.app(env, start_response)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 163159 output:     return self.wsgi_app(environ, start_response)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 163159 output:     response = self.handle_exception(e)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 163159 output:     reraise(exc_type, exc_value, tb)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 163159 output:     raise value
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 163159 output:     response = self.full_dispatch_request()
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 163159 output:     rv = self.handle_user_exception(e)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 163159 output:     reraise(exc_type, exc_value, tb)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 163159 output:     raise value
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 163159 output:     rv = self.dispatch_request()
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 163159 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 163159 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 94, in staff_login
+App 163159 output:     staff_password = staff_data.get('user_password')
+App 163159 output: AttributeError: 'NoneType' object has no attribute 'get'
+App 163159 output: [ pid=163159, time=2020-06-08 06:14:57,665 ]: WSGI application raised an exception!
+App 163159 output: Traceback (most recent call last):
+App 163159 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 163159 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 163159 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 163159 output:     result = self.app(env, start_response)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 163159 output:     return self.wsgi_app(environ, start_response)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 163159 output:     response = self.handle_exception(e)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 163159 output:     reraise(exc_type, exc_value, tb)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 163159 output:     raise value
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 163159 output:     response = self.full_dispatch_request()
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 163159 output:     rv = self.handle_user_exception(e)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 163159 output:     reraise(exc_type, exc_value, tb)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 163159 output:     raise value
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 163159 output:     rv = self.dispatch_request()
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 163159 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 163159 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 94, in staff_login
+App 163159 output:     staff_password = staff_data.get('user_password')
+App 163159 output: AttributeError: 'NoneType' object has no attribute 'get'
+App 163159 output: [ pid=163159, time=2020-06-08 06:15:24,860 ]: WSGI application raised an exception!
+App 163159 output: Traceback (most recent call last):
+App 163159 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 163159 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 163159 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 163159 output:     result = self.app(env, start_response)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 163159 output:     return self.wsgi_app(environ, start_response)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 163159 output:     response = self.handle_exception(e)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 163159 output:     reraise(exc_type, exc_value, tb)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 163159 output:     raise value
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 163159 output:     response = self.full_dispatch_request()
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 163159 output:     rv = self.handle_user_exception(e)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 163159 output:     reraise(exc_type, exc_value, tb)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 163159 output:     raise value
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 163159 output:     rv = self.dispatch_request()
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 163159 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 163159 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 94, in staff_login
+App 163159 output:     staff_password = staff_data.get('user_password')
+App 163159 output: AttributeError: 'NoneType' object has no attribute 'get'
+App 163159 output: [ pid=163159, time=2020-06-08 06:15:39,113 ]: WSGI application raised an exception!
+App 163159 output: Traceback (most recent call last):
+App 163159 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 163159 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 163159 output:   File "/opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 163159 output:     result = self.app(env, start_response)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+App 163159 output:     return self.wsgi_app(environ, start_response)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+App 163159 output:     response = self.handle_exception(e)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+App 163159 output:     reraise(exc_type, exc_value, tb)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 163159 output:     raise value
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+App 163159 output:     response = self.full_dispatch_request()
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 163159 output:     rv = self.handle_user_exception(e)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 163159 output:     reraise(exc_type, exc_value, tb)
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+App 163159 output:     raise value
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 163159 output:     rv = self.dispatch_request()
+App 163159 output:   File "/home/meemnuco/virtualenv/LPG_Website/LPG/3.7/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+App 163159 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 163159 output:   File "/home/meemnuco/LPG_Website/LPG/main/userAuth/route.py", line 94, in staff_login
+App 163159 output:     staff_password = staff_data.get('user_password')
+App 163159 output: AttributeError: 'NoneType' object has no attribute 'get'
+App 217791 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 217791 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 234830 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 234830 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 340457 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 340457 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 462321 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 462321 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 532867 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 532867 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 538985 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 538985 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
+App 790607 output: /opt/passenger-5.3.7-4.el6.cloudlinux/src/helper-scripts/wsgi-loader.py:26: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+App 790607 output:   import sys, os, re, imp, threading, signal, traceback, socket, select, struct, logging, errno
