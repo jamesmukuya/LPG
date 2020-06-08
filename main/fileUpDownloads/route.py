@@ -27,6 +27,10 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
+def allowed_thumbnail(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_THUMBNAILS']
+
 @upload_file.route("/upload", methods=["GET","POST"])
 def upload():
 
@@ -38,16 +42,29 @@ def upload():
             flash('No file part', 'error')
             #return render_template("uploadHtml/upload-file.html", title='Upload')
             return redirect(request.url)
+        # check thumbnail
+        if 'thumbnail_file' not in request.files:
+            flash('No thumbnail', 'error')
+            #return render_template("uploadHtml/upload-file.html", title='Upload')
+            return redirect(request.url)
         file = request.files['file']
+        # THUMBNAIL
+        thumbnail = request.files['thumbnail_file']
         # if user does not select file, browser also
         # submit an empty part without filename
         if file.filename == '':
             flash('No selected file','error')
             return redirect(request.url)
+        
+        if thumbnail.filename == '':
+            flash('No thumbnail selected', 'error')
+            return redirect(request.url)
         # file is loaded and meets requirements
         # get the destination folder and save the file
-        if file and allowed_file(file.filename):
+        if file and allowed_file(file.filename) and allowed_thumbnail(thumbnail.filename):
             filename = secure_filename(file.filename)
+            # thumbnail
+            thumbnail_name = secure_filename(thumbnail.filename)
 
             # get title, description, flag and cost
             file_title = string.capwords(request.form['file_title'])
@@ -73,11 +90,13 @@ def upload():
             try:
                 # save the file on disk
                 file.save(os.path.join(dest, filename))
+                # save thumbnail
+                thumbnail.save(os.path.join(dest, thumbnail_name))
 
                 # create a reference in the db
                 insert_file(file_title=file_title, file_descr=descr, filename=filename,
                             file_flag=flag, date_time=datetime.utcnow(), file_cost=cost,
-                            emp_no=session['emp_no'])
+                            thumbnail=thumbnail_name, emp_no=session['emp_no'])
 
                 flash(f'{file_title} has been uploaded', 'success')
                 return redirect(url_for('upload_file.upload'))
@@ -87,11 +106,13 @@ def upload():
             except FileNotFoundError:
                 os.mkdir(app.config['UPLOAD_FOLDER'] + dest_name)
                 file.save(os.path.join(dest, filename))
+                # save thumbnail
+                thumbnail.save(os.path.join(dest, thumbnail_name))
 
                 # create a reference in the db
                 insert_file(file_title=file_title, file_descr=descr, filename=filename,
                             file_flag=flag, date_time=datetime.utcnow(), file_cost=cost,
-                            emp_no=session['emp_no'])
+                            thumbnail=thumbnail_name, emp_no=session['emp_no'])
                 flash(f'{file_title} has been uploaded', 'success')
 
                 return redirect(url_for('upload_file.upload'))
@@ -119,7 +140,7 @@ def sql_trial():
 """
 
 def insert_file(file_title, filename, file_descr, file_flag, file_cost,
-                date_time, emp_no):
+                date_time, thumbnail, emp_no):
     # instanciate database
     conn = Connect()
     # connect to the database
@@ -137,13 +158,13 @@ def insert_file(file_title, filename, file_descr, file_flag, file_cost,
     # basic data query
     insert_file_query = """
         INSERT INTO file_system(file_title, filename, file_descr, file_flag, file_cost,
-                                 date_time, employee_id) 
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
+                                 date_time, thumbnail, employee_id) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """
     
     #(SELECT employee.id FROM employee WHERE employee.emp_no= % (emp_no)s)
     file_data = (file_title, filename, file_descr, file_flag, file_cost,
-                date_time, emp_id['id'])
+                 date_time, thumbnail, emp_id['id'])
     #print(file_data)
     try:
         # execute the query

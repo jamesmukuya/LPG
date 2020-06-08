@@ -38,6 +38,12 @@ def get_files_local():
     # get filenames locally
     names = [os.path.basename(x)
              for x in glob.iglob('**/*.pdf', recursive=True)]
+    names.extend([os.path.basename(x)
+               for x in glob.iglob('**/*.png', recursive=True)])
+    names.extend([os.path.basename(x)
+                  for x in glob.iglob('**/*.jpg', recursive=True)])
+    names.extend([os.path.basename(x)
+                  for x in glob.iglob('**/*.jpeg', recursive=True)])
     return names
 
 @resources.route("/resources", methods=["GET", "POST"])

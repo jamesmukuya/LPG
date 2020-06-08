@@ -48,8 +48,10 @@ def login():
             session.update(session_in_data)
             flash(f'{last_name}, {first_name}', 'Welcome')
             # print(session)
-            # insert session data in database
-            user_session_in(user_data.get('id'))
+
+            # insert session data in database finish with js when user
+            # closes tab or logs out
+            # user_session_in(user_data.get('id'))
 
             # get the current page of the user
 
@@ -469,8 +471,9 @@ def user_session_out(sid):
 
 @user_auth.route("/logout")
 def logout():
-    # record logout time in database
-    user_session_out(session.get('user_session_id'))
+    # record logout time in database also include when user closes tab
+    # user_session_out(session.get('user_session_id'))
+    
     # if session was user redirect to user login else staff login
     if session.get('is_staff') == True:
         # remove session cookies
