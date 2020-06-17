@@ -1,6 +1,7 @@
 """
 blog controller
 """
+import os,glob,json
 from datetime import datetime
 import mysql.connector as sql
 from main.dbConnect.db_conn import Connect
@@ -18,22 +19,31 @@ blog = Blueprint('blog', __name__)
 def blog_page():
   blogs = get_blogs()
   context = {"blogs": blogs}
-  return render_template('blog/blog.html', title='Blogs',**context)
+  return render_template('blog/blog.html', title='Blogs', **context)
+
 
 # MODEL #
 # route only available to staff
 @blog.route("/blog/new", methods=["GET", "POST"])
-def blog_post():
+def blog_post():  
   # check if user is authorized to view page
   if session.get('is_staff'):
     # if method is post
     if request.method == "POST":
       # get form data
       blog_title = request.form['blog_title']
+      # get the published iframe
       blog_content = request.form['blog_content']
+      # get the blog link
+      blog_link = request.form['blog_link']
+      # split before closure in so as to add class
+      b = blog_content.split("></iframe>")
+      # add class and close
+      blog_content = b[0] + (' class="doc"></iframe>')
+
       emp_id = session['staff_id']
       # insert data to database
-      new_blog(blog_title, blog_content, emp_id)
+      new_blog(blog_title, blog_content, blog_link, emp_id)
       return redirect(url_for('blog.blog_post'))
     return render_template('blog/newBlog.html', title='New Blog')
   return redirect(url_for('user_auth.staff_login'))
@@ -59,13 +69,16 @@ def blog_reply():
     
 
 # edit route takes in the blog id
-@blog.route("/blog/edit/<int:id>",methods=["GET","POST"])
-def blog_edit():
-  return render_template('blog/editBlog.html', title='Edit Blog')
-
+@blog.route("/blog/delete",methods=["POST"])
+def blog_delete():
+  if request.method == 'POST':
+    req = request.form.get('del_btn')
+    delete_blog(req)
+    flash('The blog has been successfully deleted','success')
+    return redirect(url_for('blog.blog_page'))
 
 # CONTROLLERS #
-
+    
 # login to database and fetch the blogs
 def get_blogs():
   """
@@ -80,7 +93,7 @@ def get_blogs():
 
   # get blogs and details of who posted
   """blogs_query =
-  select main_blogs.id,blog_title,blog_content,date_created,last_name,first_name,
+  select main_blogs.id,blog_title,blog_content,date_created,blog_link,last_name,first_name,
   blog_reply,reply_date,main_blogs_id,basic_user_details_id
   from main_blogs left join blogs_history 
   on main_blogs.id = main_blogs_id inner join employee on employee_id = employee.id 
@@ -88,7 +101,7 @@ def get_blogs():
   """
   
   blogs_query = """
-  select main_blogs.id,blog_title,blog_content,date_created,last_name,first_name
+  select main_blogs.id,blog_title,blog_content,date_created,blog_link,last_name,first_name
   from main_blogs inner join employee on employee_id = employee.id 
   inner join basic_user_details on basic_user_details_id = basic_user_details.id;
   """
@@ -98,8 +111,10 @@ def get_blogs():
   #print(files)
   return blogs
 
+
+
 # insert to database an new blog
-def new_blog(blog_title, blog_content, employee_id):
+def new_blog(blog_title, blog_content, blog_link, employee_id):
   """
   insert a new blog into main_blogs table.
   args: blog_title,blog_content,date_created,employee_id(from session)
@@ -114,14 +129,14 @@ def new_blog(blog_title, blog_content, employee_id):
 
   # get insert blogs
   main_blog_query = """
-    insert into main_blogs (blog_title, blog_content, date_created, employee_id)
-    values(%(blog_title)s, %(blog_content)s, %(date_created)s, %(employee_id)s)
+    insert into main_blogs (blog_title, blog_content, date_created, blog_link, employee_id)
+    values(%(blog_title)s, %(blog_content)s, %(date_created)s,%(blog_link)s, %(employee_id)s)
     """
   date_created = datetime.utcnow()
 
   blog_data = {
       'blog_title': blog_title, 'blog_content': blog_content, 'date_created': date_created,
-      'employee_id': employee_id}
+      'blog_link':blog_link, 'employee_id': employee_id}
   try:
     myCur.execute(main_blog_query, blog_data)
     # commit the data
@@ -181,6 +196,43 @@ def reply_blog(blog_reply, main_blogs_id, user_registration_id):
 
     # advise user of results
     flash('reply posted', 'success')
+
+  except(sql.Error, sql.Warning) as e:
+      # log the error
+      #logging.basicConfig(filename=app.config['LOGGING_FOLDER'] + 'user_reg.log',
+      #                    level=logging.ERROR)
+      #logging.warning(f'{e}')
+      print(e)
+      flash('could not post blog reply', 'error')
+
+def delete_blog(id):
+  """
+  permanently delete a main blog
+  args: id of the blog
+  """
+  # instanciate database
+  conn = Connect()
+  # connect to the database
+  con = conn.connect_db()
+  # create cursor object
+  myCur = con.cursor(buffered=True, dictionary=True)
+
+  # get employee_id
+  delete_query = """
+    delete from main_blogs where id = %(id)s
+    """
+  blog_data = {'id': id}
+  
+  try:
+    myCur.execute(delete_query, blog_data)
+    # commit the data
+    con.commit()
+
+    # close cursor
+    myCur.close()
+
+    # close connection
+    con.close()
 
   except(sql.Error, sql.Warning) as e:
       # log the error

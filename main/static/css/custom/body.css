@@ -99,6 +99,12 @@ form-div{
     }
 }
 
+.doc{
+    height: 20rem;
+    max-height: 30rem;
+    width: 100%;
+    overflow: hidden;
+}
 /* BLOG PAGE */
 .reply-sub-comment{
     display: flex;
@@ -111,10 +117,9 @@ form-div{
 }
 .blog-wrapper {
     overflow: hidden;
-    overflow-y: auto;
     max-width: 56rem;
     height: auto;
-    max-height: 15rem;
+    max-height: 30rem;
 
 }
 @media screen and (max-width:1440px){

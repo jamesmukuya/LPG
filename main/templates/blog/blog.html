@@ -13,9 +13,10 @@
       <span class="text-black font-semibold mr-2 text-center text-lg flex-auto">BLOGS</span>
     </div>
   </div>
-  <!-- // LOOP BLOGS //-->
-  {% for blog in blogs %}
   
+  <!-- // LOOP BLOGS //-->
+
+  {% for blog in blogs %}
   <div class="flex flex-col m-2">
     <!-- blog 1-->
     <div class="blog-wrapper rounded shadow-lg bg-white">
@@ -23,11 +24,32 @@
         <label class="w-1/2 m-2 p-2">Author: <strong>{{blog.last_name}}, {{blog.first_name}} </strong></label>
         <label class="w-1/2 m-2 p-2">Date: {{blog.date_created.strftime('%d-%m-%Y')}} </label>
       </div>
-      <div class="px-6 py-4">
+      <div class="p-2">
         <div class="font-bold text-xl mb-2">{{blog.blog_title}}</div>
         <p class="text-gray-700 text-base">
-          {{blog.blog_content}}
+          
+          {{blog.blog_content | safe}}
         </p>
+      </div>
+    </div>
+    
+    <div class="px-6 py-4">
+      <div class="flex">
+        
+        <a href="{{blog.blog_link}}" target="_blank">
+            <button class="launch-btn flex text-center text-sm hover:text-orange-400 mr-3 p-2">
+              <i class="material-icons">launch</i>full view
+            </button>
+        </a>
+        {% if session.is_staff %}
+        <form class="" method="POST" action="{{url_for('blog.blog_delete')}}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button id="del_{{blog.id}}" class="del-btn flex text-center text-sm hover:text-red-400 mx-3 p-2"
+            type="submit" value="{{blog.id}}" name="del_btn">
+            <i class="material-icons">delete_outline</i>delete
+          </button>
+        </form>
+        {% endif %}
       </div>
     </div>
     <!--
@@ -98,6 +120,7 @@
     <div class="flex w-full border-2 border-gray-700"></div>
   </div>
   {% endfor %}
+  
 </div>
 {% endblock content %}
 
