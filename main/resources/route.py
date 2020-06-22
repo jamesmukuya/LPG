@@ -27,7 +27,7 @@ def get_files_db():
 
     # get employee_id
     files_query = """
-    select * from file_system
+    select * from file_system order by date_time desc
     """
     myCur.execute(files_query)
     files = myCur.fetchall()

@@ -99,7 +99,7 @@ def upload():
                             thumbnail=thumbnail_name, emp_no=session['emp_no'])
 
                 flash(f'{file_title} has been uploaded', 'success')
-                return redirect(url_for('upload_file.upload'))
+                return redirect(url_for('resources.resources_page'))
 
             # if directory does not exist create one
             # use os.makedirs()
@@ -115,7 +115,7 @@ def upload():
                             thumbnail=thumbnail_name, emp_no=session['emp_no'])
                 flash(f'{file_title} has been uploaded', 'success')
 
-                return redirect(url_for('upload_file.upload'))
+                return redirect(url_for('resources.resources_page'))
 
             except Exception as e:
                 flash(f'AN ERROR HAS OCCURED,{e}, contact admin for rectification',
@@ -123,7 +123,7 @@ def upload():
 
             #return redirect(url_for('uploaded_file',
                                     #filename=filename))
-            return render_template("uploadHtml/upload-file.html", title='Upload')
+            #return render_template("uploadHtml/upload-file.html", title='Upload')
     return render_template("uploadHtml/upload-file.html", title='Upload')
 
 
