@@ -123,9 +123,7 @@ form-div{
 
 }
 @media screen and (max-width:1440px){
-    .cc-card-title {
-        color: cyan;
-    }
+    
 }
 
 @media screen and (max-width:1024px) {
@@ -144,9 +142,7 @@ form-div{
         font-size: 1.0rem;
         height: 3rem;
     }
-    .cc-card-title {
-        color: cyan;
-    }
+    
 }
 @media screen and (max-width:800px) {
     body {
@@ -174,9 +170,7 @@ form-div{
         justify-content: space-between;
         overflow-x: hidden;
     }
-    .cc-card-title {
-        color: black;
-    }
+    
 }
 
 @media screen and (max-width:600px) {
@@ -242,7 +236,5 @@ form-div{
         display: flex;
         flex-direction: column;
     }
-    .cc-card-title {
-        color: aquamarine;
-    }
+    
 }

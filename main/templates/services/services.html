@@ -14,87 +14,56 @@
       <span class="text-black font-semibold mr-2 text-center flex-auto"> SERVICES </span>
     </div>
   </div>
-  <!-- services wrapper -->
-  <div class="personal-services-wrapper flex-col">
-    <!-- Personal coaching card intro-->
-    <div class="flex my-2 mx-2 p-1 rounded bg-cover bg-no-repeat hover:shadow-lg"
-    style="background-image: url('static/images/personal_coaching/joanna-kosinska-1_CMoFsPfso-unsplash.jpg');
-    height: auto;">
-      <div class="services-card flex">
-        <!--Intro-->
-        <div class="font-bold text-xl mb-2 px-4">Personal Coaching</div>
-        <div class="personal-cards flex flex-col justify-between">
-          <!--Are we a fit card intro-->
-          <div class="flex-col">
-            <div class="flex-col rounded overflow-hidden shadow-lg bg-gray-200 p-4 my-2">
-              <div class="font-bold text-xl px-4">Are We A Fit?</div>
-              <p class="text-gray-700 text-base">
-                Thinking whether you are a right fit for coaching?
-                Click below to see if you connect with the types of people I work 
-                with
-              </p>
-              <span class="text-sm text-gray-600 mt-4">CLICK 
-                <a href="{{url_for('areWeAfit_page.index')}}" class="text-base text-orange-500">HERE</a> 
-                to find out more
-              </span>
-            </div>
-          </div>
-          <!--How it works card intro-->
-          <div class="flex-col">
-            <div class="flex-col rounded overflow-hidden shadow-lg bg-gray-200 p-4">
-              <div class="font-bold text-xl px-4">How It All Works</div>
-              <p class="text-gray-700 text-base">
-                Click below to see the coaching journey that we will take together.
-              </p>
-              <span class="text-sm text-gray-600 mt-4">CLICK
-                <a href="{{url_for('services.how_it_works_page')}}" class="text-base text-orange-500">HERE</a>
-                to find out more
-              </span>
-            </div>
-          </div>
-          <!-- Corporate and Community coaching card intro-->
-          <div class="cc-card flex py-4 mt-4">
-            <div class="cc-card-title font-bold text-xl mb-2 px-4">Corporate & Community Services</div>
-            <div class="rounded overflow-hidden shadow-lg bg-gray-200 p-4">
-              <p class="text-gray-700 text-base">
-                Are you ready to bring your company, community or learning
-                institution to new levels of efficiency and productivity?
-                Then click here to see the programs that we run.
-              </p>
-              <span class="text-sm text-gray-600 mt-4">CLICK
-                <a href="{{url_for('services.corporate_community_page')}}" class="text-base text-orange-500">HERE</a>
-                to find out more
-              </span>
-            </div>
-          </div>
+  <!-- Personal coaching card-->
+  <div class="services-card flex-col">
+    <!--Intro-->
+    <div class="personal-cards flex flex-col justify-between py-4 mb-4 bg-gray-400">
+      <div class="font-bold text-xl mb-2 px-4">Personal Coaching</div>
+      <!--Are we a fit card-->
+      <div class="flex-col">
+        <div class="flex-col rounded overflow-hidden shadow-lg bg-gray-200 p-4 my-2">
+          <div class="font-bold text-xl px-4">Are We A Fit?</div>
+          <p class="text-gray-700 text-base">
+            Thinking whether you are a right fit for coaching?
+            Click below to see if you connect with the types of people I work 
+            with
+          </p>
+          <span class="text-sm text-gray-600 mt-4">CLICK 
+            <a href="{{url_for('areWeAfit_page.index')}}" class="text-base text-orange-500">HERE</a> 
+            to find out more
+          </span>
         </div>
       </div>
-      
-    </div>
-    {#
-    <!-- Corporate and Community coaching card intro-->
-    <div class="flex my-2 mx-2 p-1 rounded bg-cover bg-no-repeat hover:shadow-lg"
-      style="background-image: url('static/images/corporate_community/corporate.jpg');
-      height: auto;">
-      <span class="text-xs">Credit: mangostock - Fotolia
-        Copyright: Copyright 2016. All rights reserved.</span>
-      <div class="px-6 py-4">
-        <div class="flex-col rounded overflow-hidden overflow-y-scroll shadow-lg bg-gray-200 p-4">
-          <div class="font-bold text-xl mb-2 text-black px-4">Corporate & Community Coaching</div>
+      <!--How it works card-->
+      <div class="flex-col">
+        <div class="flex-col rounded overflow-hidden shadow-lg bg-gray-200 p-4">
+          <div class="font-bold text-xl px-4">How It All Works</div>
           <p class="text-gray-700 text-base">
-            Are you ready to bring your company, community or learning 
-            institution to new levels of efficiency and productivity?
-            Then click here to see the programs that we run.
+            Click below to see the coaching journey that we will take together.
           </p>
           <span class="text-sm text-gray-600 mt-4">CLICK
-            <a href="{{url_for('services.corporate_community_page')}}" class="text-base text-orange-500">HERE</a>
+            <a href="{{url_for('services.how_it_works_page')}}" class="text-base text-orange-500">HERE</a>
             to find out more
           </span>
         </div>
       </div>
     </div>
-    #}
-    <span class="text-xs">Photo by Joanna Kosinska on Unsplash</span>
-  </div>  
+    <!-- Corporate and Community coaching card-->
+    <div class="cc-card flex-col py-4 mt-4 bg-blue-200 hover:bg-blue-300">
+      <div class="font-bold text-xl mb-2 px-4">Corporate & Community Services</div>
+      <div class="rounded overflow-hidden shadow-lg bg-gray-200 p-4">
+        <p class="text-gray-700 text-base">
+          Are you ready to bring your company, community or learning
+          institution to new levels of efficiency and productivity?
+          Then click here to see the programs that we run.
+        </p>
+        <span class="text-sm text-gray-600 mt-4">CLICK
+          <a href="{{url_for('services.corporate_community_page')}}" class="text-base text-orange-500">HERE</a>
+          to find out more
+        </span>
+      </div>
+    </div>
+
+  </div>   
 </div>
 {% endblock content %}
