@@ -4,6 +4,7 @@
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" 
 href="{{ url_for('static', filename='css/custom/body.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/modal.css') }}" />
 {% endblock stylesheets %}
 
 {% block content %}
@@ -124,5 +125,53 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 		</a>
 	</div>
 </div>
+<!-- MODAL DIV -->
+<div class="modal" id="myModal">
+	<div class="modal-content flex flex-col bg-scroll h-auto bg-no-repeat w-10/12 m-2" 
+	style="background-image: url('/../../static/documents/admin/imgs/trail-start.jpg');">
+	<!-- close button -->
+		<div class="flex justify-end">
+			<button id="closeModal"
+			class="bg-red-200 border-none hover:bg-red-600 text-xl p-1 m-1 rounded">&times;</button>
+		</div>
+		
+		<div class="flex flex-col justify-between">
+			<div class="px-6 py-4">
+				<div class="bg-gray-100 font-bold text-xl p-2 mb-2">The Coldest Sunset</div>
+				<p class="text-white text-base">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
+					eaque, exercitationem praesentium nihil.
+				</p>
+			</div>
+			<!-- email request form -->
+			<div class="flex justify-center">
+
+				<form class="w-full max-w-md bg-gray-200 rounded">
+					<div class="flex items-center border-b border-orange-500 py-2 my-2 mx-2">
+						<input
+							class="mx-2 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+							type="email" placeholder="email@example.com" aria-label="Email">
+						<button
+							class="mx-2 flex-shrink-0 bg-orange-400 border-none hover:bg-orange-500 text-sm border-4 text-white py-1 px-2 rounded"
+							type="button">
+							Get Offer
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<span>Photo by <a
+				href="https://unsplash.com/@northfolk?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">NORTHFOLK</a>
+			on <a
+				href="https://unsplash.com/t/business-work?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+		</span>
+	</div>
+	
+</div>
 
 {% endblock content %}
+
+{% block scripts %}
+<script src="{{ url_for('static',filename='js/custom/modal.js') }}"></script>
+{% endblock scripts %}
