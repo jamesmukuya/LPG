@@ -216,16 +216,36 @@ form-div{
         flex-direction: column;
         align-items: center;
     }
+    .meet-susan-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    .susan-details-pic{
+        height: auto;
+        width: 100%;
+        margin-bottom: 0.15rem;
+    }
+    .susan-details-text{
+        width: 100%;
+        
+    }
+
     .attr-div {
         font-size: 1.0rem;
         height: 1.5rem;
     }
-    .testimonial-wrapper .resource-wrapper{
+    .resource-wrapper{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    
+    .testimonial-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    .testimony{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width:500px){
