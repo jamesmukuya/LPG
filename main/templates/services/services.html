@@ -18,25 +18,25 @@
   <div class="services-card flex-col">
     <!--Intro-->
     <div class="personal-cards flex flex-col justify-between py-4 mb-4 bg-gray-400">
-      <div class="font-bold text-xl mb-2 px-4">Personal Coaching</div>
-      <!--Are we a fit card-->
-      <div class="flex-col">
-        <div class="flex-col rounded overflow-hidden shadow-lg bg-gray-200 p-4 my-2">
+      <div class="font-bold text-xl mb-2 px-4">PERSONAL COACHING</div>
+      <div class="flex justify-around mx-2">
+        <!--Are we a fit card-->
+        <div class="flex-col rounded overflow-hidden shadow-lg bg-gray-200 p-4 my-2 mx-1">
           <div class="font-bold text-xl px-4">Are We A Fit?</div>
           <p class="text-gray-700 text-base">
             Thinking whether you are a right fit for coaching?
-            Click below to see if you connect with the types of people I work 
-            with
           </p>
+          <span class="text-gray-700 text-base">
+          Click below to see if you connect with the types of people I work
+          with
+          <br>
           <span class="text-sm text-gray-600 mt-4">CLICK 
             <a href="{{url_for('areWeAfit_page.index')}}" class="text-base text-orange-500">HERE</a> 
             to find out more
           </span>
         </div>
-      </div>
-      <!--How it works card-->
-      <div class="flex-col">
-        <div class="flex-col rounded overflow-hidden shadow-lg bg-gray-200 p-4">
+        <!--How it works card-->
+        <div class="flex-col rounded overflow-hidden shadow-lg bg-gray-200 p-4 mx-1">
           <div class="font-bold text-xl px-4">How It All Works</div>
           <p class="text-gray-700 text-base">
             Click below to see the coaching journey that we will take together.
@@ -49,9 +49,9 @@
       </div>
     </div>
     <!-- Corporate and Community coaching card-->
-    <div class="cc-card flex-col py-4 mt-4 bg-blue-200 hover:bg-blue-300">
-      <div class="font-bold text-xl mb-2 px-4">Corporate & Community Services</div>
-      <div class="rounded overflow-hidden shadow-lg bg-gray-200 p-4">
+    <div class="cc-card flex flex-col py-4 mt-4 bg-gray-400 w-full">
+      <div class="font-bold text-xl mb-2 px-4">CORPORATE & COMMUNITY SERVICES</div>
+      <div class="rounded overflow-hidden shadow-lg bg-gray-200 py-4 px-16">
         <p class="text-gray-700 text-base">
           Are you ready to bring your company, community or learning
           institution to new levels of efficiency and productivity?
@@ -63,7 +63,6 @@
         </span>
       </div>
     </div>
-
   </div>   
 </div>
 {% endblock content %}
