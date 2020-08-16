@@ -4,6 +4,7 @@
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" 
 href="{{ url_for('static', filename='css/custom/body.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom/modal.css') }}" />
 {% endblock stylesheets %}
 
 {% block content %}
@@ -35,14 +36,11 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 		</div>
 	</div>
 	
-	<!--body meet susan-->
-	<div class="meet-susan-wrapper flex-col">
-		<!--photo-->
-		<div class="meet-susan-pic">
+	<div class="meet-susan-wrapper flex justify-center">
+		<div class="susan-details-pic">
 			<img src="{{ url_for('static', filename='images/susan_pics/DSC_0980-1.jpg') }}" alt="susan detail pic">
 		</div>
-		<!--details//// use a loop///-->
-		<div class="flex flex-wrap meet-susan-details rounded shadow-lg bg-white">
+		<div class="susan-details-text rounded shadow-md bg-white">
 			<p class="detail-paragraph">
 				I applaud you for choosing this path of your self- improvement process and for putting yourself on the path to
 				living a fulfilling life on all levels. I want the same for you. I am a stand for you to be who you truly are, do
@@ -51,7 +49,8 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 			</p>
 			<p class="detail-paragraph">
 				As your partner and coach, I will support you in identifying, acknowledging and getting rid of the blocks to your
-				purpose. I will challenge you to say “no” to going through the motions of life and enthusiastically say “yes” to the
+				purpose. I will challenge you to say “no” to going through the motions of life and enthusiastically say “yes” to
+				the
 				overflow that is available to you. We begin by taking an overview of your life and identifying areas that need
 				action and/or attention. I will assist you in establishing clear, concrete, measurable goals and support you in
 				connecting to your own inner wisdom. There is nothing you cannot shift. You are capable of so much more than you
@@ -66,16 +65,20 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 			</p>
 			<p class="detail-paragraph">
 				I am a Certified Life Coach (CLC) and trainer but my most important and extensive training comes from my life
-				experiences. I believe we are all our own best inner counsellor and coach, but sometimes we simply need someone else
+				experiences. I believe we are all our own best inner counsellor and coach, but sometimes we simply need someone
+				else
 				to help get us started. Personal Coaching sessions can be conducted via phone, Skype or in person. A minimum three
-				months commitment is required up front because that gives you time to truly create change in your life. I also offer
+				months commitment is required up front because that gives you time to truly create change in your life. I also
+				offer
 				one-day intensive breakthrough sessions for individuals and groups seeking immediate clarity.
 			</p>
 			<p class="detail-paragraph">
 				My clients are very diverse in terms of demographics. I work with men and women of all ages who are CEO’s,
 				entrepreneurs, parents, managers, students, thought-leaders, and so on. The one thing they all have in common is a
-				yearning for more aligned success, connection, fulfillment, and impact. I only work with four clients at a time who
-				are committed to being held accountable, showing up 100% for each session, and are willing to be break out of their
+				yearning for more aligned success, connection, fulfillment, and impact. I only work with four clients at a time
+				who
+				are committed to being held accountable, showing up 100% for each session, and are willing to be break out of
+				their
 				comfort zone.
 			</p>
 			<p class="detail-paragraph">
@@ -83,15 +86,15 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 				cohesiveness and leverage on strengths of their members.
 			</p>
 			<p class="detail-paragraph">
-				Wishing you many blessings on your journey and I acknowledge you for knowing and seeing your true potential. I look
+				Wishing you many blessings on your journey and I acknowledge you for knowing and seeing your true potential. I
+				look
 				forward to working with you or recommending another coach that is a fit. I am here to support you!
 			</p>
 		</div>
-		<!--end details-->		
 	</div>
 	<!--end body meet susan-->
 	<!-- testimonial -->
-	<div class="bg-orange-400 text-center py-4 lg:px-4">
+	<div class="mt-2 bg-orange-400 text-center py-4 lg:px-4">
 		<div class="p-2 bg-transparent items-center leading-none lg:rounded-full flex lg:inline-flex"
 			role="">
 			<span class="text-black font-semibold mr-2 text-center flex-auto">TESTIMONIALS</span>
@@ -100,14 +103,14 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 	<div class="testimonial-wrapper">
 		<!--///use loop-->
 		{% for test in testimony %}
-		<div class="h-auto rounded shadow-lg bg-white m-4 px-6 py-4">
+		<div class="h-auto w-1/3 rounded shadow-lg bg-white m-4 px-6 py-4">
 			<span class="text-4xl">"</span>
 			<p class="text-gray-700 text-xl text-left font-medium">
 				{{test.testimony}}
 			</p>
 			<span class="flex w-full justify-end text-4xl">"</span>
 			<div class="flex flex-col items-center mt-4">
-				<div class="flex font-bold font-sans text-xl text-orange-500 mb-2">{{test.client_name}}</div>
+				<div class="flex justify-start w-full font-bold font-sans text-xl text-orange-500 mb-2">{{test.client_name}}</div>
 				<div class="flex font-semibold font-sans text-lg">{{test.client_job}}</div>
 			</div>
 		</div>
@@ -124,5 +127,112 @@ href="{{ url_for('static', filename='css/custom/body.css') }}" />
 		</a>
 	</div>
 </div>
+<!-- MODAL DIV -->
+{#
+<div class="modal" id="myModal">
+	<div class="modal-content flex flex-col bg-scroll h-auto bg-no-repeat w-10/12 m-2" 
+	style="background-image: url('/../../static/documents/admin/imgs/trail-start.jpg');">
+	<!-- close button -->
+		<div class="flex justify-end">
+			<button id="closeModal"
+			class="bg-red-200 border-none hover:bg-red-600 text-xl p-1 m-1 rounded">&times;</button>
+		</div>
+		
+		<div class="flex">
+			<span>Photo by <a
+					href="https://unsplash.com/@wocintechchat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christina
+					@ wocintechchat.com</a> on <a
+					href="https://unsplash.com/s/photos/meeting?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+
+			<div class="susan-details-pic">
+				<img src="{{ url_for('static', filename='images/coaching/meeting_edit.jpg') }}" alt="susan detail pic">
+			</div>
+
+		</div>
+
+		<div class="flex flex-col justify-between">
+			<div class="px-6 py-4">
+				<div class="bg-gray-100 font-bold text-4xl text-center p-2 mb-2">Your Path to Self Discovery</div>
+				<p class="text-white text-base px-8 bg-yellow-200">
+					Do you feel stuck, in doubt and yearning to discover your purpose?
+				</p>
+				<span class="text-white text-base px-8">No more waiting to begin the next purposeful chapter of your life!</span>
+			</div>
+			<!-- email request form -->
+			<div class="flex justify-center">
+				<button
+					class="mx-2 flex-shrink-0 bg-orange-400 border-none hover:bg-orange-500 text-sm border-4 text-white py-1 px-2 rounded"
+					type="button">
+					SCHEDULE A CALL TODAY
+				</button>
+				{#
+				<form class="w-full max-w-md bg-gray-200 rounded">
+					<div class="flex items-center border-b border-orange-500 py-2 my-2 mx-2">
+						<input
+							class="mx-2 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+							type="email" placeholder="email@example.com" aria-label="Email">
+						<button
+							class="mx-2 flex-shrink-0 bg-orange-400 border-none hover:bg-orange-500 text-sm border-4 text-white py-1 px-2 rounded"
+							type="button">
+							Get Offer
+						</button>
+					</div>
+				</form>
+				#}
+			</div>
+		</div>
+
+		<span>Photo by <a
+				href="https://unsplash.com/@northfolk?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">NORTHFOLK</a>
+			on <a
+				href="https://unsplash.com/t/business-work?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+		</span>
+	</div>
+	
+</div>
+#}
+<div class="modal" id="myModal">
+	<div class="modal-content bg-gray-100 flex flex-col bg-scroll bg-no-repeat m-2 w-3/4">
+		<!-- close button -->
+		<div class="flex justify-end">
+			<button id="closeModal" class="bg-red-200 border-none hover:bg-red-600 text-xl p-1 m-1 rounded">&times;</button>
+		</div>
+
+		<div class="bg-gray-100 font-bold text-4xl text-center p-2 mb-2">Your Path to Self Discovery</div>
+		<div class="call-sched flex">
+			<div class="flex flex-col justify-around">
+				<div class="px-6 py-4">
+					<p class="text-black text-lg px-2 my-1">
+						Do you feel stuck, in doubt and yearning to discover your purpose?
+					</p>
+					<p class="text-black text-lg px-2 my-1">I am here to help you step into the fullness of your potential!</p>
+				</div>
+				<!-- email request form -->
+				<a href="{{url_for('contact.contact_page')}}">
+
+					<button
+					class="m-3 flex-shrink-0 bg-orange-400 border-none hover:bg-orange-500 text-lg border-4 text-white py-1 px-2 rounded"
+					type="button">
+					<strong>
+						SCHEDULE A CALL TODAY
+					</strong>
+				</button>
+				</a>
+			</div>
+
+			<div class="">
+				<img src="{{ url_for('static', filename='images/coaching/meeting_edit.jpg') }}" alt="susan detail pic">
+			</div>
+		</div>
+		<span class="flex justify-end text-xs text-gray-300">Photo by <a
+				href="https://unsplash.com/@wocintechchat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christina
+				@ wocintechchat.com</a> on <a
+				href="https://unsplash.com/s/photos/meeting?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+	</div>
+</div>
 
 {% endblock content %}
+
+{% block scripts %}
+<script src="{{ url_for('static',filename='js/custom/modal.js') }}"></script>
+{% endblock scripts %}

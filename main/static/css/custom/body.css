@@ -20,12 +20,39 @@
     font-family: 'Handlee', cursive;
     font-size: large;
     font-weight: 400;
+    margin-bottom: 1rem;
 }
 .meet-susan-pic{
+    display: flex;
     height: auto;
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/*
+ w-1/2 rounded shadow-md bg-white mt-2 h-64 overflow-hidden
+*/
+
+.meet-susan-details {
+    padding-left: 6rem;
+    padding-right: 6rem;
+}
+.susan-details-pic{
+    height: 400px;
+    width: 50%;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+.susan-details-text{
+    width: 50%;
+    height: 400px;
+    margin-top: 1rem;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+
 .detail-paragraph{
     display: flex;
     flex-wrap: wrap;
@@ -37,7 +64,7 @@
 .testimonial-wrapper{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     font-family: 'Marck Script', cursive;
 }
 
@@ -123,9 +150,7 @@ form-div{
 
 }
 @media screen and (max-width:1440px){
-    .cc-card-title {
-        color: cyan;
-    }
+    
 }
 
 @media screen and (max-width:1024px) {
@@ -144,9 +169,7 @@ form-div{
         font-size: 1.0rem;
         height: 3rem;
     }
-    .cc-card-title {
-        color: cyan;
-    }
+    
 }
 @media screen and (max-width:800px) {
     body {
@@ -174,9 +197,11 @@ form-div{
         justify-content: space-between;
         overflow-x: hidden;
     }
-    .cc-card-title {
-        color: black;
+    .meet-susan-details {
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
+    
 }
 
 @media screen and (max-width:600px) {
@@ -200,6 +225,7 @@ form-div{
         flex-direction: column;
         justify-content: space-between;
     }
+    
 }
 
 @media screen and (max-width:500px){
@@ -235,6 +261,10 @@ form-div{
         display: flex;
         flex-direction: column;
     }
+    .meet-susan-details {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 @media screen and (max-width:375px){
@@ -242,7 +272,8 @@ form-div{
         display: flex;
         flex-direction: column;
     }
-    .cc-card-title {
-        color: aquamarine;
+    .meet-susan-details {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 }

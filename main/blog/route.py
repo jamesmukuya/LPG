@@ -48,6 +48,15 @@ def blog_post():
     return render_template('blog/newBlog.html', title='New Blog')
   return redirect(url_for('user_auth.staff_login'))
 
+@blog.route("/blog/new2",methods=["GET","POST"])
+def new_blog_post():
+  if session.get('is_staff'):
+    if request.method == "POST":
+      # get blog title
+      # get blog image
+      pass
+
+
 # comment/reply post route only for registered users accepts posts only
 @blog.route("/blog/reply", methods=["POST"])
 def blog_reply():
