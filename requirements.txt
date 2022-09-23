@@ -19,7 +19,7 @@ mccabe==0.6.1
 mysql-connector-python==8.0.19
 packaging==20.3
 Pillow==8.1.2
-protobuf==3.6.1
+protobuf==3.18.3
 pycodestyle==2.5.0
 pycparser==2.20
 pylint==2.4.4
